@@ -10,10 +10,14 @@ path_to_memorized = '/home/dean/.newspaper_scraper/memoized'
 path_current = '/home/dean/python_stuff_ubuntu/poems'
 cnnfilename = "cnn.com.txt"
 tempdir = '/home/dean/python_stuff_ubuntu/poems/temp'
+title_filename = "article_titles.txt"
 
 class Article_Stuff(object):
 	def __init__(self,source='http://cnn.com'):
 		self.source = source
+		self.path_current = path_current
+		self.tempdir = tempdir
+		self.title_filename = title_filename
 	def gen_article_titles(self):
 		"""
 		This function generates returns a list of article titles from CNN
@@ -36,7 +40,7 @@ class Article_Stuff(object):
 			subprocess.call("mkdir temp",shell=True)
 			os.chdir(tempdir)
 
-		with open("article_titles.txt","a") as articletitles:
+		with open(title_filename,"a") as articletitles:
 			for url in urls:
 				try:
 					print("Running...")
@@ -48,7 +52,7 @@ class Article_Stuff(object):
 					if soup.title != None:
 						try:
 							if self.source == 'http://cnn.com':
-								title = soup.title.string.strip("- CNN.com")
+								title = soup.title.string.rstrip("- CNN.com") #just want to use the end
 							articletitles.write("{}\n".format(title))
 							titles.append(title)
 						except UnicodeEncodeError:

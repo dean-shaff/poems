@@ -1,10 +1,10 @@
 import tweepy
 
-npprff_gbxra = "2783510875-eCF7AdyV2NOt1HgVNKw0uWAMcPV6YCL5tWI5lqc"
-npprff_gbxra_frperg = "YtCROvd2p9mCadHaopEoiqq8nAtInHZTbVQrRnJP7Abcw"
+access_token = "2783510875-rPS7NqlI2ABg1UtIAXj0hJNZpCI6LPY5gJV5ydp"
+access_token_secret = "LgPEBiq2c9zPnqUnbcRbvdd8aNgVaUMGoIDeEaWC7Nopj"
 
-pbafhzre_xrl = "gdHAvtxB4bMDerTvXzR70V2oz"
-pbafhzre_frperg = "IVhdPID2vAxueFqrktgOKvCOlKHDJrMW2cjloWWS1fGuPPkaF3"
+consumer_key = "tqUNigkO4oZQreGiKmE70I2bm"
+consumer_secret = "VIuqCVQ2iNkhrSdexgtBXiPByXUQWeZJ2pwybJJF1sThCCxnS3"
 
 #====================================
 class Twitter_Tools(object):
