@@ -7,7 +7,7 @@ import time
 
 
 class Text_Generator(Article_Stuff):
-	def __init__(self, generate=False):
+	def __init__(self, generate=False, text=None):
 		Article_Stuff.__init__(self)
 		"""
 		Upon initialization, this will either 
@@ -20,18 +20,22 @@ class Text_Generator(Article_Stuff):
 			articles = Article_Stuff()
 			articles.gen_article_titles()
 		else:
-			pass 
-		text1 = str()
-		os.chdir(self.tempdir)
-		with open(self.title_filename, 'r') as writer:
-			for line in writer:
-				line = str(line)
-				# print(line)
-				text1 += line
-		os.chdir(self.path_current)
-		self.text = text1
-			
-	def make_syll(self, online=False): #Now I can use both sources! From the internet from the nltk
+			pass
+		if text == None: 
+			text1 = str()
+			os.chdir(self.tempdir)
+			with open(self.title_filename, 'r') as writer:
+				for line in writer:
+					line = str(line)
+					# print(line)
+					text1 += line
+			os.chdir(self.path_current)
+			self.text = text1
+		elif text != None:
+			self.text = text
+		self.dic = "mdic.txt"
+		self.syll = "msyll.txt"
+	def make_syll(self, python=True): #Now I can use both sources! From the internet from the nltk
 		"""
 		This function takes a text, just a long string, and returns 
 		a list of words with the number of syllables associated with it 
@@ -49,8 +53,8 @@ class Text_Generator(Article_Stuff):
 			I've added an option to do it using the built in NLTK function,
 			which doesn't work as well, but is substantially quicker. 
 			"""
-			if online:
-				print("You can't use online sources!")
+			# if online:
+				# print("You can't use online sources!")
 				# t1 = time.time()
 				# keyphrase = 'how many syllables in {}? '.format(word)
 				# if word.isalpha():
@@ -76,10 +80,29 @@ class Text_Generator(Article_Stuff):
 				# 			except ValueError:
 				# 				pass
 				# 			t += 1
-			elif not online:
+			if python:
 				if word.isalpha():
 					t1 = time.time()
 					return {'syll':syllables_en.count(word), 'timing':time.time()-t1}
+
+			if not python:
+				os.chdir(self.path_current)
+				if word.isalpha():
+					with open(self.dic,'r') as dic, open(self.syll) as syll: #where self.dic and self.syll are the files of the dictionary and hyphenated dictionaries respectively
+						for linedic, linesyll in zip(dic, syll):
+							t1 = time.time()
+							if word.lower() == linedic.lower():
+								num_syll = 1 #because the number of syllables will be one more than the number of plus signs
+								for char in linesyll:
+									if char == "+":
+										num_syll += 1
+								return {'syll':num_syll, 'timing':time.time()-t1}
+							else:
+								print("Error: Couldn't find word")
+								return {'syll':None, 'timing':time.time()-t1}
+
+
+
 
 		time1 = 0
 		words = word_tokenize(self.text)
@@ -101,9 +124,7 @@ class Text_Generator(Article_Stuff):
 					# num = syllables_en.count(word)
 					wording.append([word, num])
 				time1 += time2
-				if online:
-					print(time1)
-			
+						
 
 		return wording
 
