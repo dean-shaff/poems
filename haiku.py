@@ -99,22 +99,11 @@ def make_poem_ordered(wordlist,diff_style=False):
 			if syll_count == 5:
 				firstlinesfinal = firstlinesfinal + '\n'
 
-
-
-
 		last_line_info = make_simple_line(5)
 		last_line = last_line_info['line']
 		return firstlinesfinal + '\n' + last_line
 
 print(make_poem_ordered(word_list3,diff_style=True))
-
-
-
-							
-
-
-
-
 
 def make_poem_random(wordlist): #wordlist should be a list that looks like what make_syll returns
 	poem = str()
