@@ -12,7 +12,7 @@ cnnfilename = "cnn.com.txt"
 tempdir = '/home/dean/python_stuff_ubuntu/poems/temp'
 title_filename = "article_titles.txt"
 
-class Article_Stuff(object):
+class Article_Stuff(object): 
 	def __init__(self,source='http://cnn.com'):
 		self.source = source
 		self.path_current = path_current
