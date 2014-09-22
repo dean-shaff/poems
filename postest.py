@@ -96,7 +96,7 @@ def make_haiku_dic(filename):
 
 	print(poem_list_pos)
 
-print(Text_Generator(text='building').make_syll(python=False))
+# print(Text_Generator(text='building').make_syll(python=False))
 
 # make_haiku_dic(file2)
 # make_sentence_dic(file1)

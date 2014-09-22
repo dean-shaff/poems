@@ -54,7 +54,6 @@ class Text_Generator(Article_Stuff):
 						# print(r"{}".format(linedic.lower().strip('\n')))
 						t1 = time.time()
 						if linedic.lower().strip('\r\n') == word.lower():
-							print("Success")
 							num_syll = 1 #because the number of syllables will be one more than the number of plus signs
 							for char in linesyll:
 								if char == "+":
