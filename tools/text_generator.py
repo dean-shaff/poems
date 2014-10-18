@@ -24,8 +24,8 @@ class Text_Generator(Article_Stuff):
 		if text == None: 
 			text1 = str()
 			with InOut(self.textdir):
-				with open(self.title_filename, 'r') as writer:
-					for line in writer:
+				with open(self.title_filename, 'r') as reader:
+					for line in reader:
 						line = str(line)
 						# print(line)
 						text1 += line
