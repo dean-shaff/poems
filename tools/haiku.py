@@ -45,10 +45,15 @@ class Haiku(Twitter_Tools):
 					line[1] = line[1] + word[1]
 					random_num += 1
 					word = self.wordlist[random_num]
-			syll_total = 0
-			for wordpair in Text_Generator(text=line[0]).make_syll():
-				syll_total += wordpair[1] 
-			assert line[1] == syll and syll == syll_total, "Algorithm failed"
+			
+			try:
+				syll_total = 0
+				for wordpair in Text_Generator(text=line[0]).make_syll():
+					syll_total += wordpair[1] 
+				assert line[1] == syll and syll == syll_total, "Algorithm failed"
+			except TypeError:
+				pass
+			
 			return {'line':str(line[0]),'line_syll':int(line[1]),'place':random_num}
 
 		def make_complex_line(syll1, syll2):
@@ -93,6 +98,7 @@ class Haiku(Twitter_Tools):
 			first2lines = first2linesinfo['line']
 			texter1 = Text_Generator(generate=False,text=first2lines)
 			lines = texter1.make_syll(python=True)
+			# print(lines)
 			firstlinesfinal = str()
 			syll_count = int()
 			for i in xrange(0,len(lines)):

@@ -1,10 +1,17 @@
+"""
+Right now this only deals with large strings -- it can't discern between sentences.
+I want to make it so this will work with sentences and strings. 
+"""
 from tools.article_stuff import Article_Stuff 
 from nltk import word_tokenize
 from bs4 import BeautifulSoup as bs 
 import os
 from nltk_contrib.readability.textanalyzer import syllables_en
+from nltk.tokenize.punkt import PunktWordTokenizer, PunktSentenceTokenizer
 import time 
 from inoutsoft import InOut 
+from nltk.corpus import cmudict
+import string
 
 class Text_Generator(Article_Stuff): 
 	def __init__(self,generate=False,text=None):
@@ -35,33 +42,53 @@ class Text_Generator(Article_Stuff):
 		self.dic = "mdic.txt"
 		self.syll = "msyll.txt"
 
-	# def find_syll(self,word,python=True): 
-	# 	"""
-	# 	I've added an option to do it using the built in NLTK function,
-	# 	which doesn't work as well, but is substantially quicker. 
-	# 	This will just find the number of syllables in a single word. 
-	# 	"""
-	# 	if python:
-	# 		if word.isalpha():
-	# 			t1 = time.time()
-	# 			return {'syll':syllables_en.count(word), 'timing':time.time()-t1}
+	def strip_punctuation(self,bysentence=False):
+		"""
+		strips the punctuation off the string that is self.text
+		"""
+		if bysentence:
+			sentences = PunktSentenceTokenizer().tokenize(master_str)
+			return [sentence.translate(string.maketrans("",""), string.punctuation) for sentence in sentences]
+		elif not bysentence:	
+			return self.text.translate(string.maketrans("",""), string.punctuation) 
+	def stress(self,bysentence=False):
+		"""
+		tokenizes (I guess) the words in self.text by the stress pattern in each of the words.
+		"""
+		vowels = ['A','E','I','O','U']
+		possible_stresses = ['1','2','0']
+		totaldic = cmudict.dict()
+		def gen_stress(stripped_text):
+			stress_list = []
+			for word in stripped_text.lower().split():
+				try:
+					stress = str()
+					phonemized = totaldic[word][0]
+					for phoneme in phonemized:
+						for stresser in possible_stresses:
+							if stresser in phoneme:
+								stress += stresser
+					if len(phonemized) == 1:
+						stress_list.append([word,stress,phonemized[0]])
+					elif len(phonemized) != 1:
+						for last_phoneme in phonemized[len(phonemized)-3:len(phonemized)]:
+							for vowel in vowels:
+								if vowel in last_phoneme:
+									stress_list.append([word,stress,last_phoneme])
 
-	# 	if not python:
-	# 		with InOut(self.textdir): #changes directory, and closes it outside of with statement
-	# 			with open(self.dic,'r') as dic, open(self.syll) as syll: #where self.dic and self.syll are the files of the dictionary and hyphenated dictionaries respectively
-	# 				for index, (linedic, linesyll) in enumerate(zip(dic, syll)):
-	# 					# print(r"{}".format(linedic.lower().strip('\n')))
-	# 					t1 = time.time()
-	# 					if linedic.lower().strip('\r\n') == word.lower():
-	# 						num_syll = 1 #because the number of syllables will be one more than the number of plus signs
-	# 						for char in linesyll:
-	# 							if char == "+" or char == " ":
-	# 								num_syll += 1
-	# 						print("One word down!")
-	# 						return {'syll':num_syll, 'timing':time.time()-t1}
-	# 					else:							
-	# 						pass
-	# 				return {'syll':None, 'timing':time.time()-t1}
+				except KeyError:
+					# print("{} couldn't be found".format(word))
+					pass
+			return stress_list
+
+		if bysentence:
+			sentences = PunktSentenceTokenizer().tokenize(master_str)
+			stress_by_sentence = [sentence.translate(string.maketrans("",""), string.punctuation) for sentence in sentences]
+			return [gen_stress(sentence) for sentence in stress_by_sentence]
+
+		elif not bysentence:
+			stress_total = self.text.translate(string.maketrans("",""), string.punctuation) 
+			return gen_stress(stress_total)
 
 	def make_syll(self,python=True):
 		"""
@@ -79,15 +106,17 @@ class Text_Generator(Article_Stuff):
 		if python:
 			for word in words:
 				if word.isalpha():
-					word = word.strip('\n')
-					if python:
-						wording.append([word,syllables_en.count(word)])
+					word = word.strip('\n').strip('\n')
+					word += " "	
+					wording.append([word,syllables_en.count(word)])
 		if not python:
 			with InOut(self.textdir): #changes directory, and closes it outside of with statement
 				with open(self.dic,'r') as dic, open(self.syll,'r') as syll: #where self.dic and self.syll are the files of the dictionary and hyphenated dictionaries respectively
 					for word in words:
 						t1 = time.time()
-						if word.isalpha():						
+						if word.isalpha():
+							word = word.strip('\n')
+							word = word.strip('\n')						
 							for index, (linedic, linesyll) in enumerate(zip(dic, syll)):
 								# print(r"{}".format(linedic.lower().strip('\n')))
 								if linedic.lower().strip('\r\n') == word.lower():
@@ -95,6 +124,7 @@ class Text_Generator(Article_Stuff):
 									for char in linesyll:
 										if char == "+" or char == " ":
 											num_syll += 1
+									word = word + " "
 									wording.append([word,num_syll])
 									time1 += time.time()-t1
 									print(time1)
@@ -103,7 +133,6 @@ class Text_Generator(Article_Stuff):
 								wording.append([word,syllables_en.count(word)])
 						dic.seek(0) #reset
 						syll.seek(0)
-
 		if len(wording) == 1:
 			return wording[0] #in case you want to find syllable length of a single word	
 		else:

@@ -21,8 +21,12 @@ class Twitter_Tools(object):
 		self.api = api 
 		#return api
 	def make_post(self,text):
-		api = self.api
-		api.update_status(text)
+		try:
+			api = self.api
+			api.update_status(text)
+		except tweepy.error.TweepError:
+			print("Trouble making the post")
+			pass
 	def get_posts(self):
 		public_tweets = api.home_timeline()
 		tweets = []
