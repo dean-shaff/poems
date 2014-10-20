@@ -33,7 +33,7 @@ class Stress_Poem(Text_Generator):
 		linecount. The number of lines will be equal to len(linecount).
 		source_text is a string with the desired text.
 		"""
-		not_allowed = ['the','a','and','i']
+		not_allowed = ['the','a','and','i','in']
 		vowels = ['A','E','I','O','U']
 		def make_line():
 			integer_list = random.choice(xrange(len(self.text_w_stress)-1),size=len(self.text_w_stress)-1,replace=False)
@@ -41,7 +41,7 @@ class Stress_Poem(Text_Generator):
 			stress_created = str()
 			line = str()
 			last_phoneme = []
-			total_phoneme = list()
+			total_phoneme_count = [] 
 			for i in xrange(len(self.text_w_stress)-1):
 				random_word = self.text_w_stress[int(integer_list[index])]
 				try:
@@ -54,14 +54,13 @@ class Stress_Poem(Text_Generator):
 					stress_created += random_word[1]
 					line = line + random_word[0] + " "
 					last_phoneme.append(random_word[2])
-					total_phoneme.append(random_word[3])
-					# print(line,stress_created,last_phoneme,total_phoneme)
+					total_phoneme_count.append(random_word[4])
+					# print(line,stress_created,last_phoneme,total_phoneme_count)
 					index += 1
 				elif not cond:
 					index += 1
 			assert stress_created == self.stresspattern, "make_line() failed"
-			return (line, stress_created, last_phoneme, total_phoneme)
-
+			return (line, stress_created, last_phoneme, total_phoneme_count)
 
 		def make_rhymedict():
 			rhymedict = dict()
@@ -72,30 +71,22 @@ class Stress_Poem(Text_Generator):
 					line = make_line()
 					while line[0].split()[-1].lower() in not_allowed: #so I don't get the same end lines
 						line = make_line()
-					rhymedict[str(listrhyme[i])] = line[2][-1]
+					rhymedict[str(listrhyme[i])] = (line[2][-1], line[3][-1])
 			return rhymedict
 
 		poem = str()
 		poem_last_phoneme = []
 		
-		def list_element_in_word(vector,word):
-			for i in vector:
-				if i in word:
-					return True
-				else:
-					pass
-			return False
-
 		for i in xrange(self.linecount/len(self.rhymepattern)):
 			rhymedict = make_rhymedict()
+			print(rhymedict)
 			stanza = str()
 			stanza_last_phoneme = []
 			for j in xrange(len(self.rhymepattern)):
-				# t1 = time.time()
 				line = make_line()
-				# print(time.time()-t1)
-				while line[2][-1][0] != rhymedict[self.rhymepattern[j]][0] and line[2][-1][1] != rhymedict[self.rhymepattern[j]][1]:
+				while line[2][-1][0] != rhymedict[self.rhymepattern[j]][0][0] or line[2][-1][1] != rhymedict[self.rhymepattern[j]][0][1] or line[0].split()[-1].lower() in not_allowed:
 					line = make_line()
+				print(line[2][-1])
 				stanza = stanza + line[0] +'\n'
 				stanza_last_phoneme.append(line[2])
 			poem = poem + stanza +'\n'
@@ -103,12 +94,6 @@ class Stress_Poem(Text_Generator):
 
 		return {'poem':poem,'last phonemes':poem_last_phoneme}
 
-		# 	for j in xrange(len(self.rhymepattern)):
-
-		# 	poem = poem + line[0] + '\n'
-		# 	poem_last_phoneme = poem_last_phoneme + line[2] + '\n'
-		# 	poem_total_phoneme = poem_total_phoneme + str(line[3]) + '\n\n'
-		# return (poem, poem_last_phoneme, poem_total_phoneme)
 
 
 

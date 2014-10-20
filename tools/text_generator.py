@@ -68,10 +68,10 @@ class Text_Generator(Article_Stuff):
 						for stresser in possible_stresses:
 							if stresser in phoneme:
 								stress += stresser
-					for index, sound in enumerate(phonemized[len(phonemized)-3:len(phonemized)]):
+					for index, sound in enumerate(phonemized[len(phonemized)-2:len(phonemized)]):
 						for vowel in vowels:
 							if vowel in sound:
-								stress_list.append([word,stress,[index, sound],phonemized])
+								stress_list.append([word,stress,[index, sound],phonemized,len(phonemized)])
 				except KeyError:
 					# print("{} couldn't be found".format(word))
 					pass
