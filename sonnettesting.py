@@ -1,6 +1,3 @@
-"""
-stress patterns: (1=primary, 2=secondary, 0=no stress)
-"""
 from nltk.corpus import cmudict
 from tools import Article_Stuff
 from tools import Twitter_Tools
@@ -46,8 +43,11 @@ def harperleestring():
 # print(Text_Generator(text=harperleestring()).stress()[0:10])
 word_stress_list = Text_Generator(text=harperleestring()).stress(bysentence=False)
 # print(word_stress_list[0:10])
-poems = Stress_Poem(harperleestring(),'1010101010',12).make_stresspoem_random()
-print("{}\n{}\n{}".format(poems[0],poems[1],poems[2]))
+poems = Stress_Poem(harperleestring(),'1010101010',12,'1010').make_stresspoem_random()
+print('\n')
+print(poems['poem'])
+# print(poems['last phonemes'])
+# print("{}\n{}\n".format(poems[0],poems[1]))#,poems[2]))
 
 
 
