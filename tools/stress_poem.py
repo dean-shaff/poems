@@ -30,6 +30,8 @@ class Stress_Poem(Text_Generator):
 			index = 0
 			stress_created = str()
 			line = str()
+			last_phoneme = str()
+			total_phoneme = list()
 			for i in xrange(len(self.text_w_stress)-1):
 				random_word = self.text_w_stress[int(integer_list[index])]
 				try:
@@ -38,13 +40,25 @@ class Stress_Poem(Text_Generator):
 					index += 1
 					pass
 				if cond:
+					# print(random_word[0],random_word[1],random_word[2],random_word[3])
 					stress_created += random_word[1]
 					line = line + random_word[0] + " "
+					last_phoneme = last_phoneme + random_word[2] + " "
+					total_phoneme.append(random_word[3])
+					# print(line,stress_created,last_phoneme,total_phoneme)
 					index += 1
 				elif not cond:
 					index += 1
-			return (line, stress_created)
+			return (line, stress_created, last_phoneme, total_phoneme)
 		poem = str()
+		poem_last_phoneme = str()
+		poem_total_phoneme = str()
 		for i in xrange(self.linecount):
-			poem = poem + make_line()[0] + '\n'
-		return poem
+			line = make_line()
+			poem = poem + line[0] + '\n'
+			poem_last_phoneme = poem_last_phoneme + line[2] + '\n'
+			poem_total_phoneme = poem_total_phoneme + str(line[3]) + '\n\n'
+		return (poem, poem_last_phoneme, poem_total_phoneme)
+
+
+
