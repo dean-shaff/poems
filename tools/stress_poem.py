@@ -89,7 +89,7 @@ class Stress_Poem(Text_Generator):
 				print(line[2][-1])
 				stanza = stanza + line[0] +'\n'
 				stanza_last_phoneme.append(line[2])
-			poem = poem + stanza +'\n'
+			poem = poem + stanza 
 			poem_last_phoneme.append(stanza_last_phoneme[1])
 
 		return {'poem':poem,'last phonemes':poem_last_phoneme}

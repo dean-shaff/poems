@@ -22,32 +22,13 @@ def harperleestring():
 					harperstr += line.strip('\n')
 	return harperstr
 
-# harper = Text_Generator(text=harperleestring()).strip_punctuation()
-# totaldic = cmudict.dict()
-# pronunsplit = []
-# pattern = []
-# for word in harper.lower().split()[0:100]:
-# 	try:
-# 		pronunsplit.append(totaldic[word][0])
-# 		stress = str()
-# 		for phoneme in totaldic[word][0]:
-# 			for stresser in stress_patterns:
-# 				if stresser in phoneme:
-# 					stress += stresser
-# 		pattern.append([word,stress])
-# 	except KeyError:
-# 		pass
-
-# print(pronunsplit[40:100])
-
-# print(Text_Generator(text=harperleestring()).stress()[0:10])
 word_stress_list = Text_Generator(text=harperleestring()).stress(bysentence=False)
 # print(word_stress_list[0:10])
-poems = Stress_Poem(harperleestring(),'1010101010',12,'1010').make_stresspoem_random()
-print('\n')
-print(poems['poem'])
-# print(poems['last phonemes'])
-# print("{}\n{}\n".format(poems[0],poems[1]))#,poems[2]))
+poem12 = Stress_Poem(harperleestring(),'1010101010',12,'1010').make_stresspoem_random()
+poem2 = Stress_Poem(harperleestring(),'1010101010',2,'11').make_stresspoem_random()
+# print(Text_Generator(text=poem12['poem']).stress(bysentence=False))
+print(poem12['poem'])
+print(poem2['poem'])
 
 
 
