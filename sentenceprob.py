@@ -6,19 +6,24 @@ from nltk.tokenize.punkt import PunktWordTokenizer, PunktSentenceTokenizer
 import numpy as np
 import time 
 import imp
+from textblob import TextBlob
+from textblob_aptagger import PerceptronTagger
+import os
+# blob = TextBlob("Simple is better than complex.", pos_tagger=PerceptronTagger())
+# blob.tags
 #=====================================================
-text_dir = '/home/dean/python_stuff_ubuntu/poems/texts'
+text_dir = "{}/texts".format(os.getcwd())
 
 list_not_allow = [
 	'SYM', 'TO','$',"\'\'",'(',')',',','--','.',':','FW','LS','UH',"``"
 ]
 
-list_pos = [["CC"],["CD"],["DT"],["EX"],["IN"],["JJ","JJR","JJS"],["MD"],
-	["NN","NNP","NNPS","NNS"],["PDT"],["POS"],["PRP","PRP$"],["RB","RBR",
-	"RBS"],["RP"],["VB","VBD","VBG","VBN","VBP","VBZ"]] #,["WDT"],["WP"],["WRB"],["WP$"]]
+list_pos = [["CC"],["CD"],["DT"],["EX"],["IN"],["JJ"],["JJR"],["JJS"],["MD"],
+	["NN"],["NNP"],["NNPS"],["NNS"],["PDT"],["POS"],["PRP"],["PRP$"],["RB"],["RBR"],
+	["RBS"],["RP"],["VB"],["VBD"],["VBG"],["VBN"],["VBP"],["VBZ"]] #,["WDT"],["WP"],["WRB"],["WP$"]]
 
 
-def tokenize_text(filename,up_to):
+def tag_text(filename,up_to,write_to_file=False):
 	master_str = str()
 	with InOut(text_dir):
 		with open(filename,'r') as reader:
@@ -27,22 +32,26 @@ def tokenize_text(filename,up_to):
 				master_str += line
 				if index == up_to:
 					break
-	sentences = PunktSentenceTokenizer().tokenize(master_str)
-	sentences_tokenized_pos = [[word[1] for word in nltk.pos_tag(nltk.word_tokenize(sentence))] for sentence in sentences]
-	for sentence in sentences_tokenized_pos:
-		for index, word in enumerate(sentence):
-			if word in list_not_allow:
-				sentence.pop(index)
-	with InOut(text_dir):
-		with open("token.py".format(filename),'w') as writer:
-			writer.write("var1 = {}".format(str(sentences_tokenized_pos)))
-	return sentences_tokenized_pos
+	t1 = time.time()
+	blob = TextBlob(master_str, pos_tagger=PerceptronTagger())
+	print("Time creating object: {}".format(time.time()-t1))
+	t2 = time.time()
+	blob_tagged_by_sentence = [[word[1] for word in sentence.tags if word[1] not in list_not_allow] for sentence in blob.sentences]
+	print("Time creating tagged list: {}".format(time.time()-t2))
+	if write_to_file:
+		with InOut(text_dir):
+			with open("token{}.py".format(filename.strip('.txt')),'w') as writer:
+				writer.write("var1 = {}".format(str(blob_tagged_by_sentence)))
+	else:
+		pass
+	return blob_tagged_by_sentence
 
-# tokenize_text('testtext.txt',8700)
+filename = 'melville.txt'
+melville_tagged = tag_text('melville.txt',10000)
 
-def cond_prob(magic_range,index1,index2,p1,p2):
+def cond_prob(tagged_text,magic_range,index1,index2,p1,p2):
 	"""
-	tokenized_sentence_list is the list of sentences whose words have been tokenized, as read in from a text file.
+	tokenized_sentence_list is the list of sentences whose words have been tokenized and p.o.s. tagged.
 	index1 is the index of A (in P(A|B))
 	index2 is the index of B 
 	p1 is the position of A in the sentence
@@ -51,8 +60,9 @@ def cond_prob(magic_range,index1,index2,p1,p2):
 	magic_range = list(magic_range)
 	special_index = index1 #A
 	special_index2 = index2 #B
-	foo = imp.load_source('tokentesttext', '{}/tokentesttext.py'.format(text_dir))
-	tokenized_sentence_list = foo.var1
+	tokenized_sentence_list = tagged_text
+	# foo = imp.load_source('tokentesttext', '{}/tokentesttext.py'.format(text_dir))
+	# tokenized_sentence_list = foo.var1
 	def make_matrix(index_to_start):	
 		for index1, sentence in enumerate(tokenized_sentence_list):
 			if index1 <= index_to_start:
@@ -104,8 +114,8 @@ def cond_prob(magic_range,index1,index2,p1,p2):
 		denominator += ((row2[i])/np.sum(A[p2]))*(B[i]/np.sum(B))
 
 	return numerator/denominator
-def all_probs():
-	gazelle = 'tokentesttext.txt'
+
+def all_probs(write_to_file=False):
 	master_prob = []
 	master = []
 	for h in xrange(0,7):
@@ -114,11 +124,18 @@ def all_probs():
 			A = []
 			t1 = time.time()
 			for j in xrange(0,len(list_pos)):
-				A.append(cond_prob([10,25],i,j,h,h+1)) #i is A, j is B. this is backwards. 
+				A.append(cond_prob(melville_tagged,[10,25],i,j,h,h+1)) 
 			print(time.time()-t1)
-			print(A)
 			position.append(A)
 		master.append(position)
+	if write_to_file:
+		with InOut(text_dir):
+			with open("prob{}.py".format(filename.strip('.txt')),'a') as writer:
+				writer.write("var1 = {}".format(str(master)))
+	else:
+		return master
+
+print(all_probs(write_to_file=True))
 
 def independent():
 	foo = imp.load_source('prob', '{}/prob.py'.format(text_dir))
@@ -160,4 +177,4 @@ def dependent():
 			print(h, dic[str(h)], list_pos[dic[str(h)][1]], list_pos[dic[str(h)][2]])
 
 	return dic 	
-dependent()
+# dependent()
