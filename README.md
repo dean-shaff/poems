@@ -3,7 +3,7 @@ poems
 
 Python code that generates poetry using found text 
 
-Requires the following packages to be installed:
+Requirements:
 
 -tweepy
 
@@ -16,3 +16,7 @@ Requires the following packages to be installed:
 -nltk_contrib
 
 -Beautiful Soup
+
+-textblob
+
+-textblob-aptagger
