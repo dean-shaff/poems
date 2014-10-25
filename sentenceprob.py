@@ -27,7 +27,7 @@ filename = 'melville.txt'
 class Sentence_Probability(object):
 
     def __init__(self, filename, up_to, write_to_file=False):
-    	self.text_dir = text_dir
+        self.text_dir = text_dir
         self.filename = filename
         master_str = str()
         with InOut(text_dir):
@@ -78,92 +78,150 @@ class Sentence_Probability(object):
             else:
                 pass
         try:
-        	return float(cond_prob / total_prob)
+            return float(cond_prob / total_prob)
         except ZeroDivisionError:
-        	return 0.0
+            return 0.0
 
     def all_probs(self,up_to=7,write_to_file=False):
-	    master = []
-	    masterdict = []
-	    up_to = int(up_to)
-	    for h in xrange(0, up_to):
-	        position = []
-	        t1 = time.time()
-	        A = {}
-	        for i in xrange(0, len(list_pos)):
-	            A2 = []
-	            for j in xrange(0, len(list_pos)):
-	            	prob = self.cond_prob_v2([10, 25], i, j, h, h+1)
-	                A["{},{}".format(list_pos[i],list_pos[j])] = prob
-	                A2.append(prob)
-	            position.append(A2)
-	        print("Position {} to {} took {:.1f} sec".format(h,h+1,time.time()-t1))
-	        masterdict.append(A)
-	        master.append(position)
-	    self.total_prob = master
-	    if write_to_file:
-	        with InOut(self.text_dir):
-	            with open("prob{}.py".format(self.filename.strip('.txt')), 'a') as writer:
-	                writer.write("var1 = {}\n".format(str(master)))
-	                writer.write("var2 = {}\n".format(str(masterdict)))
-	        return {'list':master,'dict':masterdict}
-	    else:
-	        return {'list':master,'dict':masterdict}
+        master = []
+        masterdict = []
+        self.up_to = int(up_to)
+        for h in xrange(0, up_to):
+            position = []
+            t1 = time.time()
+            A = {}
+            for i in xrange(0, len(list_pos)):
+                A2 = []
+                for j in xrange(0, len(list_pos)):
+                    prob = self.cond_prob_v2([10, 25], i, j, h, h+1) #probability of i given j. 
+                    A["{},{}".format(list_pos[i],list_pos[j])] = prob
+                    A2.append(prob)
+                position.append(A2)
+            print("Position {} to {} took {:.1f} sec".format(h,h+1,time.time()-t1))
+            masterdict.append(A)
+            master.append(position)
+        self.total_prob = master
+        if write_to_file:
+            with InOut(self.text_dir):
+                with open("prob{}.py".format(self.filename.strip('.txt')), 'a') as writer:
+                    writer.write("var1 = {}\n".format(str(master)))
+                    writer.write("var2 = {}\n".format(str(masterdict)))
+            return {'list':master,'dict':masterdict}
+        else:
+            return {'list':master,'dict':masterdict}
+
+    def graph_prob(self):
+        """
+        This function will make a graph of the probabilities at each time step
+        """
+        pass 
+
+    def independent(self):
+        """
+        This function returns a dictionary of the most probable pairs at each position in the sentence.
+        """
+        dic = {}
+        try:
+            test = self.total_prob
+        except NameError:
+            self.all_probs()
+        for h in xrange(self.up_to):
+            position = self.total_prob[h]
+            maxB = []
+            max_index = []
+            for B in position:
+                maxB.append(max(B))
+                max_index.append(B.index(max(B)))
+            dic[str(h)] = (max(maxB), list_pos[maxB.index(max(maxB))],
+                           list_pos[max_index[maxB.index(max(maxB))]])  # (maxprob,A,B)
+            # print(h, dic[str(h)], list_pos[dic[str(h)][1]],
+            #       list_pos[dic[str(h)][2]])
+        return dic
+
+    def naive_dependent(self):
+        """
+        This function returns a dictionary of the most probable pairs,
+        using the A from the previous step as the new B. 
+        """
+        try:
+            test = self.total_prob
+        except NameError:
+            self.all_probs()
+        dic = {}
+        new_B = 0
+        for h in xrange(self.up_to):
+            if h == 0:
+                position = self.total_prob[h]
+                maxB = []
+                max_index = []
+                for A in position:
+                    maxB.append(max(A))
+                    max_index.append(A.index(max(A)))
+                new_B = maxB.index(max(maxB))
+                dic[str(h)] = (max(maxB), list_pos[maxB.index(max(maxB))],
+                               list_pos[max_index[maxB.index(max(maxB))]])  # (maxprob,A,B)
+                # print(h, dic[str(h)], list_pos[dic[str(h)][1]],
+                #       list_pos[dic[str(h)][2]])
+            else:
+                position = self.total_prob[h]
+                special = [position[i][new_B] for i in xrange(0, len(position))]
+                old_B = new_B
+                new_B = special.index(max(special))
+                dic[str(h)] = (max(special), list_pos[new_B], list_pos[old_B])  # maxprob, A, B
+                # print(h, dic[str(h)], list_pos[dic[str(h)][1]],
+                #       list_pos[dic[str(h)][2]])
+        return dic
+
+    def smart_dependent(self):
+        """
+        This function generates the sentence with the highest probability. 
+        """
+        try:
+            test = self.total_prob
+        except NameError:
+            self.all_probs()
+
+        def calc_prob(A,B):
+            prob = float(self.total_prob[0][A][B])
+            new_B = A
+            size = len(self.total_prob[0])
+            dic = {'0': (prob, list_pos[A],list_pos[B])}
+            for h in xrange(1,self.up_to):
+                special = [self.total_prob[h][i][new_B] for i in xrange(size)]
+                old_B = new_B
+                new_B = special.index(max(special))
+                dic[str(h)] = (max(special),list_pos[new_B],list_pos[old_B])
+                prob *= max(special)
+            return {'prob':prob,'dict':dic}
+
+        current_A = 0
+        current_B = 0
+        current_prob = calc_prob(current_A,current_B)['prob']
+        for A in xrange(len(list_pos)):
+            for B in xrange(len(list_pos)):
+                test_prob = calc_prob(A,B)['prob']
+                # print(test_prob)
+                if test_prob > current_prob:
+                    current_prob = test_prob
+                    current_A = A
+                    current_B = B
+                else:
+                    pass
+        return {"total prob": current_prob, 'dict': calc_prob(current_A,current_B)['dict']}
 
 tagged = Sentence_Probability(filename, up_to=21000, write_to_file=False)
 prob_dict = tagged.all_probs(write_to_file=False)['dict']
+# print(tagged.independent())
+# print(tagged.naive_dependent())
+most_prob_sentence = tagged.smart_dependent()['dict']
 for i in xrange(7):
-	print("Probability of VB given NN: {:.4f}".format(prob_dict[i]["VB,NN"]))
-	print("Probability of VB given NNS: {:.4f}".format(prob_dict[i]["VB,NNS"]))
-	print("Probability of CC given NN: {:.4f}".format(prob_dict[i]["CC,NN"]))
+    print(most_prob_sentence[str(i)])
+# for i in xrange(7):
+#   print("Probability of VB given NN: {:.4f}".format(prob_dict[i]["VB,NN"]))
+#   print("Probability of VB given NNS: {:.4f}".format(prob_dict[i]["VB,NNS"]))
+#   print("Probability of CC given NN: {:.4f}".format(prob_dict[i]["CC,NN"]))
 
-foo = imp.load_source('prob', '{}/probmelville.py'.format(text_dir))
-
-def independent():
-    foo = imp.load_source('prob', '{}/prob.py'.format(text_dir))
-    dic = {}
-    for h in xrange(0, 7):
-        position = foo.var1[h]
-        maxB = []
-        max_index = []
-        for B in position:
-            maxB.append(max(B))
-            max_index.append(B.index(max(B)))
-        dic[str(h)] = (max(maxB), maxB.index(max(maxB)),
-                       max_index[maxB.index(max(maxB))])  # (maxprob,A,B)
-        print(h, dic[str(h)], list_pos[dic[str(h)][1]],
-              list_pos[dic[str(h)][2]])
-
-    return dic
-
-def dependent():
-    foo = imp.load_source('prob', '{}/prob.py'.format(text_dir))
-    dic = {}
-    new_B = 0
-    for h in xrange(0, 7):
-        if h == 0:
-            position = foo.var1[h]
-            maxB = []
-            max_index = []
-            for A in position:
-                maxB.append(max(A))
-                max_index.append(A.index(max(A)))
-            new_B = maxB.index(max(maxB))
-            dic[str(h)] = (max(maxB), maxB.index(max(maxB)),
-                           max_index[maxB.index(max(maxB))])  # (maxprob,A,B)
-            print(h, dic[str(h)], list_pos[dic[str(h)][1]],
-                  list_pos[dic[str(h)][2]])
-        else:
-            print(new_B)
-            position = foo.var1[h]
-            special = [position[i][new_B] for i in xrange(0, len(position))]
-            old_B = new_B
-            new_B = special.index(max(special))
-            dic[str(h)] = (max(special), new_B, old_B)  # maxprob, A, B
-            print(h, dic[str(h)], list_pos[dic[str(h)][1]],
-                  list_pos[dic[str(h)][2]])
-
-    return dic
+# foo = imp.load_source('prob', '{}/probmelville.py'.format(text_dir))
 
 
 # def cond_prob(tagged_text, magic_range, index1, index2, p1, p2):
