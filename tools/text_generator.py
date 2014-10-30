@@ -1,6 +1,9 @@
 """
 Right now this only deals with large strings -- it can't discern between sentences.
-I want to make it so this will work with sentences and strings. 
+I want to make it so this will work with sentences and strings.
+
+29/10/2014 - I want to make the mdic.txt and msyll.txt files into dictionaries so that I can 
+read from them much faster than if they were merely text files
 """
 from tools.article_stuff import Article_Stuff 
 from nltk import word_tokenize
