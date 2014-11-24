@@ -9,11 +9,39 @@ import os
 import time
 import numpy
 
-class Main_App(QtGui.QWidget):
+class Main_Window(QtGui.QMainWindow):
 
-	def __init__(self):
-		super(Main_App, self).__init__()
+	def __init__(self,parent=None):
+		super(Main_Window,self).__init__(parent)
+		self.initwindow()
 
+	def initwindow(self):
+
+		self.widget = App_Widgets(self)
+		self.setCentralWidget(self.widget)
+		
+		exitAction = QtGui.QAction('&Exit',self)
+		exitAction.setShortcut('Ctrl+Q')
+		exitAction.triggered.connect(QtGui.qApp.quit) #just quitting
+
+		choosefileaction = QtGui.QAction('&Choose File...',self)
+		choosefileaction.triggered.connect(self.widget.browse)
+
+		menubar = self.menuBar()
+		filemenu = menubar.addMenu('&File')
+		filemenu.addAction(exitAction)
+		filemenu.addAction(choosefileaction)
+
+		self.setGeometry(300,300,300,300) 
+		self.setWindowTitle("Poem Generator")
+		self.show()
+
+class App_Widgets(QtGui.QWidget):
+
+	def __init__(self,parent):
+		super(App_Widgets, self).__init__(parent)
+		# QtGui.QWidget.__init__(self)
+		# QtGui.QMainWindow.__init__(self)
 		self.initUI()
 
 	def initUI(self):
@@ -38,10 +66,7 @@ class Main_App(QtGui.QWidget):
 
 		self.setLayout(grid)
 
-		self.setGeometry(300,300,300,300) 
-		self.setWindowTitle("Poem Generator")
-		self.show()
-
+	
 	def browse(self):
 		filename = QtGui.QFileDialog.getOpenFileName()
 		string = str()
@@ -84,7 +109,7 @@ class Main_App(QtGui.QWidget):
 def main():
 
 	app = QtGui.QApplication(sys.argv)
-	main_app = Main_App()
+	main_app = Main_Window()
 	sys.exit(app.exec_())
 
 if __name__ =="__main__":

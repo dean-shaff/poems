@@ -9,6 +9,8 @@ import imp
 from textblob import TextBlob
 from textblob_aptagger import PerceptronTagger
 import os
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
 # blob = TextBlob("Simple is better than complex.", pos_tagger=PerceptronTagger())
 # blob.tags
 #=====================================================
@@ -23,6 +25,36 @@ list_pos = ["CC", "CD", "DT", "EX", "IN", "JJ", "JJR", "JJS", "MD",
 
 filename = 'melville.txt'
 
+# def image_plot(array):
+#     """
+#     Assumes array is already scaled the way you want it to be displayed
+#     """
+#     plot_options = {'cmap':'gray','vmin':0,'vmax':256}
+#     array = np.asarray(array,dtype=float)
+#     fig1 = plt.figure(figsize=(16,9))
+#     ax1 = fig1.add_subplot(111)
+#     ax1.matshow(array,**plot_options)
+#     return ax1
+
+# def scale(array,**kwargs):
+#     """
+#     assuming that the array has no complex numbers
+#     """
+#     try:
+#         if kwargs["log"]:
+#             array = np.log(np.absolute(array))
+#         elif kwargs["sqrt"]:
+#             array = np.sqrt(np.absolute(array))
+#         elif kwargs["exp"]:
+#             array = np.exp(array)
+#     except KeyError:
+#         pass
+#     if array.dtype == 'complex':    
+#         array = np.asarray(array,dtype=complex)
+#         return 256.*(np.absolute(array))/np.amax(np.fabs(np.absolute(array)))
+#     else:
+#         array = np.asarray(array,dtype=float)
+#         return 256.*(array)/np.amax(array)
 
 class Sentence_Probability(object):
 
@@ -51,6 +83,39 @@ class Sentence_Probability(object):
                         "var1 = {}".format(str(self.blob_tagged_by_sentence)))
         else:
             pass
+
+    @staticmethod
+    def image_plot(array):
+        """
+        Assumes array is already scaled the way you want it to be displayed
+        """
+        plot_options = {'cmap':'gray','vmin':0,'vmax':256}
+        array = np.asarray(array,dtype=float)
+        fig1 = plt.figure(figsize=(16,9))
+        ax1 = fig1.add_subplot(111)
+        ax1.matshow(array,**plot_options)
+        return ax1
+
+    @staticmethod
+    def scale(array,**kwargs):
+        """
+        assuming that the array has no complex numbers
+        """
+        try:
+            if kwargs["log"]:
+                array = np.log(np.absolute(array))
+            elif kwargs["sqrt"]:
+                array = np.sqrt(np.absolute(array))
+            elif kwargs["exp"]:
+                array = np.exp(array)
+        except KeyError:
+            pass
+        if array.dtype == 'complex':    
+            array = np.asarray(array,dtype=complex)
+            return 256.*(np.absolute(array))/np.amax(np.fabs(np.absolute(array)))
+        else:
+            array = np.asarray(array,dtype=float)
+            return 256.*(array)/np.amax(array)
 
     def cond_prob_v2(self, magic_range, indexA, indexB, p1, p2):
         """
@@ -83,23 +148,21 @@ class Sentence_Probability(object):
             return 0.0
 
     def all_probs(self,up_to=7,write_to_file=False):
-        master = []
-        masterdict = []
         self.up_to = int(up_to)
+        master = np.zeros((len(list_pos),len(list_pos),self.up_to),dtype=float)
+        masterdict = []
         for h in xrange(0, up_to):
-            position = []
+            position = master[:,:,h]
             t1 = time.time()
             A = {}
             for i in xrange(0, len(list_pos)):
-                A2 = []
+                A2 = position[i]
                 for j in xrange(0, len(list_pos)):
                     prob = self.cond_prob_v2([10, 25], i, j, h, h+1) #probability of i given j. 
                     A["{},{}".format(list_pos[i],list_pos[j])] = prob
-                    A2.append(prob)
-                position.append(A2)
+                    A2[j] = prob
             print("Position {} to {} took {:.1f} sec".format(h,h+1,time.time()-t1))
             masterdict.append(A)
-            master.append(position)
         self.total_prob = master
         if write_to_file:
             with InOut(self.text_dir):
@@ -110,11 +173,24 @@ class Sentence_Probability(object):
         else:
             return {'list':master,'dict':masterdict}
 
-    def graph_prob(self):
+    def graph_prob(self,t_step=None):
         """
-        This function will make a graph of the probabilities at each time step
+        This function is a modified version of the image_plot function above.
         """
-        pass 
+        try:
+            if t_step != None and t_step > self.up_to:
+                print("Can't plot for a time step that doesn't exist")
+            elif t_step == None:
+                plt.ion()
+                for i in xrange(self.up_to):
+                    self.image_plot(self.scale(self.total_prob[:,:,i]))
+                    plt.show()
+                    raw_input(">> ")
+            elif t_step != None and t_step >= 0 and t_step < self.up_to:
+                self.image_plot(self.scale(self.total_prob[:,:,t_step]))
+                plt.show()
+        except AttributeError:
+            print("You didn't call the all_probs method")
 
     def independent(self):
         """
@@ -209,13 +285,19 @@ class Sentence_Probability(object):
                     pass
         return {"total prob": current_prob, 'dict': calc_prob(current_A,current_B)['dict']}
 
-tagged = Sentence_Probability(filename, up_to=21000, write_to_file=False)
-prob_dict = tagged.all_probs(write_to_file=False)['dict']
+if __name__=="__main__":
+
+    tagged = Sentence_Probability(filename, up_to=5000, write_to_file=False)
+    prob = tagged.all_probs(write_to_file=False)
+    prob_list = prob['list']
+    tagged.graph_prob(t_step=4)
+    # Sentence_Probability.image_plot(Sentence_Probability.scale(prob_list[:,:,0]))
+    # plt.show()
 # print(tagged.independent())
 # print(tagged.naive_dependent())
-most_prob_sentence = tagged.smart_dependent()['dict']
-for i in xrange(7):
-    print(most_prob_sentence[str(i)])
+# most_prob_sentence = tagged.smart_dependent()['dict']
+# for i in xrange(7):
+#     print(most_prob_sentence[str(i)])
 # for i in xrange(7):
 #   print("Probability of VB given NN: {:.4f}".format(prob_dict[i]["VB,NN"]))
 #   print("Probability of VB given NNS: {:.4f}".format(prob_dict[i]["VB,NNS"]))
