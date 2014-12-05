@@ -1,11 +1,23 @@
 # -*- coding: ascii -*-
+"""
+4/12/2014
+
+To do: I'm tired of waiting around to generate the tagged list. I need to make the Sentence_Probability
+methods support loading in the tagged list from a separate Python file. 
+
+I need to clean up the confusing mess that is the "up_to" variable name. I make a property of 
+the class, but its not the same as the one that I use in the calc_cumulative_prob method... 
+"""
+
 from tools import InOut
 import nltk
 from nltk_contrib.readability.textanalyzer import syllables_en
 from nltk.tokenize.punkt import PunktWordTokenizer, PunktSentenceTokenizer
 import numpy as np
+import numpy.random as random
 import time
 import imp
+import sys
 from textblob import TextBlob
 from textblob_aptagger import PerceptronTagger
 import os
@@ -25,64 +37,114 @@ list_pos = ["CC", "CD", "DT", "EX", "IN", "JJ", "JJR", "JJS", "MD",
 
 filename = 'melville.txt'
 
-# def image_plot(array):
-#     """
-#     Assumes array is already scaled the way you want it to be displayed
-#     """
-#     plot_options = {'cmap':'gray','vmin':0,'vmax':256}
-#     array = np.asarray(array,dtype=float)
-#     fig1 = plt.figure(figsize=(16,9))
-#     ax1 = fig1.add_subplot(111)
-#     ax1.matshow(array,**plot_options)
-#     return ax1
 
-# def scale(array,**kwargs):
-#     """
-#     assuming that the array has no complex numbers
-#     """
-#     try:
-#         if kwargs["log"]:
-#             array = np.log(np.absolute(array))
-#         elif kwargs["sqrt"]:
-#             array = np.sqrt(np.absolute(array))
-#         elif kwargs["exp"]:
-#             array = np.exp(array)
-#     except KeyError:
-#         pass
-#     if array.dtype == 'complex':    
-#         array = np.asarray(array,dtype=complex)
-#         return 256.*(np.absolute(array))/np.amax(np.fabs(np.absolute(array)))
-#     else:
-#         array = np.asarray(array,dtype=float)
-#         return 256.*(array)/np.amax(array)
+# class Sentence_Processor(object):
+"""
+I want this to be able to take a random sentence and to read in a file up to a certain point.
+Right now there is no need for this to be a class, but I think there might be more methods later. 
+"""
+
+def sentence_processor(write_to_file=False, **kwargs):
+    """
+    file_info is a tuple or list containing the name of the file and the number of lines to read in.
+    If the second element is 0 or None, then it reads the whole file.
+    sentence is just a random string you pass to the function.
+    """
+    master_str = None
+    try:
+        filename = kwargs['file_info'][0]
+        up_to = kwargs['file_info'][1]
+        master_str = str()
+        if up_to == 0 or up_to == None:
+            with InOut(text_dir):
+                with open(filename, 'r') as reader:
+                    for index, line in enumerate(reader):
+                        line = line.strip('\n')
+                        master_str += line
+        else:
+             with InOut(text_dir):
+                with open(filename, 'r') as reader:
+                    for index, line in enumerate(reader):
+                        line = line.strip('\n')
+                        master_str += line
+                        if index == up_to:
+                            break
+        master_str = master_str
+    except KeyError:
+        pass
+    try:
+        master_str = kwargs['sentence']
+    except KeyError:
+        pass
+    if master_str == None:
+        print("You didn't instantiate the class with anything!")
+
+    t1 = time.time()
+    blob = TextBlob(master_str, pos_tagger=PerceptronTagger())
+    print("Time creating object: {:.2f}".format(time.time() - t1))
+    t2 = time.time()
+    #Note that here I take the entire word, instead of just the part of speach!
+    tagged_by_sen = [[word for word in sentence.tags if word[1] not in list_not_allow] for sentence in blob.sentences]
+    print("Time creating tagged list: {:.2f}".format(time.time() - t2))
+    if write_to_file:
+        with InOut(text_dir):
+            with open("token.py", 'w') as writer:
+                writer.write("var1 = {}".format(str(tagged_by_sen)))
+        return tagged_by_sen
+    else:
+        return tagged_by_sen
 
 class Sentence_Probability(object):
 
-    def __init__(self, filename, up_to, write_to_file=False):
+    def __init__(self, filename, max_line, write_to_file=False,**kwargs):
         self.text_dir = text_dir
         self.filename = filename
+        self.max_line = max_line
         master_str = str()
         with InOut(text_dir):
             with open(filename, 'r') as reader:
                 for index, line in enumerate(reader):
                     line = line.strip('\n')
                     master_str += line
-                    if index == up_to:
+                    if index == max_line:
                         break
         self.master_str = master_str
-        t1 = time.time()
+        t1 = time.time()            
         blob = TextBlob(master_str, pos_tagger=PerceptronTagger())
         print("Time creating object: {:.2f}".format(time.time() - t1))
-        t2 = time.time()
-        self.blob_tagged_by_sentence = [[word[1] for word in sentence.tags if word[1] not in list_not_allow] for sentence in blob.sentences]
-        print("Time creating tagged list: {:.2f}".format(time.time() - t2))
-        if write_to_file:
-            with InOut(text_dir):
-                with open("token{}.py".format(filename.strip('.txt')), 'w') as writer:
-                    writer.write(
-                        "var1 = {}".format(str(self.blob_tagged_by_sentence)))
-        else:
+        try:
+            sys.path.append(os.path.abspath(text_dir))
+            import probmelville
+            if kwargs['load_tot_prob']:
+                self.total_prob = probmelville.var_list
+                # self.total_prob = imp.load_source('var_list', '{}/prob{}.py'.format(text_dir,self.filename.strip('.txt')))               
+            elif kwargs['load_cumu_prob']:
+                self.cumu_prob = probmelville.var_cumu
+                # self.cumu_prob = imp.load_source('var_cumu', '{}/prob{}.py'.format(text_dir,self.filename.strip('.txt')))
+        except (ImportError, KeyError, SyntaxError): #syntaxerror to be removed later...
             pass
+
+        try:
+            sys.path.append(os.path.abspath(text_dir))
+            t1 = time.time()
+            import tokenmelvile
+            if kwargs['load_tagged']:
+                self.blob_tagged_by_sentence = tokenmelvile.var_token
+                write_to_file = False  
+                print("Time loading tagged list: {} seconds".format(time.time()-t1))             
+        except (KeyError, ImportError):
+            t2 = time.time()
+            self.blob_tagged_by_sentence = [[word[1] for word in sentence.tags if word[1] not in list_not_allow] for sentence in blob.sentences]
+            self.sen_tag_pword = [[word for word in sentence.tags if word[1] not in list_not_allow] for sentence in blob.sentences]
+            print("Time creating tagged list: {:.2f}".format(time.time() - t2))
+            if write_to_file:
+                with InOut(text_dir):
+                    with open("token{}.py".format(filename.strip('.txt')), 'w') as writer:
+                        writer.write(
+                            "var_token = {}".format(str(self.blob_tagged_by_sentence)))
+            else:
+                pass
+
 
     @staticmethod
     def image_plot(array):
@@ -122,11 +184,12 @@ class Sentence_Probability(object):
         this function calculates the conditional probability P(A|B) 
         eg "The probability of there being pos "NN" in position 2 given that there is "VB" in position 1."
         tokenized_sentence_list is the list of sentences whose words have been tokenized and p.o.s. tagged.
-        index1 is the index of A (in P(A|B)) in the list_pos list
-        index2 is the index of B 
+        indexA is the index of A (in P(A|B)) in the list_pos list
+        indexB is the index of B 
         p1 is the position of A in the sentence
         p2 is the position of B in the sentence 
-        Ideally p1 > p2, as you're finding the 
+        p1 > p2, or else this is nonsense. 
+        magic_range is a tuple or list with the allowed sentence length. 
         """
         magic_range = list(magic_range)
         tokenized_sentence_list = self.blob_tagged_by_sentence
@@ -148,6 +211,10 @@ class Sentence_Probability(object):
             return 0.0
 
     def all_probs(self,up_to=7,write_to_file=False):
+        """
+        Returns the probability for every A (ie, every part of speech) given every B at each sentence position. 
+        There is a len(list_pos) x len(list_pos) array at each position. The indexing is (B,A). 
+        """
         self.up_to = int(up_to)
         master = np.zeros((len(list_pos),len(list_pos),self.up_to),dtype=float)
         masterdict = []
@@ -156,10 +223,10 @@ class Sentence_Probability(object):
             t1 = time.time()
             A = {}
             for i in xrange(0, len(list_pos)):
-                A2 = position[i]
+                A2 = position[i] #the row
                 for j in xrange(0, len(list_pos)):
-                    prob = self.cond_prob_v2([10, 25], i, j, h, h+1) #probability of i given j. 
-                    A["{},{}".format(list_pos[i],list_pos[j])] = prob
+                    prob = self.cond_prob_v2([10, 25], j, i, h, h+1) #probability of j given i. This gives (B,A) indexing instead of the other way around.
+                    A["{},{}".format(list_pos[j],list_pos[i])] = prob
                     A2[j] = prob
             print("Position {} to {} took {:.1f} sec".format(h,h+1,time.time()-t1))
             masterdict.append(A)
@@ -167,11 +234,84 @@ class Sentence_Probability(object):
         if write_to_file:
             with InOut(self.text_dir):
                 with open("prob{}.py".format(self.filename.strip('.txt')), 'a') as writer:
-                    writer.write("var1 = {}\n".format(str(master)))
-                    writer.write("var2 = {}\n".format(str(masterdict)))
+                    writer.write("var_list = {}\n".format(str(master)))
+                    writer.write("var_dic = {}\n".format(str(masterdict)))
             return {'list':master,'dict':masterdict}
         else:
             return {'list':master,'dict':masterdict}
+
+    def calc_cumulative_prob(self,coordinates):
+        """
+        coordinates are the coordinates of the parts of speech in the list_pos list.
+        This method is basically to be used by the total_cumulative_prob below.
+        """
+        length = len(coordinates)
+        if length != self.total_prob.shape[2]:
+            print("You need to make sure that the number of coordinates equals the depth of non cumulative array")
+        else:
+            prob = 1
+            for i in xrange(length-1):
+                posB = int(coordinates[i])
+                posA = int(coordinates[i+1])
+                prob *= self.total_prob[posB,posA,i]
+            return prob
+
+    def total_cumulative_prob(self, up_to=3, write_to_file=False):
+        """
+        assumes the all_probs method has already been called. (fix)
+        max_val = initial up_to
+        """
+        up_to = int(up_to)
+        dimension = [len(list_pos) for i in xrange(up_to)]
+        master = np.zeros(len(list_pos)**up_to,dtype=float)
+        coord = [0 for i in xrange(up_to)]
+        for j in xrange(0,len(list_pos)**up_to):
+            if j % 50000 == 0:
+                print("Only {} iterations to go!".format(len(list_pos)**up_to - j))
+            val = j 
+            for power in range(up_to)[::-1]:
+                coord[power] = val/(len(list_pos)**power)
+                val = val%(len(list_pos)**power)
+            master[j] = self.calc_cumulative_prob(coord[::-1])
+        self.cumu_prob = master.reshape(dimension)
+        if write_to_file:
+            with InOut(self.text_dir):
+                with open("prob{}.py".format(self.filename.strip('.txt')), 'a') as writer:
+                    writer.write("var_cumu = {}\n".format(str(master.reshape(dimension))))
+
+            return self.cumu_prob
+        else:
+            return self.cumu_prob
+
+    def random_word(self,p_o_s):
+        """
+        p_o_s can either be an integer corresponding to the position in the list_pos list,
+        or the name of the part of speech itself.
+        """
+        if isinstance(p_o_s, int):
+            p_o_s = list_pos[p_o_s]
+        elif isinstance(p_o_s, basestring):
+            p_o_s = str(p_o_s)
+        tot_sen = self.sen_tag_pword
+        start_point = random.randint(0,(len(tot_sen)*3)/4)
+        for index in xrange(start_point,len(tot_sen)-1):
+            for word in tot_sen[index]:
+                if word[1] == p_o_s:
+                    return {'word': word[0], 'pos': word[1], 'index': list_pos.index(word[1])} 
+
+    def calc_cumu_prob(self,sentence):
+        """
+        This function calculates the cumulative probability of a sentence that you supply it. 
+        The sentence should be a list whose elements are a tuple -- (word, p_o_s)
+        """
+        try:
+            if len(sentence[0]) != len(self.cumu_prob.shape):
+                raise ValueError
+        except AttributeError:
+            print("You didn't call the total_cumulative_prob method! (Or load in the cumulative probability array)")
+        coord = tuple([list_pos.index(word[1]) for word in sentence[0]])
+        prob = self.cumu_prob[coord]
+        return prob
 
     def graph_prob(self,t_step=None):
         """
@@ -192,193 +332,17 @@ class Sentence_Probability(object):
         except AttributeError:
             print("You didn't call the all_probs method")
 
-    def independent(self):
-        """
-        This function returns a dictionary of the most probable pairs at each position in the sentence.
-        """
-        dic = {}
-        try:
-            test = self.total_prob
-        except NameError:
-            self.all_probs()
-        for h in xrange(self.up_to):
-            position = self.total_prob[h]
-            maxB = []
-            max_index = []
-            for B in position:
-                maxB.append(max(B))
-                max_index.append(B.index(max(B)))
-            dic[str(h)] = (max(maxB), list_pos[maxB.index(max(maxB))],
-                           list_pos[max_index[maxB.index(max(maxB))]])  # (maxprob,A,B)
-            # print(h, dic[str(h)], list_pos[dic[str(h)][1]],
-            #       list_pos[dic[str(h)][2]])
-        return dic
-
-    def naive_dependent(self):
-        """
-        This function returns a dictionary of the most probable pairs,
-        using the A from the previous step as the new B. 
-        """
-        try:
-            test = self.total_prob
-        except NameError:
-            self.all_probs()
-        dic = {}
-        new_B = 0
-        for h in xrange(self.up_to):
-            if h == 0:
-                position = self.total_prob[h]
-                maxB = []
-                max_index = []
-                for A in position:
-                    maxB.append(max(A))
-                    max_index.append(A.index(max(A)))
-                new_B = maxB.index(max(maxB))
-                dic[str(h)] = (max(maxB), list_pos[maxB.index(max(maxB))],
-                               list_pos[max_index[maxB.index(max(maxB))]])  # (maxprob,A,B)
-                # print(h, dic[str(h)], list_pos[dic[str(h)][1]],
-                #       list_pos[dic[str(h)][2]])
-            else:
-                position = self.total_prob[h]
-                special = [position[i][new_B] for i in xrange(0, len(position))]
-                old_B = new_B
-                new_B = special.index(max(special))
-                dic[str(h)] = (max(special), list_pos[new_B], list_pos[old_B])  # maxprob, A, B
-                # print(h, dic[str(h)], list_pos[dic[str(h)][1]],
-                #       list_pos[dic[str(h)][2]])
-        return dic
-
-    def smart_dependent(self):
-        """
-        This function generates the sentence with the highest probability. 
-        """
-        try:
-            test = self.total_prob
-        except NameError:
-            self.all_probs()
-
-        def calc_prob(A,B):
-            prob = float(self.total_prob[0][A][B])
-            new_B = A
-            size = len(self.total_prob[0])
-            dic = {'0': (prob, list_pos[A],list_pos[B])}
-            for h in xrange(1,self.up_to):
-                special = [self.total_prob[h][i][new_B] for i in xrange(size)]
-                old_B = new_B
-                new_B = special.index(max(special))
-                dic[str(h)] = (max(special),list_pos[new_B],list_pos[old_B])
-                prob *= max(special)
-            return {'prob':prob,'dict':dic}
-
-        current_A = 0
-        current_B = 0
-        current_prob = calc_prob(current_A,current_B)['prob']
-        for A in xrange(len(list_pos)):
-            for B in xrange(len(list_pos)):
-                test_prob = calc_prob(A,B)['prob']
-                # print(test_prob)
-                if test_prob > current_prob:
-                    current_prob = test_prob
-                    current_A = A
-                    current_B = B
-                else:
-                    pass
-        return {"total prob": current_prob, 'dict': calc_prob(current_A,current_B)['dict']}
-
 if __name__=="__main__":
-
-    tagged = Sentence_Probability(filename, up_to=5000, write_to_file=False)
-    prob = tagged.all_probs(write_to_file=False)
-    prob_list = prob['list']
-    tagged.graph_prob(t_step=4)
-    # Sentence_Probability.image_plot(Sentence_Probability.scale(prob_list[:,:,0]))
-    # plt.show()
-# print(tagged.independent())
-# print(tagged.naive_dependent())
-# most_prob_sentence = tagged.smart_dependent()['dict']
-# for i in xrange(7):
-#     print(most_prob_sentence[str(i)])
-# for i in xrange(7):
-#   print("Probability of VB given NN: {:.4f}".format(prob_dict[i]["VB,NN"]))
-#   print("Probability of VB given NNS: {:.4f}".format(prob_dict[i]["VB,NNS"]))
-#   print("Probability of CC given NN: {:.4f}".format(prob_dict[i]["CC,NN"]))
-
-# foo = imp.load_source('prob', '{}/probmelville.py'.format(text_dir))
+    up_to1 = 3
+    sentence = sentence_processor(write_to_file=False,sentence="I ate sandwiches") 
+    tagged = Sentence_Probability(filename, max_line=2000, write_to_file=False)
+    # print(tagged.blob_tagged_by_sentence)
+    prob = tagged.all_probs(up_to=up_to1,write_to_file=True)
+    cumu_prob = tagged.total_cumulative_prob(up_to=up_to1,write_to_file=True)
+    print(cumu_prob[10,10,10])
+    print(tagged.calc_cumu_prob(sentence))
+    # prob_list = prob['list']
+    # cumu = tagged.total_cumulative_prob(up_to=3)
+  
 
 
-# def cond_prob(tagged_text, magic_range, index1, index2, p1, p2):
-#     """
-#     tokenized_sentence_list is the list of sentences whose words have been tokenized and p.o.s. tagged.
-#     index1 is the index of A (in P(A|B))
-#     index2 is the index of B 
-#     p1 is the position of A in the sentence
-#     p2 is the position of B in the sentence 
-#     """
-#     magic_range = list(magic_range)
-#     special_index = index1  # A
-#     special_index2 = index2  # B
-#     tokenized_sentence_list = tagged_text
-#     # foo = imp.load_source('tokentesttext', '{}/tokentesttext.py'.format(text_dir))
-#     # tokenized_sentence_list = foo.var1
-
-#     def make_matrix(index_to_start):
-#         for index1, sentence in enumerate(tokenized_sentence_list):
-#             if index1 <= index_to_start:
-#                 pass
-#             else:
-#                 if len(sentence) >= magic_range[0] and len(sentence) <= magic_range[1]:
-#                     sentence_matrix = []
-#                     freq_given_special = np.zeros(len(list_pos))
-#                     for index_sen, word in enumerate(sentence):
-#                         row = np.zeros(len(list_pos))
-#                         # Below I'm constructing a vector that will allow me to
-#                         # calculate P(B|A)
-#                         # At position p1 and the part of speech is the one
-#                         # we're testing.
-#                         if index_sen == p1 and word in list_pos[special_index]:
-#                             for index, p_o_s in enumerate(list_pos):
-#                                 if sentence[p2] in p_o_s:
-#                                     freq_given_special[index] += 1
-#                                     break
-#                         for index, pos in enumerate(list_pos):
-#                             if word in pos:
-#                                 row[index] = int(1)
-#                                 sentence_matrix.append(row)
-#                                 break
-#                             else:
-#                                 pass
-#                         # this is to ensure that the row gets appended no
-#                         # matter what
-#                         if list(row) == list(np.zeros(len(list_pos))):
-#                             sentence_matrix.append(row)
-#                     while len(sentence_matrix) < magic_range[1]:
-#                         sentence_matrix.append(np.zeros(len(list_pos)))
-#                     return (sentence_matrix, freq_given_special, index1)
-#                 else:
-#                     pass
-#     A = np.zeros(
-#         magic_range[1] * len(list_pos)).reshape((magic_range[1], len(list_pos)))
-#     B = np.zeros(len(list_pos))
-#     t = 1
-#     factor = float(3.0 / 4.0)
-#     while t < int(float(len(tokenized_sentence_list)) * factor):
-#         stuff = make_matrix(t)
-#         matrix = stuff[0]
-#         freq_B_A = stuff[1]
-#         t = stuff[2]
-#         B = np.add(B, freq_B_A)
-#         A = np.add(A, matrix)
-#     # calculating P(A|B)
-#     # print(B)
-#     row2 = A[p2]
-#     # print(row2)
-#     numerator = ((row2[special_index2]) / np.sum(row2)) * \
-#         (B[special_index2] / np.sum(B))
-#     denominator = 0
-#     for i in xrange(0, len(B)):
-#         denominator += ((row2[i]) / np.sum(A[p2])) * (B[i] / np.sum(B))
-
-#     return numerator / denominator
-
-
-# dependent()
