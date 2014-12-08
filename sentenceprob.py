@@ -7,12 +7,19 @@ methods support loading in the tagged list from a separate Python file.
 
 I need to clean up the confusing mess that is the "up_to" variable name. I make a property of 
 the class, but its not the same as the one that I use in the calc_cumulative_prob method... 
+
+7/12/2014
+
+The fact that I have two methods that calculate the same thing (the cumulative probability) is ridiculous.
+I need to make this work differently. There is no need to calculate the total cumulative probability array right now,
+because I have no plans to be updating probabilities until I can figure out how to update probabilities. 
 """
 
 from tools import InOut
 import nltk
 from nltk_contrib.readability.textanalyzer import syllables_en
 from nltk.tokenize.punkt import PunktWordTokenizer, PunktSentenceTokenizer
+from sentenceprocesser import sentence_processor
 import numpy as np
 import numpy.random as random
 import time
@@ -44,62 +51,13 @@ I want this to be able to take a random sentence and to read in a file up to a c
 Right now there is no need for this to be a class, but I think there might be more methods later. 
 """
 
-def sentence_processor(write_to_file=False, **kwargs):
-    """
-    file_info is a tuple or list containing the name of the file and the number of lines to read in.
-    If the second element is 0 or None, then it reads the whole file.
-    sentence is just a random string you pass to the function.
-    """
-    master_str = None
-    try:
-        filename = kwargs['file_info'][0]
-        up_to = kwargs['file_info'][1]
-        master_str = str()
-        if up_to == 0 or up_to == None:
-            with InOut(text_dir):
-                with open(filename, 'r') as reader:
-                    for index, line in enumerate(reader):
-                        line = line.strip('\n')
-                        master_str += line
-        else:
-             with InOut(text_dir):
-                with open(filename, 'r') as reader:
-                    for index, line in enumerate(reader):
-                        line = line.strip('\n')
-                        master_str += line
-                        if index == up_to:
-                            break
-        master_str = master_str
-    except KeyError:
-        pass
-    try:
-        master_str = kwargs['sentence']
-    except KeyError:
-        pass
-    if master_str == None:
-        print("You didn't instantiate the class with anything!")
-
-    t1 = time.time()
-    blob = TextBlob(master_str, pos_tagger=PerceptronTagger())
-    print("Time creating object: {:.2f}".format(time.time() - t1))
-    t2 = time.time()
-    #Note that here I take the entire word, instead of just the part of speach!
-    tagged_by_sen = [[word for word in sentence.tags if word[1] not in list_not_allow] for sentence in blob.sentences]
-    print("Time creating tagged list: {:.2f}".format(time.time() - t2))
-    if write_to_file:
-        with InOut(text_dir):
-            with open("token.py", 'w') as writer:
-                writer.write("var1 = {}".format(str(tagged_by_sen)))
-        return tagged_by_sen
-    else:
-        return tagged_by_sen
-
 class Sentence_Probability(object):
 
     def __init__(self, filename, max_line, write_to_file=False,**kwargs):
         self.text_dir = text_dir
         self.filename = filename
         self.max_line = max_line
+        self.list_pos = list_pos
         master_str = str()
         with InOut(text_dir):
             with open(filename, 'r') as reader:
@@ -114,12 +72,13 @@ class Sentence_Probability(object):
         print("Time creating object: {:.2f}".format(time.time() - t1))
         try:
             sys.path.append(os.path.abspath(text_dir))
-            import probmelville
+            import prob
             if kwargs['load_tot_prob']:
-                self.total_prob = probmelville.var_list
+                self.total_prob = np.asarray(prob.var_list,dtype=float)
+                self.up_to_all_probs = self.total_prob.shape[2]
                 # self.total_prob = imp.load_source('var_list', '{}/prob{}.py'.format(text_dir,self.filename.strip('.txt')))               
             elif kwargs['load_cumu_prob']:
-                self.cumu_prob = probmelville.var_cumu
+                self.cumu_prob = prob.var_cumu
                 # self.cumu_prob = imp.load_source('var_cumu', '{}/prob{}.py'.format(text_dir,self.filename.strip('.txt')))
         except (ImportError, KeyError, SyntaxError): #syntaxerror to be removed later...
             pass
@@ -127,11 +86,13 @@ class Sentence_Probability(object):
         try:
             sys.path.append(os.path.abspath(text_dir))
             t1 = time.time()
-            import tokenmelvile
+            import token1
+            # import token.var_token
             if kwargs['load_tagged']:
-                self.blob_tagged_by_sentence = tokenmelvile.var_token
+                self.blob_tagged_by_sentence = token1.var_token
+                self.sen_tag_pword = token1.var_ptoken
                 write_to_file = False  
-                print("Time loading tagged list: {} seconds".format(time.time()-t1))             
+                print("Time loading tagged list: {:.2f} seconds".format(time.time()-t1))             
         except (KeyError, ImportError):
             t2 = time.time()
             self.blob_tagged_by_sentence = [[word[1] for word in sentence.tags if word[1] not in list_not_allow] for sentence in blob.sentences]
@@ -139,9 +100,10 @@ class Sentence_Probability(object):
             print("Time creating tagged list: {:.2f}".format(time.time() - t2))
             if write_to_file:
                 with InOut(text_dir):
-                    with open("token{}.py".format(filename.strip('.txt')), 'w') as writer:
-                        writer.write(
-                            "var_token = {}".format(str(self.blob_tagged_by_sentence)))
+                    with open("token1.py", 'w') as writer:
+                        writer.write("var_token = {}\n".format(str(self.blob_tagged_by_sentence)))
+                        writer.write("var_ptoken = {}".format(str(self.sen_tag_pword)))
+
             else:
                 pass
 
@@ -215,8 +177,8 @@ class Sentence_Probability(object):
         Returns the probability for every A (ie, every part of speech) given every B at each sentence position. 
         There is a len(list_pos) x len(list_pos) array at each position. The indexing is (B,A). 
         """
-        self.up_to = int(up_to)
-        master = np.zeros((len(list_pos),len(list_pos),self.up_to),dtype=float)
+        self.up_to_all_probs = int(up_to)
+        master = np.zeros((len(list_pos),len(list_pos),self.up_to_all_probs),dtype=float)
         masterdict = []
         for h in xrange(0, up_to):
             position = master[:,:,h]
@@ -225,7 +187,7 @@ class Sentence_Probability(object):
             for i in xrange(0, len(list_pos)):
                 A2 = position[i] #the row
                 for j in xrange(0, len(list_pos)):
-                    prob = self.cond_prob_v2([10, 25], j, i, h, h+1) #probability of j given i. This gives (B,A) indexing instead of the other way around.
+                    prob = self.cond_prob_v2([10, 25], j, i, h+1, h) #probability of j given i. This gives (B,A) indexing instead of the other way around.
                     A["{},{}".format(list_pos[j],list_pos[i])] = prob
                     A2[j] = prob
             print("Position {} to {} took {:.1f} sec".format(h,h+1,time.time()-t1))
@@ -233,8 +195,8 @@ class Sentence_Probability(object):
         self.total_prob = master
         if write_to_file:
             with InOut(self.text_dir):
-                with open("prob{}.py".format(self.filename.strip('.txt')), 'a') as writer:
-                    writer.write("var_list = {}\n".format(str(master)))
+                with open("prob.py", 'a') as writer:
+                    writer.write("var_list = {}\n".format(str(list(master))))
                     writer.write("var_dic = {}\n".format(str(masterdict)))
             return {'list':master,'dict':masterdict}
         else:
@@ -243,7 +205,7 @@ class Sentence_Probability(object):
     def calc_cumulative_prob(self,coordinates):
         """
         coordinates are the coordinates of the parts of speech in the list_pos list.
-        This method is basically to be used by the total_cumulative_prob below.
+        I don't want to crowd this function up with a bunch of stuff - it has to run quick!
         """
         length = len(coordinates)
         if length != self.total_prob.shape[2]:
@@ -256,20 +218,20 @@ class Sentence_Probability(object):
                 prob *= self.total_prob[posB,posA,i]
             return prob
 
-    def total_cumulative_prob(self, up_to=3, write_to_file=False):
+    def total_cumulative_prob(self, up_to_cumu=3, write_to_file=False):
         """
         assumes the all_probs method has already been called. (fix)
         max_val = initial up_to
         """
-        up_to = int(up_to)
-        dimension = [len(list_pos) for i in xrange(up_to)]
-        master = np.zeros(len(list_pos)**up_to,dtype=float)
-        coord = [0 for i in xrange(up_to)]
-        for j in xrange(0,len(list_pos)**up_to):
+        up_to_cumu = int(up_to_cumu)
+        dimension = [len(list_pos) for i in xrange(up_to_cumu)]
+        master = np.zeros(len(list_pos)**up_to_cumu,dtype=float)
+        coord = [0 for i in xrange(up_to_cumu)]
+        for j in xrange(0,len(list_pos)**up_to_cumu):
             if j % 50000 == 0:
-                print("Only {} iterations to go!".format(len(list_pos)**up_to - j))
+                print("Only {} iterations to go!".format(len(list_pos)**up_to_cumu - j))
             val = j 
-            for power in range(up_to)[::-1]:
+            for power in range(up_to_cumu)[::-1]:
                 coord[power] = val/(len(list_pos)**power)
                 val = val%(len(list_pos)**power)
             master[j] = self.calc_cumulative_prob(coord[::-1])
@@ -303,44 +265,52 @@ class Sentence_Probability(object):
         """
         This function calculates the cumulative probability of a sentence that you supply it. 
         The sentence should be a list whose elements are a tuple -- (word, p_o_s)
+        This is the one I want to use outside of the class. The one above is to used in the calc_cumulative_prob method.
         """
+        coord = tuple([list_pos.index(word[1]) for word in sentence[0]])
         try:
             if len(sentence[0]) != len(self.cumu_prob.shape):
-                raise ValueError
+                raise ValueError("The sentence doesn't have the right length")
+            else:
+                prob = self.cumu_prob[coord]
+                return prob
         except AttributeError:
-            print("You didn't call the total_cumulative_prob method! (Or load in the cumulative probability array)")
-        coord = tuple([list_pos.index(word[1]) for word in sentence[0]])
-        prob = self.cumu_prob[coord]
-        return prob
+            # this means the cumu_prob variable doesn't exist -- it hasn't been loaded in or the method 
+            # above hasn't been called.
+            if len(sentence[0]) != self.up_to_all_probs:
+                raise ValueError("The sentence doesn't have the right length")
+            else:
+                prob = self.calc_cumulative_prob(coord)
+                return prob
 
     def graph_prob(self,t_step=None):
         """
         This function is a modified version of the image_plot function above.
         """
         try:
-            if t_step != None and t_step > self.up_to:
+            if t_step != None and t_step > self.up_to_all_probs:
                 print("Can't plot for a time step that doesn't exist")
             elif t_step == None:
                 plt.ion()
-                for i in xrange(self.up_to):
+                for i in xrange(self.up_to_all_probs):
                     self.image_plot(self.scale(self.total_prob[:,:,i]))
                     plt.show()
                     raw_input(">> ")
-            elif t_step != None and t_step >= 0 and t_step < self.up_to:
+            elif t_step != None and t_step >= 0 and t_step < self.up_to_all_probs:
                 self.image_plot(self.scale(self.total_prob[:,:,t_step]))
                 plt.show()
         except AttributeError:
             print("You didn't call the all_probs method")
 
 if __name__=="__main__":
-    up_to1 = 3
-    sentence = sentence_processor(write_to_file=False,sentence="I ate sandwiches") 
-    tagged = Sentence_Probability(filename, max_line=2000, write_to_file=False)
-    # print(tagged.blob_tagged_by_sentence)
-    prob = tagged.all_probs(up_to=up_to1,write_to_file=True)
-    cumu_prob = tagged.total_cumulative_prob(up_to=up_to1,write_to_file=True)
-    print(cumu_prob[10,10,10])
+    up_to1 = 7
+    sentence = sentence_processor(write_to_file=False,sentence="he ate food in the house today.") 
+    tagged = Sentence_Probability(filename, max_line=10000, write_to_file=False,load_tagged=True,load_tot_prob=True) 
+    # prob = tagged.all_probs(up_to=up_to1,write_to_file=True)
+    # cumu_prob = tagged.total_cumulative_prob(up_to=up_to1,write_to_file=True)
     print(tagged.calc_cumu_prob(sentence))
+
+    # print(tagged.calc_cumu_prob(sentence))
     # prob_list = prob['list']
     # cumu = tagged.total_cumulative_prob(up_to=3)
   
