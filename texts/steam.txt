@@ -1,0 +1,2630 @@
+THE EARLY HISTORY OF THE GENERATION AND USE OF STEAM
+
+
+While the time of man's first knowledge and use of the expansive force
+of the vapor of water is unknown, records show that such knowledge
+existed earlier than 150 B. C. In a treatise of about that time entitled
+"Pneumatica", Hero, of Alexander, described not only existing devices of
+his predecessors and contemporaries but also an invention of his own
+which utilized the expansive force of steam for raising water above its
+natural level. He clearly describes three methods in which steam might
+be used directly as a motive of power; raising water by its elasticity,
+elevating a weight by its expansive power and producing a rotary motion
+by its reaction on the atmosphere. The third method, which is known as
+"Hero's engine", is described as a hollow sphere supported over a
+caldron or boiler by two trunnions, one of which was hollow, and
+connected the interior of the sphere with the steam space of the
+caldron. Two pipes, open at the ends and bent at right angles, were
+inserted at opposite poles of the sphere, forming a connection between
+the caldron and the atmosphere. Heat being applied to the caldron, the
+steam generated passed through the hollow trunnion to the sphere and
+thence into the atmosphere through the two pipes. By the reaction
+incidental to its escape through these pipes, the sphere was caused to
+rotate and here is the primitive steam reaction turbine.
+
+Hero makes no suggestions as to application of any of the devices he
+describes to a useful purpose. From the time of Hero until the late
+sixteenth and early seventeenth centuries, there is no record of
+progress, though evidence is found that such devices as were described
+by Hero were sometimes used for trivial purposes, the blowing of an
+organ or the turning of a skillet.
+
+Mathesius, the German author, in 1571; Besson, a philosopher and
+mathematician at Orleans; Ramelli, in 1588; Battista Delia Porta, a
+Neapolitan mathematician and philosopher, in 1601; Decause, the French
+engineer and architect, in 1615; and Branca, an Italian architect, in
+1629, all published treatises bearing on the subject of the generation
+of steam.
+
+To the next contributor, Edward Somerset, second Marquis of Worcester,
+is apparently due the credit of proposing, if not of making, the first
+useful steam engine. In the "Century of Scantlings and Inventions",
+published in London in 1663, he describes devices showing that he had in
+mind the raising of water not only by forcing it from two receivers by
+direct steam pressure but also for some sort of reciprocating piston
+actuating one end of a lever, the other operating a pump. His
+descriptions are rather obscure and no drawings are extant so that it is
+difficult to say whether there were any distinctly novel features to his
+devices aside from the double action. While there is no direct authentic
+record that any of the devices he described were actually constructed,
+it is claimed by many that he really built and operated a steam engine
+containing pistons.
+
+In 1675, Sir Samuel Moreland was decorated by King Charles II, for a
+demonstration of "a certain powerful machine to raise water." Though
+there appears to be no record of the design of this machine, the
+mathematical dictionary, published in 1822, credits Moreland with the
+first account of a steam engine, on which subject he wrote a treatise
+that is still preserved in the British Museum.
+
+[Illustration: 397 Horse-power Babcock & Wilcox Boiler in Course of
+Erection at the Plant of the Crocker Wheeler Co., Ampere, N. J.]
+
+Dr. Denys Papin, an ingenious Frenchman, invented in 1680 "a steam
+digester for extracting marrowy, nourishing juices from bones by
+enclosing them in a boiler under heavy pressure," and finding danger
+from explosion, added a contrivance which is the first safety valve on
+record.
+
+The steam engine first became commercially successful with Thomas
+Savery. In 1699, Savery exhibited before the Royal Society of England
+(Sir Isaac Newton was President at the time), a model engine which
+consisted of two copper receivers alternately connected by a three-way
+hand-operated valve, with a boiler and a source of water supply. When
+the water in one receiver had been driven out by the steam, cold water
+was poured over its outside surface, creating a vacuum through
+condensation and causing it to fill again while the water in the other
+reservoir was being forced out. A number of machines were built on this
+principle and placed in actual use as mine pumps.
+
+The serious difficulty encountered in the use of Savery's engine was the
+fact that the height to which it could lift water was limited by the
+pressure the boiler and vessels could bear. Before Savery's engine was
+entirely displaced by its successor, Newcomen's, it was considerably
+improved by Desaguliers, who applied the Papin safety valve to the
+boiler and substituted condensation by a jet within the vessel for
+Savery's surface condensation.
+
+In 1690, Papin suggested that the condensation of steam should be
+employed to make a vacuum beneath a cylinder which had previously been
+raised by the expansion of steam. This was the earliest cylinder and
+piston steam engine and his plan took practical shape in Newcomen's
+atmospheric engine. Papin's first engine was unworkable owing to the
+fact that he used the same vessel for both boiler and cylinder. A small
+quantity of water was placed in the bottom of the vessel and heat was
+applied. When steam formed and raised the piston, the heat was withdrawn
+and the piston did work on its down stroke under pressure of the
+atmosphere. After hearing of Savery's engine, Papin developed an
+improved form. Papin's engine of 1705 consisted of a displacement
+chamber in which a floating diaphragm or piston on top of the water kept
+the steam and water from direct contact. The water delivered by the
+downward movement of the piston under pressure, to a closed tank, flowed
+in a continuous stream against the vanes of a water wheel. When the
+steam in the displacement chamber had expanded, it was exhausted to the
+atmosphere through a valve instead of being condensed. The engine was,
+in fact, a non-condensing, single action steam pump with the steam and
+pump cylinders in one. A curious feature of this engine was a heater
+placed in the diaphragm. This was a mass of heated metal for the purpose
+of keeping the steam dry or preventing condensation during expansion.
+This device might be called the first superheater.
+
+Among the various inventions attributed to Papin was a boiler with an
+internal fire box, the earliest record of such construction.
+
+While Papin had neglected his earlier suggestion of a steam and piston
+engine to work on Savery's ideas, Thomas Newcomen, with his assistant,
+John Cawley, put into practical form Papin's suggestion of 1690. Steam
+admitted from the boiler to a cylinder raised a piston by its expansion,
+assisted by a counter-weight on the other end of a beam actuated by the
+piston. The steam valve was then shut and the steam condensed by a jet
+of cold water. The piston was then forced downward by atmospheric
+pressure and did work on the pump. The condensed water in the cylinder
+was expelled through an escapement valve by the next entry of steam.
+This engine used steam having pressure but little, if any, above that of
+the atmosphere.
+
+[Illustration: Two Units of 8128 Horse Power of Babcock & Wilcox Boilers
+and Superheaters at the Fisk Street Station of the Commonwealth Edison
+Co., Chicago, Ill., 50,400 Horse Power being Installed in this Station.
+The Commonwealth Edison Co. Operates in its Various Stations a Total of
+86,000 Horse Power of Babcock & Wilcox Boilers, all Fitted with Babcock
+& Wilcox Superheaters and Equipped with Babcock & Wilcox Chain Grate
+Stokers]
+
+In 1711, this engine was introduced into mines for pumping purposes.
+Whether its action was originally automatic or whether dependent upon
+the hand operation of the valves is a question of doubt. The story
+commonly believed is that a boy, Humphrey Potter, in 1713, whose duty it
+was to open and shut such valves of an engine he attended, by suitable
+cords and catches attached to the beam, caused the engine to
+automatically manipulate these valves. This device was simplified in
+1718 by Henry Beighton, who suspended from the bottom, a rod called the
+plug-tree, which actuated the valve by tappets. By 1725, this engine was
+in common use in the collieries and was changed but little for a matter
+of sixty or seventy years. Compared with Savery's engine, from the
+aspect of a pumping engine, Newcomen's was a distinct advance, in that
+the pressure in the pumps was in no manner dependent upon the steam
+pressure. In common with Savery's engine, the losses from the alternate
+heating and cooling of the steam cylinder were enormous. Though
+obviously this engine might have been modified to serve many purposes,
+its use seems to have been limited almost entirely to the pumping of
+water.
+
+The rivalry between Savery and Papin appears to have stimulated
+attention to the question of fuel saving. Dr. John Allen, in 1730,
+called attention to the fact that owing to the short length of time of
+the contact between the gases and the heating surfaces of the boiler,
+nearly half of the heat of the fire was lost. With a view to overcoming
+this loss at least partially, he used an internal furnace with a smoke
+flue winding through the water in the form of a worm in a still. In
+order that the length of passage of the gases might not act as a damper
+on the fire, Dr. Allen recommended the use of a pair of bellows for
+forcing the sluggish vapor through the flue. This is probably the first
+suggested use of forced draft. In forming an estimate of the quantity of
+fuel lost up the stack, Dr. Allen probably made the first boiler test.
+
+Toward the end of the period of use of Newcomen's atmospheric engine,
+John Smeaton, who, about 1770, built and installed a number of large
+engines of this type, greatly improved the design in its mechanical
+details.
+
+[Illustration: Erie County Electric Co., Erie, Pa., Operating 3082 Horse
+Power of Babcock & Wilcox Boilers and Superheaters, Equipped with
+Babcock & Wilcox Chain Grate Stokers]
+
+The improvement in boiler and engine design of Smeaton, Newcomen and
+their contemporaries, were followed by those of the great engineer,
+James Watt, an instrument maker of Glasgow. In 1763, while repairing a
+model of Newcomen's engine, he was impressed by the great waste of steam
+to which the alternating cooling and heating of the engine gave rise.
+His remedy was the maintaining of the cylinder as hot as the entering
+steam and with this in view he added a vessel separate from the
+cylinder, into which the steam should pass from the cylinder and be
+there condensed either by the application of cold water outside or by a
+jet from within. To preserve a vacuum in his condenser, he added an air
+pump which should serve to remove the water of condensation and air
+brought in with the injection water or due to leakage. As the cylinder
+no longer acted as a condenser, he could maintain it at a high
+temperature by covering it with non-conducting material and, in
+particular, by the use of a steam jacket. Further and with the same
+object in view, he covered the top of the cylinder and introduced steam
+above the piston to do the work previously accomplished by atmospheric
+pressure. After several trials with an experimental apparatus based on
+these ideas, Watt patented his improvements in 1769. Aside from their
+historical importance, Watt's improvements, as described in his
+specification, are to this day a statement of the principles which guide
+the scientific development of the steam engine. His words are:
+
+    "My method of lessening the consumption of steam, and
+    consequently fuel, in fire engines, consists of the following
+    principles:
+
+    "First, That vessel in which the powers of steam are to be
+    employed to work the engine, which is called the cylinder in
+    common fire engines, and which I call the steam vessel, must,
+    during the whole time the engine is at work, be kept as hot as
+    the steam that enters it; first, by enclosing it in a case of
+    wood, or any other materials that transmit heat slowly;
+    secondly, by surrounding it with steam or other heated bodies;
+    and, thirdly, by suffering neither water nor any other substance
+    colder than the steam to enter or touch it during that time.
+
+    "Secondly, In engines that are to be worked wholly or partially
+    by condensation of steam, the steam is to be condensed in
+    vessels distinct from the steam vessels or cylinders, although
+    occasionally communicating with them; these vessels I call
+    condensers; and, whilst the engines are working, these
+    condensers ought at least to be kept as cold as the air in the
+    neighborhood of the engines, by application of water or other
+    cold bodies.
+
+    "Thirdly, Whatever air or other elastic vapor is not condensed
+    by the cold of the condenser, and may impede the working of the
+    engine, is to be drawn out of the steam vessels or condensers by
+    means of pumps, wrought by the engines themselves, or otherwise.
+
+    "Fourthly, I intend in many cases to employ the expansive force
+    of steam to press on the pistons, or whatever may be used
+    instead of them, in the same manner in which the pressure of the
+    atmosphere is now employed in common fire engines. In cases
+    where cold water cannot be had in plenty, the engines may be
+    wrought by this force of steam only, by discharging the steam
+    into the air after it has done its office....
+
+    "Sixthly, I intend in some cases to apply a degree of cold not
+    capable of reducing the steam to water, but of contracting it
+    considerably, so that the engines shall be worked by the
+    alternate expansion and contraction of the steam.
+
+    "Lastly, Instead of using water to render the pistons and other
+    parts of the engine air and steam tight, I employ oils, wax,
+    resinous bodies, fat of animals, quick-silver and other metals
+    in their fluid state."
+
+The fifth claim was for a rotary engine, and need not be quoted here.
+
+The early efforts of Watt are typical of those of the poor inventor
+struggling with insufficient resources to gain recognition and it was
+not until he became associated with the wealthy manufacturer, Mattheu
+Boulton of Birmingham, that he met with the success upon which his
+present fame is based. In partnership with Boulton, the business of the
+manufacture and the sale of his engines were highly successful in spite
+of vigorous attacks on the validity of his patents.
+
+Though the fourth claim of Watt's patent describes a non-condensing
+engine which would require high pressures, his aversion to such practice
+was strong. Notwithstanding his entire knowledge of the advantages
+through added expansion under high pressure, he continued to use
+pressures not above 7 pounds per square inch above the atmosphere. To
+overcome such pressures, his boilers were fed through a stand-pipe of
+sufficient height to have the column of water offset the pressure within
+the boiler. Watt's attitude toward high pressure made his influence felt
+long after his patents had expired.
+
+[Illustration: Portion of 9600 Horse-power Installation of Babcock &
+Wilcox Boilers and Superheaters, Equipped with Babcock & Wilcox Chain
+Grate Stokers at the Blue Island, Ill., Plant of the Public Service Co.
+of Northern Illinois. This Company Operates 14,580 Horse Power of
+Babcock & Wilcox Boilers and Superheaters in its Various Stations]
+
+In 1782, Watt patented two other features which he had invented as early
+as 1769. These were the double acting engine, that is, the use of steam
+on both sides of the piston and the use of steam expansively, that is,
+the shutting off of steam from the cylinder when the piston had made but
+a portion of its stroke, the power for the completion of the stroke
+being supplied by the expansive force of the steam already admitted.
+
+He further added a throttle valve for the regulation of steam admission,
+invented the automatic governor and the steam indicator, a mercury steam
+gauge and a glass water column.
+
+It has been the object of this brief history of the early developments
+in the use of steam to cover such developments only through the time of
+James Watt. The progress of the steam engine from this time through the
+stages of higher pressures, combining of cylinders, the application of
+steam vehicles and steamboats, the adding of third and fourth cylinders,
+to the invention of the turbine with its development and the
+accompanying development of the reciprocating engine to hold its place,
+is one long attribute to the inventive genius of man.
+
+While little is said in the biographies of Watt as to the improvement of
+steam boilers, all the evidence indicates that Boulton and Watt
+introduced the first "wagon boiler", so called because of its shape. In
+1785, Watt took out a number of patents for variations in furnace
+construction, many of which contain the basic principles of some of the
+modern smoke preventing furnaces. Until the early part of the nineteenth
+century, the low steam pressures used caused but little attention to be
+given to the form of the boiler operated in connection with the engines
+above described. About 1800, Richard Trevithick, in England, and Oliver
+Evans, in America, introduced non-condensing, and for that time, high
+pressure steam engines. To the initiative of Evans may be attributed the
+general use of high pressure steam in the United States, a feature which
+for many years distinguished American from European practice. The demand
+for light weight and economy of space following the beginning of steam
+navigation and the invention of the locomotive required boilers designed
+and constructed to withstand heavier pressures and forced the adoption
+of the cylindrical form of boiler. There are in use to-day many examples
+of every step in the development of steam boilers from the first plain
+cylindrical boiler to the most modern type of multi-tubular locomotive
+boiler, which stands as the highest type of fire-tube boiler
+construction.
+
+The early attempts to utilize water-tube boilers were few. A brief
+history of the development of the boilers, in which this principle was
+employed, is given in the following chapter. From this history it will
+be clearly indicated that the first commercially successful utilization
+of water tubes in a steam generator is properly attributed to George H.
+Babcock and Stephen Wilcox.
+
+[Illustration: Copyright by Underwood & Underwood
+
+Woolworth Building, New York City, Operating 2454 Horse Power of
+Babcock & Wilcox Boilers]
+
+
+
+
+BRIEF HISTORY OF WATER-TUBE BOILERS[1]
+
+
+As stated in the previous chapter, the first water-tube boiler was built
+by John Blakey and was patented by him in 1766. Several tubes
+alternately inclined at opposite angles were arranged in the furnaces,
+the adjacent tube ends being connected by small pipes. The first
+successful user of water-tube boilers, however, was James Rumsey, an
+American inventor, celebrated for his early experiments in steam
+navigation, and it is he who may be truly classed as the originator of
+the water-tube boiler. In 1788 he patented, in England, several forms of
+boilers, some of which were of the water-tube type. One had a fire box
+with flat top and sides, with horizontal tubes across the fire box
+connecting the water spaces. Another had a cylindrical fire box
+surrounded by an annular water space and a coiled tube was placed within
+the box connecting at its two ends with the water space. This was the
+first of the "coil boilers". Another form in the same patent was the
+vertical tubular boiler, practically as made at the present time.
+
+[Illustration: Blakey, 1766]
+
+The first boiler made of a combination of small tubes, connected at one
+end to a reservoir, was the invention of another American, John Stevens,
+in 1804. This boiler was actually employed to generate steam for running
+a steamboat on the Hudson River, but like all the "porcupine" boilers,
+of which type it was the first, it did not have the elements of a
+continued success.
+
+[Illustration: John Stevens, 1804]
+
+Another form of water tube was patented in 1805 by John Cox Stevens, a
+son of John Stevens. This boiler consisted of twenty vertical tubes, 1¼
+inches internal diameter and 40½ inches long, arranged in a circle, the
+outside diameter of which was approximately 12 inches, connecting a
+water chamber at the bottom with a steam chamber at the top. The steam
+and water chambers were annular spaces of small cross section and
+contained approximately 33 cubic inches. The illustration shows the cap
+of the steam chamber secured by bolts. The steam outlet pipe "A" is a
+pipe of one inch diameter, the water entering through a similar aperture
+at the bottom. One of these boilers was for a long time at the Stevens
+Institute of Technology at Hoboken, and is now in the Smithsonian
+Institute at Washington.
+
+[Illustration: John Cox Stevens, 1805]
+
+About the same time, Jacob Woolf built a boiler of large horizontal
+tubes, extending across the furnace and connected at the ends to a
+longitudinal drum above. The first purely sectional water-tube boiler
+was built by Julius Griffith, in 1821. In this boiler, a number of
+horizontal water tubes were connected to vertical side pipes, the side
+pipes were connected to horizontal gathering pipes, and these latter in
+turn to a steam drum.
+
+In 1822, Jacob Perkins constructed a flash boiler for carrying what was
+then considered a high pressure. A number of cast-iron bars having 1½
+inches annular holes through them and connected at their outer ends by a
+series of bent pipes, outside of the furnace walls, were arranged in
+three tiers over the fire. The water was fed slowly to the upper tier by
+a force pump and steam in the superheated state was discharged to the
+lower tiers into a chamber from which it was taken to the engine.
+
+[Illustration: Joseph Eve, 1825]
+
+The first sectional water-tube boiler, with a well-defined circulation,
+was built by Joseph Eve, in 1825. The sections were composed of small
+tubes with a slight double curve, but being practically vertical, fixed
+in horizontal headers, which headers were in turn connected to a steam
+space above and a water space below formed of larger pipes. The steam
+and water spaces were connected by outside pipes to secure a circulation
+of the water up through the sections and down through the external
+pipes. In the same year, John M'Curdy of New York, built a "Duplex Steam
+Generator" of "tubes of wrought or cast iron or other material" arranged
+in several horizontal rows, connected together alternately at the front
+and rear by return bends. In the tubes below the water line were placed
+interior circular vessels closed at the ends in order to expose a thin
+sheet of water to the action of the fire.
+
+[Illustration: Gurney, 1826]
+
+In 1826, Goldsworthy Gurney built a number of boilers, which he used on
+his steam carriages. A number of small tubes were bent into the shape of
+a "U" laid sidewise and the ends were connected with larger horizontal
+pipes. These were connected by vertical pipes to permit of circulation
+and also to a vertical cylinder which served as a steam and water
+reservoir. In 1828, Paul Steenstrup made the first shell boiler with
+vertical water tubes in the large flues, similar to the boiler known as
+the "Martin" and suggesting the "Galloway".
+
+The first water-tube boiler having fire tubes within water tubes was
+built in 1830, by Summers & Ogle. Horizontal connections at the top and
+bottom were connected by a series of vertical water tubes, through which
+were fire tubes extending through the horizontal connections, the fire
+tubes being held in place by nuts, which also served to make the joint.
+
+[Illustration: Stephen Wilcox, 1856]
+
+Stephen Wilcox, in 1856, was the first to use inclined water tubes
+connecting water spaces at the front and rear with a steam space above.
+The first to make such inclined tubes into a sectional form was Twibill,
+in 1865. He used wrought-iron tubes connected at the front and rear with
+standpipes through intermediate connections. These standpipes carried
+the system to a horizontal cross drum at the top, the entrained water
+being carried to the rear.
+
+Clarke, Moore, McDowell, Alban and others worked on the problem of
+constructing water-tube boilers, but because of difficulties of
+construction involved, met with no practical success.
+
+[Illustration: Twibill, 1865]
+
+It may be asked why water-tube boilers did not come into more general
+use at an early date, that is, why the number of water-tube boilers
+built was so small in comparison to the number of shell boilers. The
+reason for this is found in the difficulties involved in the design and
+construction of water-tube boilers, which design and construction
+required a high class of engineering and workmanship, while the plain
+cylindrical boiler is comparatively easy to build. The greater skill
+required to make a water-tube boiler successful is readily shown in the
+great number of failures in the attempts to make them.
+
+[Illustration: Partial View of 7000 Horse-power Installation of Babcock
+& Wilcox Boilers at the Philadelphia, Pa., Plant of the Baldwin
+Locomotive Works. This Company Operates in its Various Plants a Total of
+9280 Horse Power of Babcock & Wilcox Boilers]
+
+
+
+
+REQUIREMENTS OF STEAM BOILERS
+
+
+Since the first appearance in "Steam" of the following "Requirements of
+a Perfect Steam Boiler", the list has been copied many times either word
+for word or clothed in different language and applied to some specific
+type of boiler design or construction. In most cases, although full
+compliance with one or more of the requirements was structurally
+impossible, the reader was left to infer that the boiler under
+consideration possessed all the desirable features. It is noteworthy
+that this list of requirements, as prepared by George H. Babcock and
+Stephen Wilcox, in 1875, represents the best practice of to-day.
+Moreover, coupled with the boiler itself, which is used in the largest
+and most important steam generating plants throughout the world, the
+list forms a fitting monument to the foresight and genius of the
+inventors.
+
+
+
+REQUIREMENTS OF A PERFECT STEAM BOILER
+
+
+1st. Proper workmanship and simple construction, using materials which
+experience has shown to be the best, thus avoiding the necessity of
+early repairs.
+
+
+2nd. A mud drum to receive all impurities deposited from the water, and
+so placed as to be removed from the action of the fire.
+
+
+3rd. A steam and water capacity sufficient to prevent any fluctuation in
+steam pressure or water level.
+
+
+4th. A water surface for the disengagement of the steam from the water,
+of sufficient extent to prevent foaming.
+
+
+5th. A constant and thorough circulation of water throughout the boiler,
+so as to maintain all parts at the same temperature.
+
+
+6th. The water space divided into sections so arranged that, should any
+section fail, no general explosion can occur and the destructive effects
+will be confined to the escape of the contents. Large and free passages
+between the different sections to equalize the water line and pressure
+in all.
+
+
+7th. A great excess of strength over any legitimate strain, the boiler
+being so constructed as to be free from strains due to unequal
+expansion, and, if possible, to avoid joints exposed to the direct
+action of the fire.
+
+
+8th. A combustion chamber so arranged that the combustion of the gases
+started in the furnace may be completed before the gases escape to the
+chimney.
+
+
+9th. The heating surface as nearly as possible at right angles to the
+currents of heated gases, so as to break up the currents and extract the
+entire available heat from the gases.
+
+
+10th. All parts readily accessible for cleaning and repairs. This is a
+point of the greatest importance as regards safety and economy.
+
+
+11th. Proportioned for the work to be done, and capable of working to
+its full rated capacity with the highest economy.
+
+
+12th. Equipped with the very best gauges, safety valves and other
+fixtures.
+
+
+The exhaustive study made of each one of these requirements is shown by
+the following extract from a lecture delivered by Mr. Geo. H. Babcock at
+Cornell University in 1890 upon the subject:
+
+
+
+THE CIRCULATION OF WATER IN STEAM BOILERS
+
+
+You have all noticed a kettle of water boiling over the fire, the fluid
+rising somewhat tumultuously around the edges of the vessel, and
+tumbling toward the center, where it descends. Similar currents are in
+action while the water is simply being heated, but they are not
+perceptible unless there are floating particles in the liquid. These
+currents are caused by the joint action of the added temperature and two
+or more qualities which the water possesses.
+
+1st. Water, in common with most other substances, expands when heated; a
+statement, however, strictly true only when referred to a temperature
+above 39 degrees F. or 4 degrees C., but as in the making of steam we
+rarely have to do with temperatures so low as that, we may, for our
+present purposes, ignore that exception.
+
+2nd. Water is practically a non-conductor of heat, though not entirely
+so. If ice-cold water was kept boiling at the surface the heat would not
+penetrate sufficiently to begin melting ice at a depth of 3 inches in
+less than about two hours. As, therefore, the heated water cannot impart
+its heat to its neighboring particles, it remains expanded and rises by
+its levity, while colder portions come to be heated in turn, thus
+setting up currents in the fluid.
+
+Now, when all the water has been heated to the boiling point
+corresponding to the pressure to which it is subjected, each added unit
+of heat converts a portion, about 7 grains in weight, into vapor,
+greatly increasing its volume; and the mingled steam and water rises
+more rapidly still, producing ebullition such as we have noticed in the
+kettle. So long as the quantity of heat added to the contents of the
+kettle continues practically constant, the conditions remain similar to
+those we noticed at first, a tumultuous lifting of the water around the
+edges, flowing toward the center and thence downward; if, however, the
+fire be quickened, the upward currents interfere with the downward and
+the kettle boils over (Fig. 1).
+
+[Illustration: Fig. 1]
+
+If now we put in the kettle a vessel somewhat smaller (Fig. 2) with a
+hole in the bottom and supported at a proper distance from the side so
+as to separate the upward from the downward currents, we can force the
+fires to a very much greater extent without causing the kettle to boil
+over, and when we place a deflecting plate so as to guide the rising
+column toward the center it will be almost impossible to produce that
+effect. This is the invention of Perkins in 1831 and forms the basis of
+very many of the arrangements for producing free circulation of the
+water in boilers which have been made since that time. It consists in
+dividing the currents so that they will not interfere each with the
+other.
+
+[Illustration: Fig. 2]
+
+But what is the object of facilitating the circulation of water in
+boilers? Why may we not safely leave this to the unassisted action of
+nature as we do in culinary operations? We may, if we do not care for
+the three most important aims in steam-boiler construction, namely,
+efficiency, durability, and safety, each of which is more or less
+dependent upon a proper circulation of the water. As for efficiency, we
+have seen one proof in our kettle. When we provided means to preserve
+the circulation, we found that we could carry a hotter fire and boil
+away the water much more rapidly than before. It is the same in a steam
+boiler. And we also noticed that when there was nothing but the
+unassisted circulation, the rising steam carried away so much water in
+the form of foam that the kettle boiled over, but when the currents were
+separated and an unimpeded circuit was established, this ceased, and a
+much larger supply of steam was delivered in a comparatively dry state.
+Thus, circulation increases the efficiency in two ways: it adds to the
+ability to take up the heat, and decreases the liability to waste that
+heat by what is technically known as priming. There is yet another way
+in which, incidentally, circulation increases efficiency of surface, and
+that is by preventing in a greater or less degree the formation of
+deposits thereon. Most waters contain some impurity which, when the
+water is evaporated, remains to incrust the surface of the vessel. This
+incrustation becomes very serious sometimes, so much so as to almost
+entirely prevent the transmission of heat from the metal to the water.
+It is said that an incrustation of only one-eighth inch will cause a
+loss of 25 per cent in efficiency, and this is probably within the truth
+in many cases. Circulation of water will not prevent incrustation
+altogether, but it lessens the amount in all waters, and almost entirely
+so in some, thus adding greatly to the efficiency of the surface.
+
+[Illustration: Fig. 3]
+
+A second advantage to be obtained through circulation is durability of
+the boiler. This it secures mainly by keeping all parts at a nearly
+uniform temperature. The way to secure the greatest freedom from unequal
+strains in a boiler is to provide for such a circulation of the water as
+will insure the same temperature in all parts.
+
+3rd. Safety follows in the wake of durability, because a boiler which is
+not subject to unequal strains of expansion and contraction is not only
+less liable to ordinary repairs, but also to rupture and disastrous
+explosion. By far the most prolific cause of explosions is this same
+strain from unequal expansions.
+
+[Illustration: Fig. 4]
+
+[Illustration: 386 Horse-power Installation of Babcock & Wilcox Boilers
+at B. F. Keith's Theatre, Boston, Mass.]
+
+Having thus briefly looked at the advantages of circulation of water in
+steam boilers, let us see what are the best means of securing it under
+the most efficient conditions We have seen in our kettle that one
+essential point was that the currents should be kept from interfering
+with each other. If we could look into an ordinary return tubular boiler
+when steaming, we should see a curious commotion of currents rushing
+hither and thither, and shifting continually as one or the other
+contending force gained a momentary mastery. The principal upward
+currents would be found at the two ends, one over the fire and the other
+over the first foot or so of the tubes. Between these, the downward
+currents struggle against the rising currents of steam and water. At a
+sudden demand for steam, or on the lifting of the safety valve, the
+pressure being slightly reduced, the water jumps up in jets at every
+portion of the surface, being lifted by the sudden generation of steam
+throughout the body of water. You have seen the effect of this sudden
+generation of steam in the well-known experiment with a Florence flask,
+to which a cold application is made while boiling water under pressure
+is within. You have also witnessed the geyser-like action when water is
+boiled in a test tube held vertically over a lamp (Fig. 3).
+
+[Illustration: Fig. 5]
+
+If now we take a U-tube depending from a vessel of water (Fig. 4) and
+apply the lamp to one leg a circulation is at once set up within it, and
+no such spasmodic action can be produced. Thus U-tube is the
+representative of the true method of circulation within a water-tube
+boiler properly constructed. We can, for the purpose of securing more
+heating surface, extend the heated leg into a long incline (Fig. 5),
+when we have the well-known inclined-tube generator. Now, by adding
+other tubes, we may further increase the heating surface (Fig. 6), while
+it will still be the U-tube in effect and action. In such a construction
+the circulation is a function of the difference in density of the two
+columns. Its velocity is measured by the well-known Torricellian
+formula, V = (2gh)^{½}, or, approximately V = 8(h)^{½}, h being measured
+in terms of the lighter fluid. This velocity will increase until the
+rising column becomes all steam, but the quantity or weight circulated
+will attain a maximum when the density of the mingled steam and water in
+the rising column becomes one-half that of the solid water in the
+descending column which is nearly coincident with the condition of half
+steam and half water, the weight of the steam being very slight compared
+to that of the water.
+
+[Illustration: Fig. 6]
+
+It becomes easy by this rule to determine the circulation in any given
+boiler built on this principle, provided the construction is such as to
+permit a free flow of the water. Of course, every bend detracts a little
+and something is lost in getting up the velocity, but when the boiler is
+well arranged and proportioned these retardations are slight.
+
+Let us take for example one of the 240 horse-power Babcock & Wilcox
+boilers here in the University. The height of the columns may be taken
+as 4½ feet, measuring from the surface of the water to about the center
+of the bundle of tubes over the fire, and the head would be equal to
+this height at the maximum of circulation. We should, therefore, have a
+velocity of 8(4½)^{½} = 16.97, say 17 feet per second. There are in this
+boiler fourteen sections, each having a 4-inch tube opening into the
+drum, the area of which (inside) is 11 square inches, the fourteen
+aggregating 154 square inches, or 1.07 square feet. This multiplied by
+the velocity, 16.97 feet, gives 18.16 cubic feet mingled steam and water
+discharged per second, one-half of which, or 9.08 cubic feet, is steam.
+Assuming this steam to be at 100 pounds gauge pressure, it will weigh
+0.258 pound per cubic foot. Hence, 2.34 pounds of steam will be
+discharged per second, and 8,433 pounds per hour. Dividing this by 30,
+the number of pounds representing a boiler horse power, we get 281.1
+horse power, about 17 per cent, in excess of the rated power of the
+boiler. The water at the temperature of steam at 100 pounds pressure
+weighs 56 pounds per cubic foot, and the steam 0.258 pound, so that the
+steam forms but 1/218 part of the mixture by weight, and consequently
+each particle of water will make 218 circuits before being evaporated
+when working at this capacity, and circulating the maximum weight of
+water through the tubes.
+
+[Illustration: A Portion of 9600 Horse-power Installation of Babcock &
+Wilcox Boilers and Superheaters Being Erected at the South Boston,
+Mass., Station of the Boston Elevated Railway Co. This Company Operates
+in its Various Stations a Total of 46,400 Horse Power of Babcock &
+Wilcox Boilers]
+
+[Illustration: Fig. 7]
+
+It is evident that at the highest possible velocity of exit from the
+generating tubes, nothing but steam will be delivered and there will be
+no circulation of water except to supply the place of that evaporated.
+Let us see at what rate of steaming this would occur with the boiler
+under consideration. We shall have a column of steam, say 4 feet high on
+one side and an equal column of water on the other. Assuming, as before,
+the steam at 100 pounds and the water at same temperature, we will have
+a head of 866 feet of steam and an issuing velocity of 235.5 feet per
+second. This multiplied by 1.07 square feet of opening by 3,600 seconds
+in an hour, and by 0.258 gives 234,043 pounds of steam, which, though
+only one-eighth the weight of mingled steam and water delivered at the
+maximum, gives us 7,801 horse power, or 32 times the rated power of the
+boiler. Of course, this is far beyond any possibility of attainment, so
+that it may be set down as certain that this boiler cannot be forced to
+a point where there will not be an efficient circulation of the water.
+By the same method of calculation it may be shown that when forced to
+double its rated power, a point rarely expected to be reached in
+practice, about two-thirds the volume of mixture of steam and water
+delivered into the drum will be steam, and that the water will make 110
+circuits while being evaporated. Also that when worked at only about
+one-quarter its rated capacity, one-fifth of the volume will be steam
+and the water will make the rounds 870 times before it becomes steam.
+You will thus see that in the proportions adopted in this boiler there
+is provision for perfect circulation under all the possible conditions
+of practice.
+
+[Illustration: Fig. 8 [Developed to show Circulation]]
+
+In designing boilers of this style it is necessary to guard against
+having the uptake at the upper end of the tubes too large, for if
+sufficiently large to allow downward currents therein, the whole effect
+of the rising column in increasing the circulation in the tubes is
+nullified (Fig. 7). This will readily be seen if we consider the uptake
+very large when the only head producing circulation in the tubes will be
+that due to the inclination of each tube taken by itself. This objection
+is only overcome when the uptake is so small as to be entirely filled
+with the ascending current of mingled steam and water. It is also
+necessary that this uptake should be practically direct, and it should
+not be composed of frequent enlargements and contractions. Take, for
+instance, a boiler well known in Europe, copied and sold here under
+another name. It is made up of inclined tubes secured by pairs into
+boxes at the ends, which boxes are made to communicate with each other
+by return bends opposite the ends of the tubes. These boxes and return
+bends form an irregular uptake, whereby the steam is expected to rise to
+a reservoir above. You will notice (Fig. 8) that the upward current of
+steam and water in the return bend meets and directly antagonizes the
+upward current in the adjoining tube. Only one result can follow. If
+their velocities are equal, the momentum of both will be neutralized and
+all circulation stopped, or, if one be stronger, it will cause a back
+flow in the other by the amount of difference in force, with practically
+the same result.
+
+[Illustration: 4880 Horse-power Installation of Babcock & Wilcox Boilers
+at the Open Hearth Plant of the Cambria Steel Co., Johnstown, Pa. This
+Company Operates a Total of 52,000 Horse Power of Babcock & Wilcox
+Boilers]
+
+[Illustration: Fig. 9]
+
+In a well-known boiler, many of which were sold, but of which none are
+now made and a very few are still in use, the inventor claimed that the
+return bends and small openings against the tubes were for the purpose
+of "restricting the circulation" and no doubt they performed well that
+office; but excepting for the smallness of the openings they were not as
+efficient for that purpose as the arrangement shown in Fig. 8.
+
+[Illustration: Fig. 10]
+
+Another form of boiler, first invented by Clarke or Crawford, and lately
+revived, has the uptake made of boxes into which a number, generally
+from two to four tubes, are expanded, the boxes being connected together
+by nipples (Fig. 9). It is a well-known fact that where a fluid flows
+through a conduit which enlarges and then contracts, the velocity is
+lost to a greater or less extent at the enlargements, and has to be
+gotten up again at the contractions each time, with a corresponding loss
+of head. The same thing occurs in the construction shown in Fig. 9. The
+enlargements and contractions quite destroy the head and practically
+overcome the tendency of the water to circulate.
+
+A horizontal tube stopped at one end, as shown in Fig. 10, can have no
+proper circulation within it. If moderately driven, the water may
+struggle in against the issuing steam sufficiently to keep the surface
+covered, but a slight degree of forcing will cause it to act like the
+test tube in Fig. 3, and the more there are of them in a given boiler
+the more spasmodic will be its working.
+
+The experiment with our kettle (Fig. 2) gives the clue to the best means
+of promoting circulation in ordinary shell boilers. Steenstrup or
+"Martin" and "Galloway" water tubes placed in such boilers also assist
+in directing the circulation therein, but it is almost impossible to
+produce in shell boilers, by any means the circulation of all the water
+in one continuous round, such as marks the well-constructed water-tube
+boiler.
+
+As I have before remarked, provision for a proper circulation of water
+has been almost universally ignored in designing steam boilers,
+sometimes to the great damage of the owner, but oftener to the jeopardy
+of the lives of those who are employed to run them. The noted case of
+the Montana and her sister ship, where some $300,000 was thrown away in
+trying an experiment which a proper consideration of this subject would
+have avoided, is a case in point; but who shall count the cost of life
+and treasure not, perhaps, directly traceable to, but, nevertheless, due
+entirely to such neglect in design and construction of the thousands of
+boilers in which this necessary element has been ignored?
+
+
+In the light of the performance of the exacting conditions of present
+day power-plant practice, a review of this lecture and of the foregoing
+list of requirements reveals the insight of the inventors of the Babcock
+& Wilcox boiler into the fundamental principles of steam generator
+design and construction.
+
+Since the Babcock & Wilcox boiler became thoroughly established as a
+durable and efficient steam generator, many types of water-tube boilers
+have appeared on the market. Most of them, failing to meet enough of the
+requirements of a perfect boiler, have fallen by the wayside, while a
+few failing to meet all of the requirements, have only a limited field
+of usefulness. None have been superior, and in the most cases the most
+ardent admirers of other boilers have been satisfied in looking up to
+the Babcock & Wilcox boiler as a standard and in claiming that the newer
+boilers were "just as good."
+
+Records of recent performances under the most severe conditions of
+services on land and sea, show that the Babcock & Wilcox boiler can be
+run continually and regularly at higher overloads, with higher
+efficiency, and lower upkeep cost than any other boiler on the market.
+It is especially adapted for power-plant work where it is necessary to
+use a boiler in which steam can be raised quickly and the boiler placed
+on the line either from a cold state or from a banked fire in the
+shortest possible time, and with which the capacity, with clean feed
+water, will be largely limited by the amount of coal that can be burned
+in the furnace.
+
+The distribution of the circulation through the separate headers and
+sections and the action of the headers in forcing a maximum and
+continuous circulation in the lower tubes, permit the operation of the
+Babcock & Wilcox boiler without objectionable priming, with a higher
+degree of concentration of salts in the water than is possible in any
+other type of boiler.
+
+Repeated daily performances at overloads have demonstrated beyond a
+doubt the correctness of Mr. Babcock's computation regarding the
+circulating tube and header area required for most efficient
+circulation. They also have proved that enlargement of the area of
+headers and circulating tubes beyond a certain point diminishes the head
+available for causing circulation and consequently limits the ability of
+the boiler to respond to demands for overloads.
+
+In this lecture Mr. Babcock made the prediction that with the
+circulating tube area proportioned in accordance with the principles
+laid down, the Babcock & Wilcox boiler could be continuously run at
+double its nominal rating, which at that time was based on 12 square
+feet of heating surface per horse power. This prediction is being
+fulfilled daily in all the large and prominent power plants in this
+country and abroad, and it has been repeatedly demonstrated that with
+clean water and clean tube surfaces it is possible to safely operate at
+over 300 per cent of the nominal rating.
+
+In the development of electrical power stations it becomes more and more
+apparent that it is economical to run a boiler at high ratings during
+the times of peak loads, as by so doing the lay-over losses are
+diminished and the economy of the plant as a whole is increased.
+
+The number and importance of the large electric lighting and power
+stations constructed during the last ten years that are equipped with
+Babcock & Wilcox boilers, is a most gratifying demonstration of the
+merit of the apparatus, especially in view of their satisfactory
+operation under conditions which are perhaps more exacting than those of
+any other service.
+
+Time, the test of all, results with boilers as with other things, in the
+survival of the fittest. When judged on this basis the Babcock & Wilcox
+boiler stands pre-eminent in its ability to cover the whole field of
+steam generation with the highest commercial efficiency obtainable. Year
+after year the Babcock & Wilcox boiler has become more firmly
+established as the standard of excellence in the boiler making art.
+
+[Illustration: South Boston Station of the Boston Elevated Ry. Co.,
+Boston, Mass. 9600 Horse Power of Babcock & Wilcox Boilers and
+Superheaters Installed in this Station]
+
+[Illustration: 3600 Horse-power Installation of Babcock & Wilcox Boilers
+at the Phipps Power House of the Duquesne Light Company, Pittsburgh,
+Pa.]
+
+
+
+
+EVOLUTION OF THE BABCOCK & WILCOX WATER-TUBE BOILER
+
+
+Quite as much may be learned from the records of failures as from those
+of success. Where a device has been once fairly tried and found to be
+imperfect or impracticable, the knowledge of that trial is of advantage
+in further investigation. Regardless of the lesson taught by failure,
+however, it is an almost every-day occurrence that some device or
+construction which has been tried and found wanting, if not worthless,
+is again introduced as a great improvement upon a device which has shown
+by its survival to be the fittest.
+
+The success of the Babcock & Wilcox boiler is due to many years of
+constant adherence to one line of research, in which an endeavor has
+been made to introduce improvements with the view to producing a boiler
+which would most effectively meet the demands of the times. During the
+periods that this boiler has been built, other companies have placed on
+the market more than thirty water-tube or sectional water-tube boilers,
+most of which, though they may have attained some distinction and sale,
+have now entirely disappeared. The following incomplete list will serve
+to recall the names of some of the boilers that have had a vogue at
+various times, but which are now practically unknown: Dimpfel, Howard,
+Griffith & Wundrum, Dinsmore, Miller "Fire Box", Miller "American",
+Miller "Internal Tube", Miller "Inclined Tube", Phleger, Weigant, the
+Lady Verner, the Allen, the Kelly, the Anderson, the Rogers & Black, the
+Eclipse or Kilgore, the Moore, the Baker & Smith, the Renshaw, the
+Shackleton, the "Duplex", the Pond & Bradford, the Whittingham, the
+Bee, the Hazleton or "Common Sense", the Reynolds, the Suplee or Luder,
+the Babbit, the Reed, the Smith, the Standard, etc., etc.
+
+It is with the object of protecting our customers and friends from loss
+through purchasing discarded ideas that there is given on the following
+pages a brief history of the development of the Babcock & Wilcox boiler
+as it is built to-day. The illustrations and brief descriptions indicate
+clearly the various designs and constructions that have been used and
+that have been replaced, as experience has shown in what way improvement
+might be made. They serve as a history of the experimental steps in the
+development of the present Babcock & Wilcox boiler, the value and
+success of which, as a steam generator, is evidenced by the fact that
+the largest and most discriminating users continue to purchase them
+after years of experience in their operation.
+
+[Illustration: No. 1]
+
+No. 1. The original Babcock & Wilcox boiler was patented in 1867. The
+main idea in its design was safety, to which all other features were
+sacrificed wherever they conflicted. The boiler consisted of a nest of
+horizontal tubes, serving as a steam and water reservoir, placed above
+and connected at each end by bolted joints to a second nest of inclined
+heating tubes filled with water. The tubes were placed one above the
+other in vertical rows, each row and its connecting end forming a single
+casting. Hand-holes were placed at each end for cleaning. Internal tubes
+were placed within the inclined tubes with a view to aiding circulation.
+
+No. 2. This boiler was the same as No. 1, except that the internal
+circulating tubes were omitted as they were found to hinder rather than
+help the circulation.
+
+Nos. 1 and 2 were found to be faulty in both material and design, cast
+metal proving unfit for heating surfaces placed directly over the fire,
+as it cracked as soon as any scale formed.
+
+No. 3. Wrought-iron tubes were substituted for the cast-iron heating
+tubes, the ends being brightened, laid in moulds, and the headers cast
+on.
+
+The steam and water capacity in this design were insufficient to secure
+regularity of action, there being no reserve upon which to draw during
+firing or when the water was fed intermittently. The attempt to dry the
+steam by superheating it in the nest of tubes forming the steam space
+was found to be impracticable. The steam delivered was either wet, dry
+or superheated, according to the rate at which it was being drawn from
+the boiler. Sediment was found to lodge in the lowermost point of the
+boiler at the rear end and the exposed portions cracked off at this
+point when subjected to the furnace heat.
+
+[Illustration: No. 4]
+
+No. 4. A plain cylinder, carrying the water line at its center and
+leaving the upper half for steam space, was substituted for the nest of
+tubes forming the steam and water space in Nos. 1, 2 and 3. The sections
+were made as in No. 3 and a mud drum added to the rear end of the
+sections at the point that was lowest and farthest removed from the
+fire. The gases were made to pass off at one side and did not come into
+contact with the mud drum. Dry steam was obtained through the increase
+of separating surface and steam space and the added water capacity
+furnished a storage for heat to tide over irregularities of firing and
+feeding. By the addition of the drum, the boiler became a serviceable
+and practical design, retaining all of the features of safety. As the
+drum was removed from the direct action of the fire, it was not
+subjected to excessive strain due to unequal expansion, and its
+diameter, if large in comparison with that of the tubes formerly used,
+was small when compared with that of cylindrical boilers. Difficulties
+were encountered in this boiler in securing reliable joints between the
+wrought-iron tubes and the cast-iron headers.
+
+[Illustration: No. 5]
+
+No. 5. In this design, wrought-iron water legs were substituted for the
+cast-iron headers, the tubes being expanded into the inside sheets and a
+large cover placed opposite the front end of the tubes for cleaning. The
+tubes were staggered one above the other, an arrangement found to be
+more efficient in the absorption of heat than where they were placed in
+vertical rows. In other respects, the boiler was similar to No. 4,
+except that it had lost the important element of safety through the
+introduction of the very objectionable feature of flat stayed surfaces.
+The large doors for access to the tubes were also a cause of weakness.
+
+An installation of these boilers was made at the plant of the Calvert
+Sugar Refinery in Baltimore, and while they were satisfactory in their
+operation, were never duplicated.
+
+[Illustration: No. 6]
+
+No. 6. This was a modification of No. 5 in which longer tubes were used
+and over which the gases were caused to make three passes with a view of
+better economy. In addition, some of the stayed surfaces were omitted
+and handholes substituted for the large access doors. A number of
+boilers of this design were built but their excessive first cost, the
+lack of adjustability of the structure under varying temperatures, and
+the inconvenience of transportation, led to No. 7.
+
+[Illustration: No. 7]
+
+No. 7. In this boiler, the headers and water legs were replaced by
+T-heads screwed to the ends of the inclined tubes. The faces of these Ts
+were milled and the tubes placed one above the other with the milled
+faces metal to metal. Long bolts passed through each vertical section of
+the T-heads and through connecting boxes on the heads of the drums
+holding the whole together. A large number of boilers of this design
+were built and many were in successful operation for over twenty years.
+In most instances, however, they were altered to later types.
+
+[Illustration: No. 8]
+
+[Illustration: No. 9]
+
+Nos. 8 and 9. These boilers were known as the Griffith & Wundrum type,
+the concern which built them being later merged in The Babcock & Wilcox
+Co. Experiments were made with this design with four passages of the
+gases across the tubes and the downward circulation of the water at the
+rear of the boiler was carried to the bottom row of tubes. In No. 9 an
+attempt was made to increase the safety and reduce the cost by reducing
+the amount of steam and water capacity. A drum at right angles to the
+line of tubes was used but as there was no provision made to secure dry
+steam, the results were not satisfactory. The next move in the direction
+of safety was the employment of several drums of small diameter instead
+of a single drum.
+
+[Illustration: No. 10]
+
+This is shown in No. 10. A nest of small horizontal drums, 15 inches in
+diameter, was used in place of the single drum of larger diameter. A set
+of circulation tubes was placed at an intermediate angle between the
+main bank of heating tubes and the horizontal drums forming the steam
+reservoir. These circulators were to return to the rear end of the
+circulating tubes the water carried up by the circulation, and in this
+way were to allow only steam to be delivered to the small drums above.
+There was no improvement in the action of this boiler over that of No.
+9.
+
+The four passages of the gas over the tubes tried in Nos. 8, 9 and 10
+were not found to add to the economy of the boiler.
+
+[Illustration: No. 11]
+
+No. 11. A trial was next made of a box coil system, in which the water
+was made to transverse the furnace several times before being delivered
+to the drum above. The tendency here, as in all similar boilers, was to
+form steam in the middle of the coil and blow the water from each end,
+leaving the tubes practically dry until the steam found an outlet and
+the water returned. This boiler had, in addition to a defective
+circulation, a decidedly geyser-like action and produced wet steam.
+
+[Illustration: No. 12]
+
+All of the types mentioned, with the exception of Nos. 5 and 6, had
+between their several parts a large number of bolted joints which were
+subjected to the action of the fire. When these boilers were placed in
+operation it was demonstrated that as soon as any scale formed on the
+heating surfaces, leaks were caused due to unequal expansion.
+
+No. 12. With this boiler, an attempt was made to remove the joints from
+the fire and to increase the heating surface in a given space. Water
+tubes were expanded into both sides of wrought-iron boxes, openings
+being made for the admission of water and the exit of steam. Fire tubes
+were placed inside the water tubes to increase the heating surface. This
+design was abandoned because of the rapid stopping up of the tubes by
+scale and the impossibility of cleaning them.
+
+[Illustration: No. 13]
+
+No. 13. Vertical straight line headers of cast iron, each containing two
+rows of tubes, were bolted to a connection leading to the steam and
+water drum above.
+
+[Illustration: No. 14]
+
+No. 14. A wrought-iron box was substituted for the double cast-iron
+headers. In this design, stays were necessary and were found, as always,
+to be an element to be avoided wherever possible. The boiler was an
+improvement on No. 6, however. A slanting bridge wall was introduced
+underneath the drum to throw a larger portion of its heating surface
+into the combustion chamber under the bank of tubes.
+
+This bridge wall was found to be difficult to keep in repair and was of
+no particular benefit.
+
+[Illustration: No. 15]
+
+No. 15. Each row of tubes was expanded at each end into a continuous
+header, cast of car wheel metal. The headers had a sinuous form so that
+they would lie close together and admit of a staggered position of the
+tubes when assembled. While other designs of header form were tried
+later, experience with Nos. 14 and 15 showed that the style here adopted
+was the best for all purposes and it has not been changed materially
+since. The drum in this design was supported by girders resting on the
+brickwork. Bolted joints were discarded, with the exception of those
+connecting the headers to the front and rear ends of the drums and the
+bottom of the rear headers to the mud drum. Even such joints, however,
+were found objectionable and were superseded in subsequent construction
+by short lengths of tubes expanded into bored holes.
+
+[Illustration: No. 16]
+
+No. 16. In this design, headers were tried which were made in the form
+of triangular boxes, in each of which there were three tubes expanded.
+These boxes were alternately reversed and connected by short lengths of
+expanded tubes, being connected to the drum by tubes bent in a manner to
+allow them to enter the shell normally. The joints between headers
+introduced an element of weakness and the connections to the drum were
+insufficient to give adequate circulation.
+
+[Illustration: No. 17]
+
+No. 17. Straight horizontal headers were next tried, alternately shifted
+right and left to allow a staggering of tubes. These headers were
+connected to each other and to the drums by expanded nipples. The
+objections to this boiler were almost the same as those to No. 16.
+
+[Illustration: No. 18]
+
+[Illustration: No. 19]
+
+Nos. 18 and 19. These boilers were designed primarily for fire
+protection purposes, the requirements demanding a small, compact boiler
+with ability to raise steam quickly. These both served the purpose
+admirably but, as in No. 9, the only provision made for the securing of
+dry steam was the use of the steam dome, shown in the illustration. This
+dome was found inadequate and has since been abandoned in nearly all
+forms of boiler construction. No other remedy being suggested at the
+time, these boilers were not considered as desirable for general use as
+Nos. 21 and 22. In Europe, however, where small size units were more in
+demand, No. 18 was modified somewhat and used largely with excellent
+results. These experiments, as they may now be called, although many
+boilers of some of the designs were built, clearly demonstrated that the
+best construction and efficiency required adherence to the following
+elements of design:
+
+
+1st. Sinuous headers for each vertical row of tubes.
+
+
+2nd. A separate and independent connection with the drum, both front and
+rear, for each vertical row of tubes.
+
+[Illustration: No. 20A]
+
+[Illustration: No. 20B]
+
+
+3rd. All joints between parts of the boiler proper to be made without
+bolts or screw plates.
+
+
+4th. No surfaces to be used which necessitate the use of stays.
+
+
+5th. The boiler supported independently of the brickwork so as to allow
+freedom for expansion and contraction as it is heated or cooled.
+
+
+6th. Ample diameter of steam and water drums, these not to be less than
+30 inches except for small size units.
+
+
+7th. Every part accessible for cleaning and repairs.
+
+
+With these points having been determined, No. 20 was designed. This
+boiler had all the desirable features just enumerated, together with a
+number of improvements as to detail of construction. The general form of
+No. 15 was adhered to but the bolted connections between sections and
+drum and sections and mud drum were discarded in favor of connections
+made by short lengths of boiler tubes expanded into the adjacent parts.
+This boiler was suspended from girders, like No. 15, but these in turn
+were carried on vertical supports, leaving the pressure parts entirely
+free from the brickwork, the mutually deteriorating strains present
+where one was supported by the other being in this way overcome.
+Hundreds of thousands of horse power of this design were built, giving
+great satisfaction. The boiler was known as the "C. I. F." (cast-iron
+front) style, an ornamental cast-iron front having been usually
+furnished.
+
+[Illustration: No. 21]
+
+The next step, and the one which connects the boilers as described above
+to the boiler as it is built to-day, was the design illustrated in No.
+21. These boilers were known as the "W. I. F." style, the fronts
+furnished as part of the equipment being constructed largely of wrought
+iron. The cast-iron drumheads used in No. 20 were replaced by
+wrought-steel flanged and "bumped" heads. The drums were made longer and
+the sections connected to wrought-steel cross boxes riveted to the
+bottom of the drums. The boilers were supported by girders and columns
+as in No. 20.
+
+[Illustration: No. 22]
+
+No. 22. This boiler, which is designated as the "Vertical Header" type,
+has the same general features of construction as No. 21, except that the
+tube sheet side of the headers is "stepped" to allow the headers to be
+placed vertically and at right angles to the drum and still maintain the
+tubes at the angle used in Nos. 20 and 21.
+
+[Illustration: No. 23]
+
+No. 23, or the cross drum design of boiler, is a development of the
+Babcock & Wilcox marine boiler, in which the cross drum is used
+exclusively. The experience of the Glasgow Works of The Babcock &
+Wilcox, Ltd., with No. 18 proved that proper attention to details of
+construction would make it a most desirable form of boiler where
+headroom was limited. A large number of this design have been
+successfully installed and are giving satisfactory results under widely
+varying conditions. The cross drum boiler is also built in a vertical
+header design.
+
+Boilers Nos. 21, 22 and 23, with a few modifications, are now the
+standard forms. These designs are illustrated, as they are constructed
+to-day, on pages 48, 52, 54, 58 and 60.
+
+The last step in the development of the water-tube boiler, beyond which
+it seems almost impossible for science and skill to advance, consists in
+the making of all pressure parts of the boiler of wrought steel,
+including sinuous headers, cross boxes, nozzles, and the like. This
+construction was the result of the demands of certain Continental laws
+that are coming into general vogue in this country. The Babcock & Wilcox
+Co. have at the present time a plant producing steel forgings that have
+been pronounced by the _London Engineer_ to be "a perfect triumph
+of the forgers' art".
+
+The various designs of this all wrought-steel boiler are fully
+illustrated in the following pages.
+
+[Illustration: Wrought-steel Vertical Header Longitudinal Drum Babcock &
+Wilcox Boiler, Equipped with Babcock & Wilcox Superheater and Babcock &
+Wilcox Chain Grate Stoker]
+
+
+
+
+THE BABCOCK & WILCOX BOILER
+
+
+The following brief description of the Babcock & Wilcox boiler will
+clearly indicate the manner in which it fulfills the requirements of the
+perfect steam boiler already enumerated.
+
+The Babcock & Wilcox boiler is built in two general classes, the
+longitudinal drum type and the cross drum type. Either of these designs
+may be constructed with vertical or inclined headers, and the headers in
+turn may be of wrought steel or cast iron dependent upon the working
+pressure for which the boiler is constructed. The headers may be of
+different lengths, that is, may connect different numbers of tubes, and
+it is by a change in the number of tubes in height per section and the
+number of sections in width that the size of the boiler is varied.
+
+The longitudinal drum boiler is the generally accepted standard of
+Babcock & Wilcox construction. The cross drum boiler, though originally
+designed to meet certain conditions of headroom, has become popular for
+numerous classes of work where low headroom is not a requirement which
+must be met.
+
+LONGITUDINAL DRUM CONSTRUCTION--The heating surface of this type of
+boiler is made up of a drum or drums, depending upon the width of the
+boiler extending longitudinally over the other pressure parts. To the
+drum or drums there are connected through cross boxes at either end the
+sections, which are made up of headers and tubes. At the lower end of
+the sections there is a mud drum extending entirely across the setting
+and connected to all sections. The connections between all parts are by
+short lengths of tubes expanded into bored seats.
+
+[Illustration: Forged-steel Drumhead with Manhole Plate in Position]
+
+The drums are of three sheets, of such thickness as to give the required
+factor of safety under the maximum pressure for which the boiler is
+constructed. The circular seams are ordinarily single lap riveted though
+these may be double lap riveted to meet certain requirements of pressure
+or of specifications. The longitudinal seams are properly proportioned
+butt and strap or lap riveted joints dependent upon the pressure for
+which the boilers are built. Where butt strap joints are used the straps
+are bent to the proper radius in an hydraulic press. The courses are
+built independently to template and are assembled by an hydraulic
+forcing press. All riveted holes are punched one-quarter inch smaller
+than the size of rivets as driven and are reamed to full size after the
+plates are assembled. All rivets are driven by hydraulic pressure and
+held until black.
+
+[Illustration: Forged-steel Drumhead Interior]
+
+The drumheads are hydraulic forged at a single heat, the manhole opening
+and stiffening ring being forged in position. Flat raised seats for
+water column and feed connections are formed in the forging.
+
+All heads are provided with manholes, the edges of which are turned
+true. The manhole plates are of forged steel and turned to fit manhole
+opening. These plates are held in position by forged-steel guards and
+bolts.
+
+The drum nozzles are of forged steel, faced, and fitted with taper
+thread stud bolts.
+
+[Illustration: Forged-steel Drum Nozzle]
+
+Cross boxes by means of which the sections are attached to the drums,
+are of forged steel, made from a single sheet.
+
+Where two or more drums are used in one boiler they are connected by a
+cross pipe having a flanged outlet for the steam connection.
+
+[Illustration: Forged-steel Cross Box]
+
+The sections are built of 4-inch hot finished seamless open-hearth steel
+tubes of No. 10 B. W. G. where the boilers are built for working
+pressures up to 210 pounds. Where the working pressure is to be above
+this and below 260 pounds, No. 9 B. W. G. tubes are supplied.
+
+[Illustration: Inside Handhole Fittings Wrought-steel Vertical Header]
+
+The tubes are expanded into headers of serpentine or sinuous form, which
+dispose the tubes in a staggered position when assembled as a complete
+boiler. These headers are of wrought steel or of cast iron, the latter
+being ordinarily supplied where the working pressure is not to exceed
+160 pounds. The headers may be either vertical or inclined as shown in
+the various illustrations of assembled boilers.
+
+[Illustration: Wrought-steel Vertical Header]
+
+Opposite each tube end in the headers there is placed a handhole of
+sufficient size to permit the cleaning, removal or renewal of a tube.
+These openings in the wrought steel vertical headers are elliptical in
+shape, machine faced, and milled to a true plane back from the edge a
+sufficient distance to make a seat. The openings are closed by inside
+fitting forged plates, shouldered to center in the opening, their
+flanged seats milled to a true plane. These plates are held in position
+by studs and forged-steel binders and nuts. The joints between plates
+and headers are made with a thin gasket.
+
+[Illustration: Inside Handhole Fitting Wrought-steel Inclined Header]
+
+In the wrought-steel inclined headers the handhole openings are either
+circular or elliptical, the former being ordinarily supplied. The
+circular openings have a raised seat milled to a true plane. The
+openings are closed on the outside by forged-steel caps, milled and
+ground true, held in position by forged-steel safety clamps and secured
+by ball-headed bolts to assure correct alignment. With this style of
+fitting, joints are made tight, metal to metal, without packing of any
+kind.
+
+[Illustration: Wrought-steel Inclined Header]
+
+Where elliptical handholes are furnished they are faced inside, closed
+by inside fitting forged-steel plates, held to their seats by studs and
+secured by forged-steel binders and nuts.
+
+The joints between plates and header are made with a thin gasket.
+
+[Illustration: Cast-iron Vertical Header]
+
+The vertical cast-iron headers have elliptical handholes with raised
+seats milled to a true plane. These are closed on the outside by
+cast-iron caps milled true, held in position by forged-steel safety
+clamps, which close the openings from the inside and which are secured
+by ball-headed bolts to assure proper alignment. All joints are made
+tight, metal to metal, without packing of any kind.
+
+The mud drum to which the sections are attached at the lower end of the
+rear headers, is a forged-steel box 7¼ inches square, and of such length
+as to be connected to all headers by means of wrought nipples expanded
+into counterbored seats. The mud drum is furnished with handholes for
+cleaning, these being closed from the inside by forged-steel plates with
+studs, and secured on a faced seat in the mud drum by forged-steel
+binders and nuts. The joints between the plates and the drum are made
+with thin gaskets. The mud drum is tapped for blow-off connection.
+
+All connections between drums and sections and between sections and mud
+drum are of hot finished seamless open-hearth steel tubes of No. 9
+B. W. G.
+
+Boilers of the longitudinal drum type are suspended front and rear from
+wrought-steel supporting frames entirely independent of the brickwork.
+This allows for expansion and contraction of the pressure parts without
+straining either the boiler or the brickwork, and also allows of
+brickwork repair or renewal without in any way disturbing the boiler or
+its connections.
+
+[Illustration: Babcock & Wilcox Wrought-steel Vertical Header Cross Drum
+Boiler]
+
+CROSS DRUM CONSTRUCTION--The cross drum type of boilers differs from the
+longitudinal only in drum construction and method of support. The drum
+in this type is placed transversely across the rear of the boiler and is
+connected to the sections by means of circulating tubes expanded into
+bored seats.
+
+The drums for all pressures are of two sheets of sufficient thickness to
+give the required factor of safety. The longitudinal seams are double
+riveted butt strapped, the straps being bent to the proper radius in an
+hydraulic press. The circulating tubes are expanded into the drums at
+the seams, the butt straps serving as tube seats.
+
+The drumheads, drum fittings and features of riveting are the same in
+the cross drum as in the longitudinal types. The sections and mud drum
+are also the same for the two types.
+
+Cross drum boilers are supported at the rear on the mud drum which rests
+on cast-iron foundation plates. They are suspended at the front from a
+wrought-iron supporting frame, each section being suspended
+independently from the cross members by hook suspension bolts. This
+method of support is such as to allow for expansion and contraction
+without straining either the boiler or the brickwork and permits of
+repair or renewal of the latter without in any way disturbing the boiler
+or its connections.
+
+The following features of design and of attachments supplied are the
+same for all types.
+
+FRONTS--Ornamental fronts are fitted to the front supporting frame.
+These have large doors for access to the front headers and panels above
+the fire fronts. The fire fronts where furnished have independent frames
+for fire doors which are bolted on, and ashpit doors fitted with blast
+catches. The lugs on door frames and on doors are cast solid. The faces
+of doors and of frames are planed and the lugs milled. The doors and
+frames are placed in their final relative position, clamped, and the
+holes for hinge pins drilled while thus held. A perfect alignment of
+door and frame is thus assured and the method is representative of the
+care taken in small details of manufacture.
+
+The front as a whole is so arranged that any stoker may be applied with
+but slight modification wherever boilers are set with sufficient furnace
+height.
+
+[Illustration: Cross Drum Boiler Front]
+
+In the vertical header boilers large wrought-iron doors, which give
+access to the rear headers, are attached to the rear supporting frame.
+
+[Illustration: Wrought-steel Inclined Header Longitudinal Drum Babcock &
+Wilcox Boiler, Equipped with Babcock & Wilcox Superheater]
+
+[Illustration: Automatic Drumhead Stop and Check Valve]
+
+FITTINGS--Each boiler is provided with the following fittings as part of
+the standard equipment:
+
+Blow-off connections and valves attached to the mud drum.
+
+Safety valves placed on nozzles on the steam drums.
+
+A water column connected to the front of the drum.
+
+A steam gauge attached to the boiler front.
+
+Feed water connection and valves. A flanged stop and check valve of
+heavy pattern is attached directly to each drumhead, closing
+automatically in case of a rupture in the feed line.
+
+All valves and fittings are substantially built and are of designs which
+by their successful service for many years have become standard with The
+Babcock & Wilcox Co.
+
+The fixtures that are supplied with the boilers consist of:
+
+Dead plates and supports, the plates arranged for a fire brick lining.
+
+A full set of grate bars and bearers, the latter fitted with expansion
+sockets for side walls.
+
+Flame bridge plates with necessary fastenings, and special fire brick
+for lining same.
+
+Bridge wall girder for hanging bridge wall with expansion sockets for
+side walls.
+
+A full set of access and cleaning doors through which all portions of
+the pressure parts may be reached.
+
+A swing damper and frame with damper operating rig.
+
+There are also supplied with each boiler a wrench for handhole nuts, a
+water-driven turbine tube cleaner, a set of fire tools and a metal steam
+hose and cleaning pipe equipped with a special nozzle for blowing dust
+and soot from the tubes.
+
+Aside from the details of design and construction as covered in the
+foregoing description, a study of the illustrations will make clear the
+features of the boiler as a whole which have led to its success.
+
+The method of supporting the boiler has been described. This allows it
+to be hung at any height that may be necessary to properly handle the
+fuel to be burned or to accommodate the stoker to be installed. The
+height of the nest of tubes which forms the roof of the furnace is thus
+the controlling feature in determining the furnace height, or the
+distance from the front headers to the floor line. The sides and front
+of the furnace are formed by the side and front boiler walls. The rear
+wall of the furnace consists of a bridge wall built from the bottom of
+the ashpit to the lower row of tubes. The location of this wall may be
+adjusted within limits to give the depth of furnace demanded by the fuel
+used. Ordinarily the bridge wall is the determining feature in the
+locating of the front baffle. Where a great depth of furnace is
+necessary, in which case, if the front baffle were placed at the bridge
+wall the front pass of the boiler would be relatively too long, a
+patented construction is used which maintains the baffle in what may be
+considered its normal position, and a connection made between the baffle
+and the bridge wall by means of a tile roof. Such furnace construction
+is known as a "Webster" furnace.
+
+[Illustration: Longitudinal Drum Boiler--Front View]
+
+A consideration of this furnace will clearly indicate its adaptability,
+by reason of its flexibility, for any fuel and any design of stoker. The
+boiler lends itself readily to installation with an extension or Dutch
+oven furnace if this be demanded by the fuel to be used, and in general
+it may be stated that a satisfactory furnace arrangement may be made in
+connection with a Babcock & Wilcox boiler for burning any fuel, solid,
+liquid or gaseous.
+
+The gases of combustion evolved in the furnace above described are led
+over the heating surfaces by two baffles. These are formed of cast-iron
+baffle plates lined with special fire brick and held in position by tube
+clamps. The front baffle leads the gases through the forward portion of
+the tubes to a chamber beneath the drum or drums. It is in this chamber
+that a superheater is installed where such an apparatus is desired. The
+gases make a turn over the front baffle, are led downward through the
+central portion of the tubes, called the second pass, by means of a
+hanging bridge wall of brick and the second baffle, around which they
+make a second turn upward, pass through the rear portion of the tubes
+and are led to the stack or flue through a damper box in the rear wall,
+or around the drums to a damper box placed overhead.
+
+The space beneath the tubes between the bridge wall and the rear boiler
+wall forms a pocket into which much of the soot from the gases in their
+downward passage through the second pass will be deposited and from
+which it may be readily cleaned through doors furnished for the purpose.
+
+The gas passages are ample and are so proportioned that the resistance
+offered to the gases is only such as will assure the proper abstraction
+of heat from the gases without causing undue friction, requiring
+excessive draft.
+
+[Illustration: Partial Vertical Section Showing Method of Introducing
+Feed Water]
+
+The method in which the feed water is introduced through the front
+drumhead of the boiler is clearly seen by reference to the illustration.
+From this point of introduction the water passes to the rear of the
+drum, downward through the rear circulating tubes to the sections,
+upward through the tubes of the sections to the front headers and
+through these headers and front circulating tubes again to the drum
+where such water as has not been formed into steam retraces its course.
+The steam formed in the passage through the tubes is liberated as the
+water reaches the front of the drum. The steam so formed is stored in
+the steam space above the water line, from which it is drawn through a
+so-called "dry pipe." The dry pipe in the Babcock & Wilcox boiler is
+misnamed, as in reality it fulfills none of the functions ordinarily
+attributed to such a device. This function is usually to restrict the
+flow of steam from a boiler with a view to avoid priming. In the Babcock
+& Wilcox boiler its function is simply that of a collecting pipe, and as
+the aggregate area of the holes in it is greatly in excess of the area
+of the steam outlet from the drum, it is plain that there can be no
+restriction through this collecting pipe. It extends nearly the length
+of the drum, and draws steam evenly from the whole length of the steam
+space.
+
+[Illustration: Cast-iron Vertical Header Longitudinal Drum Babcock &
+Wilcox Boiler]
+
+[Illustration:
+   Closed      Open
+
+Patented Side Dusting Doors]
+
+The large tube doors through which access is had to the front headers
+and the doors giving such access to the rear headers in boilers of the
+vertical header type have already been described and are shown clearly
+by the illustrations on pages 56 and 74. In boilers of the inclined
+header type, access to the rear headers is secured through the chamber
+formed by the headers and the rear boiler wall. Large doors in the sides
+of the setting give full access to all parts for inspection and for
+removal of accumulations of soot. Small dusting doors are supplied for
+the side walls through which all of the heating surfaces may be cleaned
+by means of a steam dusting lance. These side dusting doors are a
+patented feature and the shutters are self closing. In wide boilers
+additional cleaning doors are supplied at the top of the setting to
+insure ease in reaching all portions of the heating surface.
+
+The drums are accessible for inspection through the manhole openings.
+The removal of the handhole plates makes possible the inspection of each
+tube for its full length and gives the assurance that no defect can
+exist that cannot be actually seen. This is particularly advantageous
+when inspecting for the presence of scale.
+
+The materials entering into the construction of the Babcock & Wilcox
+boiler are the best obtainable for the special purpose for which they
+are used and are subjected to rigid inspection and tests.
+
+The boilers are manufactured by means of the most modern shop equipment
+and appliances in the hands of an old and well-tried organization of
+skilled mechanics under the supervision of experienced engineers.
+
+[Illustration: Cast-iron Vertical Header Cross Drum Babcock & Wilcox
+Boiler]
+
+
+
+
+ADVANTAGES OF THE BABCOCK & WILCOX BOILER
+
+
+The advantages of the Babcock & Wilcox boiler may perhaps be most
+clearly set forth by a consideration, 1st, of water-tube boilers as a
+class as compared with shell and fire-tube boilers; and 2nd, of the
+Babcock & Wilcox boiler specifically as compared with other designs of
+water-tube boilers.
+
+
+
+WATER-TUBE _VERSUS_ FIRE-TUBE BOILERS
+
+
+Safety--The most important requirement of a steam boiler is that it
+shall be safe in so far as danger from explosion is concerned. If the
+energy in a large shell boiler under pressure is considered, the thought
+of the destruction possible in the case of an explosion is appalling.
+The late Dr. Robert H. Thurston, Dean of Sibley College, Cornell
+University, and past president of the American Society of Mechanical
+Engineers, estimated that there is sufficient energy stored in a plain
+cylinder boiler under 100 pounds steam pressure to project it in case of
+an explosion to a height of over 3½ miles; a locomotive boiler at 125
+pounds pressure from one-half to one-third of a mile; and a 60
+horse-power return tubular boiler under 75 pounds pressure somewhat over
+a mile. To quote: "A cubic foot of heated water under a pressure of from
+60 to 70 pounds per square inch has about the same energy as one pound
+of gunpowder." From such a consideration, it may be readily appreciated
+how the advent of high pressure steam was one of the strongest factors
+in forcing the adoption of water-tube boilers. A consideration of the
+thickness of material necessary for cylinders of various diameters under
+a steam pressure of 200 pounds and assuming an allowable stress of
+12,000 pounds per square inch, will perhaps best illustrate this point.
+Table 1 gives such thicknesses for various diameters of cylinders not
+taking into consideration the weakening effect of any joints which may
+be necessary. The rapidity with which the plate thickness increases with
+the diameter is apparent and in practice, due to the fact that riveted
+joints must be used, the thicknesses as given in the table, with the
+exception of the first, must be increased from 30 to 40 per cent.
+
+In a water-tube boiler the drums seldom exceed 48 inches in diameter and
+the thickness of plate required, therefore, is never excessive. The
+thinner metal can be rolled to a more uniform quality, the seams admit
+of better proportioning, and the joints can be more easily and perfectly
+fitted than is the case where thicker plates are necessary. All of these
+points contribute toward making the drums of water-tube boilers better
+able to withstand the stress which they will be called upon to endure.
+
+The essential constructive difference between water-tube and fire-tube
+boilers lies in the fact that the former is composed of parts of
+relatively small diameter as against the large diameters necessary in
+the latter.
+
+The factor of safety of the boiler parts which come in contact with the
+most intense heat in water-tube boilers can be made much higher than
+would be practicable in a shell boiler. Under the assumptions considered
+above in connection with the thickness of plates required, a number 10
+gauge tube (0.134 inch), which is standard in Babcock & Wilcox boilers
+for pressures up to 210 pounds under the same allowable stress as was
+used in computing Table 1, the safe working pressure for the tubes is
+870 pounds per square inch, indicating the very large margin of safety
+of such tubes as compared with that possible with the shell of a boiler.
+
+    
+
+A further advantage in the water-tube boiler as a class is the
+elimination of all compressive stresses. Cylinders subjected to external
+pressures, such as fire tubes or the internally fired furnaces of
+certain types of boilers, will collapse under a pressure much lower than
+that which they could withstand if it were applied internally. This is
+due to the fact that if there exists any initial distortion from its
+true shape, the external pressure will tend to increase such distortion
+and collapse the cylinder, while an internal pressure tends to restore
+the cylinder to its original shape.
+
+Stresses due to unequal expansion have been a fruitful source of trouble
+in fire-tube boilers.
+
+In boilers of the shell type, the riveted joints of the shell, with
+their consequent double thickness of metal exposed to the fire, gives
+rise to serious difficulties. Upon these points are concentrated all
+strains of unequal expansion, giving rise to frequent leaks and
+oftentimes to actual ruptures. Moreover, in the case of such rupture,
+the whole body of contained water is liberated instantaneously and a
+disastrous and usually fatal explosion results.
+
+Further, unequal strains result in shell or fire-tube boilers due to the
+difference in temperature of the various parts. This difference in
+temperature results from the lack of positive well defined circulation.
+While such a circulation does not necessarily accompany all water-tube
+designs, in general, the circulation in water-tube boilers is much more
+defined than in fire-tube or shell boilers.
+
+A positive and efficient circulation assures that all portions of the
+pressure parts will be at approximately the same temperature and in this
+way strains resulting from unequal temperatures are obviated.
+
+If a shell or fire-tubular boiler explodes, the apparatus as a whole is
+destroyed. In the case of water-tube boilers, the drums are ordinarily
+so located that they are protected from intense heat and any rupture is
+usually in the case of a tube. Tube failures, resulting from blisters or
+burning, are not serious in their nature. Where a tube ruptures because
+of a flaw in the metal, the result may be more severe, but there cannot
+be the disastrous explosion such as would occur in the case of the
+explosion of a shell boiler.
+
+To quote Dr. Thurston, relative to the greater safety of the water-tube
+boiler: "The stored available energy is usually less than that of any of
+the other stationary boilers and not very far from the amount stored,
+pound for pound, in the plain tubular boiler. It is evident that their
+admitted safety from destructive explosion does not come from this
+relation, however, but from the division of the contents into small
+portions and especially from those details of construction which make it
+tolerably certain that any rupture shall be local. A violent explosion
+can only come from the general disruption of a boiler and the liberation
+at once of large masses of steam and water."
+
+Economy--The requirement probably next in importance to safety in a
+steam boiler is economy in the use of fuel. To fulfill such a
+requirement, the three items, of proper grate for the class of fuel to
+be burned, a combustion chamber permitting complete combustion of gases
+before their escape to the stack, and the heating surface of such a
+character and arrangement that the maximum amount of available heat may
+be extracted, must be co-ordinated.
+
+Fire-tube boilers from the nature of their design do not permit the
+variety of combinations of grate surface, heating surface, and
+combustion space possible in practically any water-tube boiler.
+
+In securing the best results in fuel economy, the draft area in a boiler
+is an important consideration. In fire-tube boilers this area is limited
+to the cross sectional area of the fire tubes, a condition further
+aggravated in a horizontal boiler by the tendency of the hot gases to
+pass through the upper rows of tubes instead of through all of the tubes
+alike. In water-tube boilers the draft area is that of the space outside
+of the tubes and is hence much greater than the cross sectional area of
+the tubes.
+
+Capacity--Due to the generally more efficient circulation found in
+water-tube than in fire-tube boilers, rates of evaporation are possible
+with water-tube boilers that cannot be approached where fire-tube
+boilers are employed.
+
+Quick Steaming--Another important result of the better circulation
+ordinarily found in water-tube boilers is in their ability to raise
+steam rapidly in starting and to meet the sudden demands that may be
+thrown on them.
+
+In a properly designed water-tube boiler steam may be raised from a cold
+boiler to 200 pounds pressure in less than one-half hour.
+
+For the sake of comparison with the figure above, it may be stated that
+in the U. S. Government Service the shortest time allowed for getting up
+steam in Scotch marine boilers is 6 hours and the time ordinarily
+allowed is 12 hours. In large double-ended Scotch boilers, such as are
+generally used in Trans-Atlantic service, the fires are usually started
+24 hours before the time set for getting under way. This length of time
+is necessary for such boilers in order to eliminate as far as possible
+excessive strains resulting from the sudden application of heat to the
+surfaces.
+
+Accessibility--In the "Requirements of a Perfect Steam Boiler", as
+stated by Mr. Babcock, he demonstrates the necessity for complete
+accessibility to all portions of the boiler for cleaning, inspection and
+repair.
+
+Cleaning--When the great difference is realized in performance, both as
+to economy and capacity of a clean boiler and one in which the heating
+surfaces have been allowed to become fouled, it may be appreciated that
+the ability to keep heating surfaces clean internally and externally is
+a factor of the highest importance.
+
+Such results can be accomplished only by the use of a design in boiler
+construction which gives complete accessibility to all portions. In
+fire-tube boilers the tubes are frequently nested together with a space
+between them often less than 1¼ inches and, as a consequence, nearly the
+entire tube surface is inaccessible. When scale forms upon such tubes it
+is impossible to remove it completely from the inside of the boiler and
+if it is removed by a turbine hammer, there is no way of knowing how
+thorough a job has been done. With the formation of such scale there is
+danger through overheating and frequent tube renewals are necessary.
+
+[Illustration: Portion of 29,000 Horse-power Installation of Babcock &
+Wilcox Boilers in the L Street Station of the Edison Electric
+Illuminating Co. of Boston, Mass. This Company Operates in its Various
+Stations a Total of 39,000 Horse Power of Babcock & Wilcox Boilers]
+
+In Scotch marine boilers, even with the engines operating condensing,
+complete tube renewals at intervals of six or seven years are required,
+while large replacements are often necessary in less than one year. In
+return tubular boilers operated with bad feed water, complete tube
+renewals annually are not uncommon. In this type of boiler much sediment
+falls on the bottom sheets where the intense heat to which they are
+subjected bakes it to such an excessive hardness that the only method of
+removing it is to chisel it out. This can be done only by omitting tubes
+enough to leave a space into which a man can crawl and the discomforts
+under which he must work are apparent. Unless such a deposit is removed,
+a burned and buckled plate will invariably result, and if neglected too
+long an explosion will follow.
+
+In vertical fire-tube boilers using a water leg construction, a deposit
+of mud in such legs is an active agent in causing corrosion and the
+difficulty of removing such deposit through handholes is well known. A
+complete removal is practically impossible and as a last resort to
+obviate corrosion in certain designs, the bottom of the water legs in
+some cases have been made of copper. A thick layer of mud and scale is
+also liable to accumulate on the crown sheet of such boilers and may
+cause the sheet to crack and lead to an explosion.
+
+The soot and fine coal swept along with the gases by the draft will
+settle in fire tubes and unless removed promptly, must be cut out with a
+special form of scraper. It is not unusual where soft coal is used to
+find tubes half filled with soot, which renders useless a large portion
+of the heating surface and so restricts the draft as to make it
+difficult to burn sufficient coal to develop the required power from
+such heating surface as is not covered by soot.
+
+Water-tube boilers in general are from the nature of their design more
+readily accessible for cleaning than are fire-tube boilers.
+
+Inspection--The objections given above in the consideration of the
+inability to properly clean fire-tube boilers hold as well for the
+inspection of such boilers.
+
+Repairs--The lack of accessibility in fire-tube boilers further leads to
+difficulties where repairs are required.
+
+In fire-tube boilers tube renewals are a serious undertaking. The
+accumulation of hard deposit on the exterior of the surfaces so enlarges
+the tubes that it is oftentimes difficult, if not impossible, to draw
+them through the tube sheets and it is usually necessary to cut out such
+tubes as will allow access to the one which has failed and remove them
+through the manhole.
+
+When a tube sheet blisters, the defective part must be cut out by
+hand-tapped holes drilled by ratchets and as it is frequently impossible
+to get space in which to drive rivets, a "soft patch" is necessary. This
+is but a makeshift at best and usually results in either a reduction of
+the safe working pressure or in the necessity for a new plate. If the
+latter course is followed, the old plate must be cut out, a new one
+scribed to place to locate rivet holes and in order to obtain room for
+driving rivets, the boiler will have to be re-tubed.
+
+The setting must, of course, be at least partially torn out and
+replaced.
+
+In case of repairs, of such nature in fire-tube boilers, the working
+pressure of such repaired boilers will frequently be lowered by the
+insurance companies when the boiler is again placed in service.
+
+In the case of a rupture in a water-tube boiler, the loss will
+ordinarily be limited to one or two tubes which can be readily replaced.
+The fire-tube boiler will be so completely demolished that the question
+of repairs will be shifted from the boiler to the surrounding property,
+the damage to which will usually exceed many times the cost of a boiler
+of a type which would have eliminated the possibility of a disastrous
+explosion. In considering the proper repair cost of the two types of
+boilers, the fact should not be overlooked that it is poor economy to
+invest large sums in equipment that, through a possible accident to the
+boiler may be wholly destroyed or so damaged that the cost of repairs,
+together with the loss of time while such repairs are being made, would
+purchase boilers of absolute safety and leave a large margin beside. The
+possibility of loss of human life should also be considered, though this
+may seem a far cry from the question of repair costs.
+
+Space Occupied--The space required for the boilers in a plant often
+exceeds the requirements for the remainder of the plant equipment. Any
+saving of space in a boiler room will be a large factor in reducing the
+cost of real estate and of the building. Even when the boiler plant is
+comparatively small, the saving in space frequently will amount to a
+considerable percentage of the cost of the boilers. Table 2 shows the
+difference in floor space occupied by fire-tube boilers and Babcock &
+Wilcox boilers of the same capacity, the latter being taken as
+representing the water-tube class. This saving in space will increase
+with the size of the plant for the reason that large size boiler units
+while common in water-tube practice are impracticable in fire-tube
+practice.
+
+                 
+
+BABCOCK & WILCOX BOILERS AS COMPARED WITH OTHER WATER-TUBE DESIGNS
+
+
+It must be borne in mind that the simple fact that a boiler is of the
+water-tube design does not as a necessity indicate that it is a good or
+safe boiler.
+
+Safety--Many of the water-tube boilers on the
+market are as lacking as are fire-tube boilers in the positive
+circulation which, as has been demonstrated by Mr. Babcock's lecture, is
+so necessary in the requirements of the perfect steam boiler. In boilers
+using water-leg construction, there is danger of defective circulation,
+leaks are common, and unsuspected corrosion may be going on in portions
+of the boiler that cannot be inspected. Stresses due to unequal
+expansion of the metal cannot be well avoided but they may be minimized
+by maintaining at the same temperature all pressure parts of the boiler.
+The result is to be secured only by means of a well defined circulation.
+
+The main feature to which the Babcock & Wilcox boiler owes its safety is
+the construction made possible by the use of headers, by which the water
+in each vertical row of tubes is separated from that in the adjacent
+rows. This construction results in the very efficient circulation
+produced through the breaking up of the steam and water in the front
+headers, the effect of these headers in producing such a positive
+circulation having been clearly demonstrated in Mr. Babcock's lecture.
+The use of a number of sections, thus composed of headers and tubes, has
+a distinct advantage over the use of a common chamber at the outlet ends
+of the tubes. In the former case the circulation of water in one
+vertical row of tubes cannot interfere with that in the other rows,
+while in the latter construction there will be downward as well as
+upward currents and such downward currents tend to neutralize any good
+effect there might be through the diminution of the density of the water
+column by the steam.
+
+Further, the circulation results directly from the design of the boiler
+and requires no assistance from "retarders", check valves and the like,
+within the boiler. All such mechanical devices in the interior of a
+boiler serve only to complicate the design and should not be used.
+
+This positive and efficient circulation assures that all portions of the
+pressure parts of the Babcock & Wilcox boiler will be at approximately
+the same temperature and in this way strains resulting from unequal
+temperatures are obviated.
+
+Where the water throughout the boiler is at the temperature of the steam
+contained, a condition to be secured only by proper circulation, danger
+from internal pitting is minimized, or at least limited only to effects
+of the water fed the boiler. Where the water in any portion of the
+boiler is lower than the temperature of the steam corresponding to the
+pressure carried, whether the fact that such lower temperatures exist as
+a result of lack of circulation, or because of intentional design,
+internal pitting or corrosion will almost invariably result.
+
+Dr. Thurston has already been quoted to the effect that the admitted
+safety of a water-tube boiler is the result of the division of its
+contents into small portions. In boilers using a water-leg construction,
+while the danger from explosion will be largely limited to the tubes,
+there is the danger, however, that such legs may explode due to the
+deterioration of their stays, and such an explosion might be almost as
+disastrous as that of a shell boiler. The headers in a Babcock & Wilcox
+boiler are practically free from any danger of explosion. Were such an
+explosion to occur, it would still be localized to a much larger extent
+than in the case of a water-leg boiler and the header construction thus
+almost absolutely localizes any danger from such a cause.
+
+Staybolts are admittedly an undesirable element of construction in any
+boiler. They are wholly objectionable and the only reason for the
+presence of staybolts in a boiler is to enable a cheaper form of
+construction to be used than if they were eliminated.
+
+In boilers utilizing in their design flat-stayed surfaces, or staybolt
+construction under pressure, corrosion and wear and tear in service
+tends to weaken some single part subject to continual strain, the result
+being an increased strain on other parts greatly in excess of that for
+which an allowance can be made by any reasonable factor of safety. Where
+the construction is such that the weakening of a single part will
+produce a marked decrease in the safety and reliability of the whole, it
+follows of necessity, that there will be a corresponding decrease in the
+working pressure which may be safely carried.
+
+In water-leg boilers, the use of such flat-stayed surfaces under
+pressure presents difficulties that are practically unsurmountable. Such
+surfaces exposed to the heat of the fire are subject to unequal
+expansion, distortion, leakage and corrosion, or in general, to many of
+the objections that have already been advanced against the fire-tube
+boilers in the consideration of water-tube boilers as a class in
+comparison with fire-tube boilers.
+
+[Illustration: McAlpin Hotel, New York City, Operating 2360 Horse Power
+of Babcock & Wilcox Boilers]
+
+Aside from the difficulties that may arise in actual service due to the
+failure of staybolts, or in general, due to the use of flat-stayed
+surfaces, constructional features are encountered in the actual
+manufacture of such boilers that make it difficult if not impossible to
+produce a first-class mechanical job. It is practically impossible in
+the building of such a boiler to so design and place the staybolts that
+all will be under equal strain. Such unequal strains, resulting from
+constructional difficulties, will be greatly multiplied when such a
+boiler is placed in service. Much of the riveting in boilers of this
+design must of necessity be hand work, which is never the equal of
+machine riveting. The use of water-leg construction ordinarily requires
+the flanging of large plates, which is difficult, and because of the
+number of heats necessary and the continual working of the material, may
+lead to the weakening of such plates.
+
+In vertical or semi-vertical water-tube boilers utilizing flat-stayed
+surfaces under pressure, these surfaces are ordinarily so located as to
+offer a convenient lodging place for flue dust, which fuses into a hard
+mass, is difficult of removal and under which corrosion may be going on
+with no possibility of detection.
+
+Where stayed surfaces or water legs are features in the design of a
+water-tube boiler, the factor of safety of such parts must be most
+carefully considered. In such parts too, is the determination of the
+factor most difficult, and because of the "rule-of-thumb" determination
+frequently necessary, the factor of safety becomes in reality a factor
+of ignorance. As opposed to such indeterminate factors of safety, in the
+Babcock & Wilcox boiler, when the factor of safety for the drum or drums
+has been determined, and such a factor may be determined accurately, the
+factors for all other portions of the pressure parts are greatly in
+excess of that of the drum. All Babcock & Wilcox boilers are built with
+a factor of safety of at least five, and inasmuch as the factor of the
+safety of the tubes and headers is greatly in excess of this figure, it
+applies specifically to the drum or drums. This factor represents a
+greater degree of safety than a considerably higher factor applied to a
+boiler in which the shell or any riveted portion is acted upon directly
+by the fire, or the same factor applied to a boiler utilizing
+flat-stayed surface construction, where the accurate determination of
+the limiting factor of safety is difficult, if not impossible.
+
+That the factor of safety of stayed surfaces is questionable may perhaps
+be best realized from a consideration of the severe requirements as to
+such factor called for by the rules and regulations of the Board of
+Supervising Inspectors, U. S. Government.
+
+In view of the above, the absence of any stayed surfaces in the Babcock
+& Wilcox boiler is obviously a distinguishing advantage where safety is
+a factor. It is of interest to note, in the article on the evolution of
+the Babcock & Wilcox boiler, that staybolt construction was used in
+several designs, found unsatisfactory and unsafe, and discarded.
+
+Another feature in the design of the Babcock & Wilcox boiler tending
+toward added safety is its manner of suspension. This has been indicated
+in the previous chapter and is of such nature that all of the pressure
+parts are free to expand or contract under variations of temperature
+without in any way interfering with any part of the boiler setting. The
+sectional nature of the boiler allows a flexibility under varying
+temperature changes that practically obviates internal strain.
+
+In boilers utilizing water-leg construction, on the other hand, the
+construction is rigid, giving rise to serious internal strains and the
+method of support ordinarily made necessary by the boiler design is not
+only unmechanical but frequently dangerous, due to the fact that proper
+provision is not made for expansion and contraction under temperature
+variations.
+
+Boilers utilizing water-leg construction are not ordinarily provided
+with mud drums. This is a serious defect in that it allows impurities
+and sediment to collect in a portion of the boiler not easily inspected,
+and corrosion may result.
+
+Economy--That the water-tube boiler as a class lends itself more readily
+than does the fire-tube boiler to a variation in the relation of grate
+surface, heating surface and combustion space has been already pointed
+out. In economy again, the construction made possible by the use of
+headers in Babcock & Wilcox boilers appears as a distinct advantage.
+Because of this construction, there is a flexibility possible, in an
+unlimited variety of heights and widths that will satisfactorily meet
+the special requirements of the fuel to be burned in individual cases.
+
+An extended experience in the design of furnaces best suited for a wide
+variety of fuels has made The Babcock & Wilcox Co. leaders in the field
+of economy. Furnaces have been built and are in successful operation for
+burning anthracite and bituminous coals, lignite, crude oil, gas-house
+tar, wood, sawdust and shavings, bagasse, tan bark, natural gas, blast
+furnace gas, by-product coke oven gas and for the utilization of waste
+heat from commercial processes. The great number of Babcock & Wilcox
+boilers now in satisfactory operation under such a wide range of fuel
+conditions constitutes an unimpeachable testimonial to the ability to
+meet all of the many conditions of service.
+
+The limitations in the draft area of fire-tube boilers as affecting
+economy have been pointed out. That a greater draft area is possible in
+water-tube boilers does not of necessity indicate that proper advantage
+of this fact is taken in all boilers of the water-tube class. In the
+Babcock & Wilcox boiler, the large draft area taken in connection with
+the effective baffling allows the gases to be brought into intimate
+contact with all portions of the heating surfaces and renders such
+surfaces highly efficient.
+
+In certain designs of water-tube boilers the baffling is such as to
+render ineffective certain portions of the heating surface, due to the
+tendency of soot and dirt to collect on or behind baffles, in this way
+causing the interposition of a layer of non-conducting material between
+the hot gases and the heating surfaces.
+
+In Babcock & Wilcox boilers the standard baffle arrangement is such as
+to allow the installation of a superheater without in any way altering
+the path of the gases from furnace to stack, or requiring a change in
+the boiler design. In certain water-tube boilers the baffle arrangement
+is such that if a superheater is to be installed a complete change in
+the ordinary baffle design is necessary. Frequently to insure
+sufficiently hot gas striking the heating surfaces, a portion is
+by-passed directly from the furnace to the superheater chamber without
+passing over any of the boiler heating surfaces. Any such arrangement
+will lead to a decrease in economy and the use of boilers requiring it
+should be avoided.
+
+Capacity--Babcock & Wilcox boilers are run successfully in every-day
+practice at higher ratings than any other boilers in practical service.
+The capacities thus obtainable are due directly to the efficient
+circulation already pointed out. Inasmuch as the construction utilizing
+headers has a direct bearing in producing such circulation, it is also
+connected with the high capacities obtainable with this apparatus.
+
+Where intelligently handled and kept properly cleaned, Babcock & Wilcox
+boilers are operated in many plants at from 200 to 225 per cent of their
+rated evaporative capacity and it is not unusual for them to be operated
+at 300 per cent of such rated capacity during periods of peak load.
+
+Dry Steam--In the list of the requirements of the perfect steam boiler,
+the necessity that dry steam be generated has been pointed out. The
+Babcock & Wilcox boiler will deliver dry steam under higher capacities
+and poorer conditions of feed water than any other boiler now
+manufactured. Certain boilers will, when operated at ordinary ratings,
+handle poor feed water and deliver steam in which the moisture content
+is not objectionable. When these same boilers are driven at high
+overloads, there will be a direct tendency to prime and the percentage
+of moisture in the steam delivered will be high. This tendency is the
+result of the lack of proper circulation and once more there is seen the
+advantage of the headers of the Babcock & Wilcox boiler, resulting as it
+does in the securing of a positive circulation.
+
+In the design of the Babcock & Wilcox boiler sufficient space is
+provided between the steam outlet and the disengaging point to insure
+the steam passing from the boiler in a dry state without entraining or
+again picking up any particles of water in its passage even at high
+rates of evaporation. Ample time is given for a complete separation of
+steam from the water at the disengaging surface before the steam is
+carried from the boiler. These two features, which are additional causes
+for the ability of the Babcock & Wilcox boiler to deliver dry steam,
+result from the proper proportioning of the steam and water space of the
+boiler. From the history of the development of the boiler, it is evident
+that the cubical capacity per horse power of the steam and water space
+has been adopted after numerous experiments.
+
+That the "dry pipe" serves in no way the generally understood function
+of such device has been pointed out. As stated, the function of the "dry
+pipe" in a Babcock & Wilcox boiler is simply that of a collecting pipe
+and this statement holds true regardless of the rate of operation of the
+boiler.
+
+In certain boilers, "superheating surface" is provided to "dry the
+steam," or to remove the moisture due to priming or foaming. Such
+surface is invariably a source of trouble unless the steam is initially
+dry and a boiler which will deliver dry steam is obviously to be
+preferred to one in which surface must be supplied especially for such
+purpose. Where superheaters are installed with Babcock & Wilcox boilers,
+they are in every sense of the word superheaters and not driers, the
+steam being delivered to them in a dry state.
+
+The question has been raised in connection with the cross drum design of
+the Babcock & Wilcox boiler as to its ability to deliver dry steam.
+Experience has shown the absolute lack of basis for any such objection.
+The Babcock & Wilcox Company at its Bayonne Works some time ago made a
+series of experiments to see in what manner the steam generated was
+separated from the water either in the drum or in its passage to the
+drum. Glass peepholes were installed in each end of a drum in a boiler
+of the marine design, at the point midway between that at which the
+horizontal circulating tubes entered the drum and the drum baffle plate.
+By holding a light at one of these peepholes the action in the drum was
+clearly seen through the other. It was found that with the boiler
+operated under three-quarter inch ashpit pressure, which, with the fuel
+used would be equivalent to approximately 185 per cent of rating for
+stationary boiler practice, that each tube was delivering with great
+velocity a stream of solid water, which filled the tube for half its
+cross sectional area. There was no spray or mist accompanying such
+delivery, clearly indicating that the steam had entirely separated from
+the water in its passage through the horizontal circulating tubes, which
+in the boiler in question were but 50 inches long.
+
+[Illustration: Northwest Station of the Commonwealth Edison Co.,
+Chicago, Ill. This Installation Consists of 11,360 Horse Power of
+Babcock & Wilcox Boilers and Superheaters, Equipped with Babcock &
+Wilcox Chain Grate Stokers]
+
+These experiments proved conclusively that the size of the steam drums
+in the cross drum design has no appreciable effect in determining the
+amount of liberating surface, and that sufficient liberating surface is
+provided in the circulating tubes alone. If further proof of the ability
+of this design of boiler to deliver dry steam is required, such proof is
+perhaps best seen in the continued use of the Babcock & Wilcox marine
+boiler, in which the cross drum is used exclusively, and with which
+rates of evaporation are obtained far in excess of those secured in
+ordinary practice.
+
+Quick Steaming--The advantages of water-tube boilers as a class over
+fire-tube boilers in ability to raise steam quickly have been indicated.
+
+Due to the constant and thorough circulation resulting from the
+sectional nature of the Babcock & Wilcox boiler, steam may be raised
+more rapidly than in practically any other water-tube design.
+
+In starting up a cold Babcock & Wilcox boiler with either coal or oil
+fuel, where a proper furnace arrangement is supplied, steam may be
+raised to a pressure of 200 pounds in less than half an hour. With a
+Babcock & Wilcox boiler in a test where forced draft was available,
+steam was raised from an initial temperature of the boiler and its
+contained water of 72 degrees to a pressure of 200 pounds, in 12½
+minutes after lighting the fire. The boiler also responds quickly in
+starting from banked fires, especially where forced draft is available.
+
+In Babcock & Wilcox boilers the water is divided into many small streams
+which circulate without undue frictional resistance in thin envelopes
+passing through the hottest part of the furnace, the steam being carried
+rapidly to the disengaging surface. There is no part of the boiler
+exposed to the heat of the fire that is not in contact with water
+internally, and as a result there is no danger of overheating on
+starting up quickly nor can leaks occur from unequal expansion such as
+might be the case where an attempt is made to raise steam rapidly in
+boilers using water leg construction.
+
+Storage Capacity for Steam and Water--Where sufficient steam and water
+capacity are not provided in a boiler, its action will be irregular, the
+steam pressure varying over wide limits and the water level being
+subject to frequent and rapid fluctuation.
+
+Owing to the small relative weight of steam, water capacity is of
+greater importance in this respect than steam space. With a gauge
+pressure of 180 pounds per square inch, 8 cubic feet of steam, which is
+equivalent to one-half cubic foot of water space, are required to supply
+one boiler horse power for one minute and if no heat be supplied to the
+boiler during such an interval, the pressure will drop to 150 pounds per
+square inch. The volume of steam space, therefore, may be over rated,
+but if this be too small, the steam passing off will carry water with it
+in the form of spray. Too great a water space results in slow steaming
+and waste of fuel in starting up; while too much steam space adds to the
+radiating surface and increases the losses from that cause.
+
+That the steam and water space of the Babcock & Wilcox boiler are the
+result of numerous experiments has previously been pointed out.
+
+Accessibility--Cleaning. That water-tube boilers are more accessible as
+a class than are fire-tube boilers has been indicated. All water-tube
+boilers, however, are not equally accessible. In certain designs, due to
+the arrangement of baffling used it is practically impossible to remove
+all deposits of soot and dirt. Frequently, in order to cheapen the
+product, sufficient cleaning and access doors are not supplied as part
+of the boiler equipment. The tendency of soot to collect on the crown
+sheets of certain vertical water-tube boilers has been noted. Such
+deposits are difficult to remove and if corrosion goes on beneath such a
+covering the sheet may crack and an explosion result.
+
+[Illustration: Rear View--Longitudinal Drum Vertical Header Boiler,
+Showing Access Doors to Rear Headers]
+
+It is almost impossible to thoroughly clean water legs internally, and
+in such places also is there a tendency to unsuspected corrosion under
+deposits that cannot be removed.
+
+In Babcock & Wilcox boilers every portion of the interior of the heating
+surfaces can be reached and kept clean, while any soot deposited on the
+exterior surfaces can be blown off while the boiler is under pressure.
+
+Inspection--The accessibility which makes possible the thorough cleaning
+of all portions of the Babcock & Wilcox boiler also provides a means for
+a thorough inspection.
+
+Drums are accessible for internal inspection by the removal of the
+manhole plates. Front headers may be inspected through large doors
+furnished for the purpose. Rear headers in the inclined header designs
+may be inspected from the chamber formed by such headers and the rear
+wall of the boiler. In the vertical header designs rear tube doors are
+furnished, as has been stated. In certain designs of water-tube boilers
+in order to assure accessibility for inspection of the rear ends of the
+tubes, the rear portion of the boiler is exposed to the atmosphere with
+resulting excessive radiation losses. In other designs the means of
+access to the rear ends of the tubes are of a makeshift and
+unworkmanlike character.
+
+By the removal of handhole plates, all tubes in a Babcock & Wilcox
+boiler may be inspected for their full length either for the presence of
+scale or for suspected corrosion.
+
+Repairs--In Babcock & Wilcox boilers the possession of great strength,
+the elimination of stresses due to uneven temperatures and of the
+resulting danger of leaks and corrosion, the protection of the drums
+from the intense heat of the fire, and the decreased liability of the
+scale forming matter to lodge on the hottest tube surfaces, all tend to
+minimize the necessity for repairs. The tubes of the Babcock & Wilcox
+boiler are practically the only part which may need renewal and these
+only at infrequent intervals When necessary, such renewals may be made
+cheaply and quickly. A small stock of tubes, 4 inches in diameter, of
+sufficient length for the boiler used, is all that need be carried to
+make renewals.
+
+Repairs in water-leg boilers are difficult at best and frequently
+unsatisfactory when completed. When staybolt replacements are necessary,
+in order to get at the inner sheet of the water leg, several tubes must
+in some cases be cut out. Not infrequently a replacement of an entire
+water leg is necessary and this is difficult and requires a lengthy
+shutdown. With the Babcock & Wilcox boiler, on the other hand, even if
+it is necessary to replace a section, this may be done in a few hours
+after the boiler is cool.
+
+In the case of certain staybolt failures the working pressure of a
+repaired boiler utilizing such construction will frequently be lowered
+by the insurance companies when the boiler is again placed in service.
+The sectional nature of the Babcock & Wilcox boiler enables it to
+maintain its original working pressure over long periods of time, almost
+regardless of the nature of any repair that may be required.
+
+[Illustration: 1456 Horse-power Installation of Babcock & Wilcox Boilers
+at the Raritan Woolen Mills, Raritan, N. J. The First of These Boilers
+were Installed in 1878 and 1881 and are still Operated at 80 Pounds
+Pressure]
+
+Durability--Babcock & Wilcox boilers are being operated in every-day
+service with entirely satisfactory results and under the same steam
+pressure as that for which they were originally sold that have been
+operated from thirty to thirty-five years. It is interesting to note in
+considering the life of a boiler that the length of life of a Babcock &
+Wilcox boiler must be taken as the criterion of what length of life is
+possible. This is due to the fact that there are Babcock & Wilcox
+boilers in operation to-day that have been in service from a time that
+antedates by a considerable margin that at which the manufacturer of any
+other water-tube boiler now on the market was started.
+
+Probably the very best evidence of the value of the Babcock & Wilcox
+boiler as a steam generator and of the reliability of the apparatus, is
+seen in the sales of the company. Since the company was formed, there
+have been sold throughout the world over 9,900,000 horse power.
+
+A feature that cannot be overlooked in the consideration of the
+advantages of the Babcock & Wilcox boiler is the fact that as a part of
+the organization back of the boiler, there is a body of engineers of
+recognized ability, ready at all times to assist its customers in every
+possible way.
+
+[Illustration: 2400 Horse-power Installation of Babcock & Wilcox Boilers
+in the Union Station Power House of the Pennsylvania Railroad Co.,
+Pittsburgh, Pa. This Company has a Total of 28,500 Horse Power of
+Babcock & Wilcox Boilers Installed]
+
+
+
+
+HEAT AND ITS MEASUREMENT
+
+
+The usual conception of heat is that it is a form of energy produced by
+the vibratory motion of the minute particles or molecules of a body. All
+bodies are assumed to be composed of these molecules, which are held
+together by mutual cohesion and yet are in a state of continual
+vibration. The hotter a body or the more heat added to it, the more
+vigorous will be the vibrations of the molecules.
+
+As is well known, the effect of heat on a body may be to change its
+temperature, its volume, or its state, that is, from solid to liquid or
+from liquid to gaseous. Where water is melted from ice and evaporated
+into steam, the various changes are admirably described in the lecture
+by Mr. Babcock on "The Theory of Steam Making", given in the next
+chapter.
+
+The change in temperature of a body is ordinarily measured by
+thermometers, though for very high temperatures so-called pyrometers are
+used. The latter are dealt with under the heading "High Temperature
+Measurements" at the end of this chapter.
+
+[Illustration: Fig. 11]
+
+By reason of the uniform expansion of mercury and its great
+sensitiveness to heat, it is the fluid most commonly used in the
+construction of thermometers. In all thermometers the freezing point and
+the boiling point of water, under mean or average atmospheric pressure
+at sea level, are assumed as two fixed points, but the division of the
+scale between these two points varies in different countries. The
+freezing point is determined by the use of melting ice and for this
+reason is often called the melting point. There are in use three
+thermometer scales known as the Fahrenheit, the Centigrade or Celsius,
+and the Réaumur. As shown in Fig. 11, in the Fahrenheit scale, the space
+between the two fixed points is divided into 180 parts; the boiling
+point is marked 212, and the freezing point is marked 32, and zero is a
+temperature which, at the time this thermometer was invented, was
+incorrectly imagined to be the lowest temperature attainable. In the
+centigrade and the Réaumur scales, the distance between the two fixed
+points is divided into 100 and 80 parts, respectively. In each of these
+two scales the freezing point is marked zero, and the boiling point is
+marked 100 in the centigrade and 80 in the Réaumur. Each of the 180, 100
+or 80 divisions in the respective thermometers is called a degree.
+
+Table 3 and appended formulae are useful for converting from one scale
+to another.
+
+In the United States the bulbs of high-grade thermometers are usually
+made of either Jena 58^{III} borosilicate thermometer glass or Jena
+16^{III} glass, the stems being made of ordinary glass. The Jena
+16^{III} glass is not suitable for use at temperatures much above 850
+degrees Fahrenheit and the harder Jena 59^{III} should be used in
+thermometers for temperatures higher than this.
+
+Below the boiling point, the hydrogen-gas thermometer is the almost
+universal standard with which mercurial thermometers may be compared,
+while above this point the nitrogen-gas thermometer is used. In both of
+these standards the change in temperature is measured by the change in
+pressure of a constant volume of the gas.
+
+In graduating a mercurial thermometer for the Fahrenheit scale,
+ordinarily a degree is represented as 1/180 part of the volume of the
+stem between the readings at the melting point of ice and the boiling
+point of water. For temperatures above the latter, the scale is extended
+in degrees of the same volume. For very accurate work, however, the
+thermometer may be graduated to read true-gas-scale temperatures by
+comparing it with the gas thermometer and marking the temperatures at 25
+or 50 degree intervals. Each degree is then 1/25 or 1/50 of the volume
+of the stem in each interval.
+
+Every thermometer, especially if intended for use above the boiling
+point, should be suitably annealed before it is used. If this is not
+done, the true melting point and also the "fundamental interval", that
+is, the interval between the melting and the boiling points, may change
+considerably. After continued use at the higher temperatures also, the
+melting point will change, so that the thermometer must be calibrated
+occasionally to insure accurate readings.
+
+As a general rule thermometers are graduated to read correctly for total
+immersion, that is, with bulb and stem of the thermometer at the same
+temperature, and they should be used in this way when compared with a
+standard thermometer. If the stem emerges into space either hotter or
+colder than that in which the bulb is placed, a "stem correction" must
+be applied to the observed temperature in addition to any correction
+that may be found in the comparison with the standard. For instance, for
+a particular thermometer, comparison with the standard with both fully
+immersed made necessary the following corrections:
+
+When the sign of the correction is positive (+) it must be added to the
+observed reading, and when the sign is a negative (-) the correction
+must be subtracted. The formula for the stem correction is as follows:
+
+Stem correction = 0.000085 × n (T-t)
+
+in which T is the observed temperature, t is the mean temperature of the
+emergent column, n is the number of degrees of mercury column emergent,
+and 0.000085 is the difference between the coefficient of expansion of
+the mercury and that in the glass in the stem.
+
+Suppose the observed temperature is 400 degrees and the thermometer is
+immersed to the 200 degrees mark, so that 200 degrees of the mercury
+column project into the air. The mean temperature of the emergent column
+may be found by tying another thermometer on the stem with the bulb at
+the middle of the emergent mercury column as in Fig. 12. Suppose this
+mean temperature is 85 degrees, then
+
+Stem correction = 0.000085 × 200 × (400 - 85) = 5.3 degrees.
+
+As the stem is at a lower temperature than the bulb, the thermometer
+will evidently read too low, so that this correction must be added to
+the observed reading to find the reading corresponding to total
+immersion. The corrected reading will therefore be 405.3 degrees. If
+this thermometer is to be corrected in accordance with the calibrated
+corrections given above, we note that a further correction of 0.5 must
+be applied to the observed reading at this temperature, so that the
+correct temperature is 405.3 - 0.5 = 404.8 degrees or 405 degrees.
+
+[Illustration: Fig. 12]
+
+[Illustration: Fig. 13]
+
+Fig. 12 shows how a stem correction can be obtained for the case just
+described.
+
+Fig. 13 affords an opportunity for comparing the scale of a thermometer
+correct for total immersion with one which will read correctly when
+submerged to the 300 degrees mark, the stem being exposed at a mean
+temperature of 110 degrees Fahrenheit, a temperature often prevailing
+when thermometers are used for measuring temperatures in steam mains.
+
+Absolute Zero--Experiments show that at 32 degrees Fahrenheit a perfect
+gas expands 1/491.64 part of its volume if its pressure remains constant
+and its temperature is increased one degree. Thus if gas at 32 degrees
+Fahrenheit occupies 100 cubic feet and its temperature is increased one
+degree, its volume will be increased to 100 + 100/491.64 = 100.203 cubic
+feet. For a rise of two degrees the volume would be 100 + (100 × 2) /
+491.64 = 100.406 cubic feet. If this rate of expansion per one degree
+held good at all temperatures, and experiment shows that it does above
+the freezing point, the gas, if its pressure remained the same, would
+double its volume, if raised to a temperature of 32 + 491.64 = 523.64
+degrees Fahrenheit, while under a diminution of temperature it would
+shrink and finally disappear at a temperature of 491.64 - 32 = 459.64
+degrees below zero Fahrenheit. While undoubtedly some change in the law
+would take place before the lower temperature could be reached, there is
+no reason why the law may not be used within the range of temperature
+where it is known to hold good. From this explanation it is evident that
+under a constant pressure the volume of a gas will vary as the number of
+degrees between its temperature and the temperature of -459.64 degrees
+Fahrenheit. To simplify the application of the law, a new thermometric
+scale is constructed as follows: the point corresponding to -460 degrees
+Fahrenheit, is taken as the zero point on the new scale, and the degrees
+are identical in magnitude with those on the Fahrenheit scale.
+Temperatures referred to this new scale are called absolute temperatures
+and the point -460 degrees Fahrenheit (= -273 degrees centigrade) is
+called the absolute zero. To convert any temperature Fahrenheit to
+absolute temperature, add 460 degrees to the temperature on the
+Fahrenheit scale: thus 54 degrees Fahrenheit will be 54 + 460 = 514
+degrees absolute temperature; 113 degrees Fahrenheit will likewise be
+equal to 113 + 460 = 573 degrees absolute temperature. If one pound of
+gas is at a temperature of 54 degrees Fahrenheit and another pound is at
+a temperature of 114 degrees Fahrenheit the respective volumes at a
+given pressure would be in the ratio of 514 to 573.
+
+[Illustration: Ninety-sixth Street Station of the New York Railways Co.,
+New York City, Operating 20,000 Horse Power of Babcock & Wilcox Boilers.
+This Company and its Allied Companies Operate a Total of 100,000 Horse
+Power of Babcock & Wilcox Boilers]
+
+British Thermal Unit--The quantitative measure of heat is the British
+thermal unit, ordinarily written B. t. u. This is the quantity of heat
+required to raise the temperature of one pound of pure water one degree
+at 62 degrees Fahrenheit; that is, from 62 degrees to 63 degrees. In the
+metric system this unit is the _calorie_ and is the heat necessary
+to raise the temperature of one kilogram of pure water from 15 degrees
+to 16 degrees centigrade. These two definitions lead to a discrepancy of
+0.03 of 1 per cent, which is insignificant for engineering purposes, and
+in the following the B. t. u. is taken with this discrepancy ignored.
+The discrepancy is due to the fact that there is a slight difference in
+the specific heat of water at 15 degrees centigrade and 62 degrees
+Fahrenheit. The two units may be compared thus:
+
+1 Calorie = 3.968 B. t. u.       1 B. t. u. = 0.252 Calories.
+
+_Unit_       _Water_      _Temperature Rise_
+1 B. t. u.   1 Pound      1 Degree Fahrenheit
+1 Calorie    1 Kilogram   1 Degree centigrade
+
+But 1 kilogram = 2.2046 pounds and 1 degree centigrade = 9/5 degree
+Fahrenheit.
+
+Hence 1 calorie = (2.2046 × 9/5) = 3.968 B. t. u.
+
+
+The heat values in B. t. u. are ordinarily given per pound, and the heat
+values in calories per kilogram, in which case the B. t. u. per pound
+are approximately equivalent to 9/5 the calories per kilogram.
+
+As determined by Joule, heat energy has a certain definite relation to
+work, one British thermal unit being equivalent from his determinations
+to 772 foot pounds. Rowland, a later investigator, found that 778 foot
+pounds were a more exact equivalent. Still later investigations indicate
+that the correct value for a B. t. u. is 777.52 foot pounds or
+approximately 778. The relation of heat energy to work as determined is
+a demonstration of the first law of thermo-dynamics, namely, that heat
+and mechanical energy are mutually convertible in the ratio of 778 foot
+pounds for one British thermal unit. This law, algebraically expressed,
+is W = JH; W being the work done in foot pounds, H being the heat in
+B. t. u., and J being Joules equivalent. Thus 1000 B. t. u.'s would be
+capable of doing 1000 × 778 = 778000 foot pounds of work.
+
+Specific Heat--The specific heat of a substance is the quantity of heat
+expressed in thermal units required to raise or lower the temperature of
+a unit weight of any substance at a given temperature one degree. This
+quantity will vary for different substances For example, it requires
+about 16 B. t. u. to raise the temperature of one pound of ice 32
+degrees or 0.5 B. t. u. to raise it one degree, while it requires
+approximately 180 B. t. u. to raise the temperature of one pound of
+water 180 degrees or one B. t. u. for one degree.
+
+If then, a pound of water be considered as a standard, the ratio of the
+amount of heat required to raise a similar unit of any other substance
+one degree, to the amount required to raise a pound of water one degree
+is known as the specific heat of that substance. Thus since one pound of
+water required one B. t. u. to raise its temperature one degree, and one
+pound of ice requires about 0.5 degrees to raise its temperature one
+degree, the ratio is 0.5 which is the specific heat of ice. To be exact,
+the specific heat of ice is 0.504, hence 32 degrees × 0.504 = 16.128
+B. t. u. would be required to raise the temperature of one pound of ice
+from 0 to 32 degrees. For solids, at ordinary temperatures, the specific
+heat may be considered a constant for each individual substance,
+although it is variable for high temperatures. In the case of gases a
+distinction must be made between specific heat at constant volume, and
+at constant pressure.
+
+Where specific heat is stated alone, specific heat at ordinary
+temperature is implied, and _mean_ specific heat refers to the average
+value of this quantity between the temperatures named.
+
+The specific heat of a mixture of gases is obtained by multiplying the
+specific heat of each constituent gas by the percentage by weight of
+that gas in the mixture, and dividing the sum of the products by 100.
+The specific heat of a gas whose composition by weight is CO_{2}, 13 per
+cent; CO, 0.4 per cent; O, 8 per cent; N, 78.6 per cent, is found as
+follows:
+
+
+The specific heats of various solids, liquids and gases are given in
+Table 4.
+
+Sensible Heat--The heat utilized in raising the temperature of a body,
+as that in raising the temperature of water from 32 degrees up to the
+boiling point, is termed sensible heat. In the case of water, the
+sensible heat required to raise its temperature from the freezing point
+to the boiling point corresponding to the pressure under which
+ebullition occurs, is termed the heat of the liquid.
+
+Latent Heat--Latent heat is the heat which apparently disappears in
+producing some change in the condition of a body without increasing its
+temperature If heat be added to ice at freezing temperature, the ice
+will melt but its temperature will not be raised. The heat so utilized
+in changing the condition of the ice is the latent heat and in this
+particular case is known as the latent heat of fusion. If heat be added
+to water at 212 degrees under atmospheric pressure, the water will not
+become hotter but will be evaporated into steam, the temperature of
+which will also be 212 degrees. The heat so utilized is called the
+latent heat of evaporation and is the heat which apparently disappears
+in causing the substance to pass from a liquid to a gaseous state.
+
+                            

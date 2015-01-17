@@ -25,7 +25,7 @@ def harperleestring():
 	return harperstr
 
 # texter = Text_Generator(text=harperleestring()) #now I can syllabalize this 
-texter = Text_Generator(generate=False,text=None)
+texter = Text_Generator(generate=True,text=None)
 word_list4 = texter.make_syll(python=True)
 # print(Haiku(wordlist=word_list4).make_poem_ordered(diff_style=True))
 def postit():
@@ -40,4 +40,4 @@ def postit():
 		twitter.make_post(orderedpoem)
 		time.sleep(int(numpy.random.randint(low=600,high=4000)))
 		print("Time done")
-postit()
+# postit()

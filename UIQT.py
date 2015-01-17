@@ -8,6 +8,10 @@ from tools import InOut
 import os
 import time
 import numpy
+"""
+17/1/2015 It'd be cool to get the continous post button working. Also, it would be cool 
+to make it so it periodically changes which text file it uses. 
+"""
 
 class Main_Window(QtGui.QMainWindow):
 
@@ -48,6 +52,7 @@ class App_Widgets(QtGui.QWidget):
 
 		grid = QtGui.QGridLayout()
 		grid.setSpacing(10)
+		self.grid = grid
 
 		self.choose_file = QtGui.QPushButton("Choose File...")
 		grid.addWidget(self.choose_file,2,1)
@@ -63,6 +68,11 @@ class App_Widgets(QtGui.QWidget):
 		self.post = QtGui.QPushButton("Post to twitter")
 		grid.addWidget(self.post,3,1)
 		self.post.clicked.connect(self.postit)
+
+		# self.post_continuous = QtGui.QPushButton("Post continously")
+		# grid.addWidget(self.post_continuous,3,2)
+		# self.post_continuous.clicked.connect(self.post_continuous_fn)
+
 
 		self.setLayout(grid)
 
@@ -105,6 +115,21 @@ class App_Widgets(QtGui.QWidget):
 			self.text_box.append("All done!\n\n")
 		except AttributeError:
 			self.text_box.append("Make a haiku first.\n\n")
+
+	# def post_continuous_fn(self):
+
+	# 	def stop():
+	# 		self.post_continuous.setText("Post continuously")
+	# 		# self.grid.addWidget(self.post_continuous_fn,3,2)
+	# 		return False
+
+	# 	self.post_continuous.setText("Stop")
+	# 	self.post_continuous.clicked.connect(stop)
+	# 	# self.grid.addWidget(self.post_continuous,3,2)
+	# 	while True:
+	# 		self.make_haiku()
+	# 		time.sleep(2)
+
 
 def main():
 

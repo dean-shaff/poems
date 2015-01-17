@@ -38,8 +38,11 @@ class Article_Stuff(object):
 		
 		with InOut(textdir):
 			with open(title_filename,"a") as articletitles:
-				for url in urls:
+				for index, url in enumerate(urls):
 					try:
+						if index % 10 == 0 and index != 0:
+							articletitles.flush()
+							print("Flushing")
 						print("Running...")
 						r = urllib2.urlopen(url)
 						data = r.read()
@@ -49,7 +52,7 @@ class Article_Stuff(object):
 						if soup.title != None:
 							try:
 								if self.source == 'http://cnn.com':
-									title = soup.title.string.rstrip("- CNN.com") #just want to use the end
+									title = soup.title.string.rstrip("- CNN.com Vide") #just want to use the end
 								articletitles.write("{}\n".format(title))
 								titles.append(title)
 							except UnicodeEncodeError:
