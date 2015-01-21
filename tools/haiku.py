@@ -134,9 +134,9 @@ class Haiku(Twitter_Tools):
 				print(last_blob.tags[-1][1], last_blob.tags[0][1])
 				print("Failed to make good line")
 				last_line_info = make_simple_line(5)
-				last_line = line_info['line']
+				last_line = last_line_info['line']
 				# line_num = line_info['line_syll']
-				last_blob = TextBlob(line, pos_tagger=PerceptronTagger())
+				last_blob = TextBlob(last_line, pos_tagger=PerceptronTagger())
 
 			return firstlinesfinal + '\n' + last_line
 	def make_poem_random(self): #self.wordlist should be a list that looks like what make_syll returns

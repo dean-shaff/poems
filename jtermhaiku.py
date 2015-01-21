@@ -9,7 +9,8 @@ import numpy
 #===============================================
 base_dir = os.path.dirname(__file__)
 text_dir = os.path.join(base_dir, 'texts')
-filename = "haikus-jterm-articles.txt"
+
+filename = "haikus-jterm.txt"
 
 fileconrad = "conrad.txt"
 filekafka = "kafka.txt"
@@ -66,9 +67,9 @@ def gen_many(niter,string_from_file=None):
 		pass
 
 def main():
-	# for book in files:
-	# 	book_total = build_textfile(book)
-	# 	gen_many(50,string_from_file=book_total)
-	gen_many(100,string_from_file=None) #to get article titles as well
+	for book in files:
+		book_total = build_textfile(book)
+		gen_many(20,string_from_file=book_total)
+	# gen_many(100,string_from_file=None) #to get article titles as well
 
 main()

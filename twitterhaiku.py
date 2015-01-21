@@ -1,3 +1,7 @@
+"""
+this is my testing ground for testing new changes to my code. 
+"""
+
 from tools import Article_Stuff
 from tools import Twitter_Tools
 from tools import Text_Generator
@@ -26,7 +30,7 @@ def harperleestring():
 
 # texter = Text_Generator(text=harperleestring()) #now I can syllabalize this 
 texter = Text_Generator(generate=False,text=None) #text = None means we use articles
-word_list4 = texter.make_syll(python=True)
+word_list4 = texter.make_syll(python=False)
 # with open("haikus-jterm.txt", 'a') as haikus:
 # 	for i in xrange(100):
 # 		poem = Haiku(wordlist=word_list4).make_poem_ordered(diff_style=True)

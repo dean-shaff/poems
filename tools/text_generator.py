@@ -6,6 +6,7 @@ I want to make it so this will work with sentences and strings.
 read from them much faster than if they were merely text files
 """
 from tools.article_stuff import Article_Stuff 
+from tools.syll_count import syll_dic
 from nltk import word_tokenize
 from bs4 import BeautifulSoup as bs 
 import os
@@ -15,6 +16,7 @@ import time
 from inoutsoft import InOut 
 from nltk.corpus import cmudict
 import string
+from pattern.en import singularize
 
 class Text_Generator(Article_Stuff): 
 	def __init__(self,generate=False,text=None):
@@ -98,7 +100,7 @@ class Text_Generator(Article_Stuff):
 		This returns a list with words in their original order.
 		18/10/2014 Incorporating the above "find_syll" function into this one to make
 		the dictionary lookup process quicker (it takes forever right now!)
-		21/1/2015 - Got a UnicodeDecodeError on line 105 - "words = word_tokenize(self.text)"
+		21/1/2015 - Got a UnicodeDecodeError on line 106 - "words = word_tokenize(self.text)"
 		I need to deal with this.
 		"""
 		time1 = 0
@@ -111,29 +113,50 @@ class Text_Generator(Article_Stuff):
 					word += " "	
 					wording.append([word,syllables_en.count(word)])
 		if not python:
-			with InOut(self.textdir): #changes directory, and closes it outside of with statement
-				with open(self.dic,'r') as dic, open(self.syll,'r') as syll: #where self.dic and self.syll are the files of the dictionary and hyphenated dictionaries respectively
-					for word in words:
-						t1 = time.time()
-						if word.isalpha():
-							word = word.strip('\n')
-							word = word.strip('\n')						
-							for index, (linedic, linesyll) in enumerate(zip(dic, syll)):
-								# print(r"{}".format(linedic.lower().strip('\n')))
-								if linedic.lower().strip('\r\n') == word.lower():
-									num_syll = 1 #because the number of syllables will be one more than the number of plus signs
-									for char in linesyll:
-										if char == "+" or char == " ":
-											num_syll += 1
-									word = word + " "
-									wording.append([word,num_syll])
-									time1 += time.time()-t1
-									print(time1)
-								else:							
-									pass
-								wording.append([word,syllables_en.count(word)])
-						dic.seek(0) #reset
-						syll.seek(0)
+			t1 = time.time()
+			for word in words:
+				if word.isalpha():
+					word = word.strip('\n').strip('\n')
+					try:
+						word = word.strip()
+						num_syll = syll_dic[singularize(word.lower())]
+						word += " "
+						wording.append([word,num_syll])
+					except KeyError:
+						# print("Dictionary look up failed for word {}, reverting to Python function".format(word))
+						word += " "
+						wording.append([word,syllables_en.count(word)])
+				# print("All done with word: {}".format(word))
+			t2 = time.time() - t1
+
+		if len(wording) == 1:
+			return wording[0]
+		else:
+			return wording
+
+			# with InOut(self.textdir): #changes directory, and closes it outside of with statement
+			# 	with open(self.dic,'r') as dic, open(self.syll,'r') as syll: #where self.dic and self.syll are the files of the dictionary and hyphenated dictionaries respectively
+			# 		for word in words:
+			# 			t1 = time.time()
+			# 			if word.isalpha():
+			# 				word = word.strip('\n')
+			# 				word = word.strip('\n')						
+			# 				for index, (linedic, linesyll) in enumerate(zip(dic, syll)):
+			# 					# print(r"{}".format(linedic.lower().strip('\n')))
+			# 					if linedic.lower().strip('\r\n') == word.lower():
+			# 						num_syll = 1 #because the number of syllables will be one more than the number of plus signs
+			# 						for char in linesyll:
+			# 							if char == "+" or char == " ":
+			# 								num_syll += 1
+			# 						word = word + " "
+			# 						wording.append([word,num_syll])
+			# 						time1 += time.time()-t1
+			# 						print(time1)
+			# 					else:							
+			# 						pass
+			# 					wording.append([word,syllables_en.count(word)])
+			# 			dic.seek(0) #reset
+			# 			syll.seek(0)
 		if len(wording) == 1:
 			return wording[0] #in case you want to find syllable length of a single word	
 		else:
