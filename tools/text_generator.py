@@ -98,6 +98,8 @@ class Text_Generator(Article_Stuff):
 		This returns a list with words in their original order.
 		18/10/2014 Incorporating the above "find_syll" function into this one to make
 		the dictionary lookup process quicker (it takes forever right now!)
+		21/1/2015 - Got a UnicodeDecodeError on line 105 - "words = word_tokenize(self.text)"
+		I need to deal with this.
 		"""
 		time1 = 0
 		words = word_tokenize(self.text)

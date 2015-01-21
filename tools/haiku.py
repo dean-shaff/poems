@@ -11,6 +11,15 @@ from twitter_tools import Twitter_Tools
 from text_generator import Text_Generator
 from inoutsoft import InOut
 import os
+import warnings
+from textblob import TextBlob
+from textblob_aptagger import PerceptronTagger
+
+list_pos = ["CC", "CD", "DT", "EX", "IN", "JJ", "JJR", "JJS", "MD",
+            "NN", "NNP", "NNPS", "NNS", "PDT", "POS", "PRP", "PRP$", "RB", "RBR",
+            "RBS", "RP", "VB", "VBD", "VBG", "VBN", "VBP", "VBZ"]
+
+list_not_allow = ["CC","IN","WDT","WP$","DT","LS","TO"]
 
 class Haiku(Twitter_Tools):
 	def __init__(self,wordlist):
@@ -45,12 +54,12 @@ class Haiku(Twitter_Tools):
 					line[1] = line[1] + word[1]
 					random_num += 1
 					word = self.wordlist[random_num]
-			
 			try:
 				syll_total = 0
-				for wordpair in Text_Generator(text=line[0]).make_syll():
+				for wordpair in Text_Generator(text=line[0]).make_syll(python=True): #line[0] is the string element of that list
 					syll_total += wordpair[1] 
-				assert line[1] == syll and syll == syll_total, "Algorithm failed"
+				if line[1] != syll or syll != syll_total: 
+					warnings.warn("Warning: Algorithm failed") #what the hell does this mean??
 			except TypeError:
 				pass
 			
@@ -85,11 +94,22 @@ class Haiku(Twitter_Tools):
 
 		if not diff_style:
 			syll_list = [5,7,5]
-			for index in syll_list:
-				line_info = make_simple_line(index)
+			for count in syll_list:
+				line_info = make_simple_line(count)
 				line = line_info['line']
 				line_num = line_info['line_syll']
-				poem = "{}\n".format(poem + line)		
+				blob = TextBlob(line, pos_tagger=PerceptronTagger())
+				# print(blob.tags)
+				while blob.tags[-1][1] in list_not_allow: #this is the part of speech
+					print(blob.tags[-1][1], blob.tags[0][1])
+					print("Failed to make good line")
+					line_info = make_simple_line(count)
+					line = line_info['line']
+					line_num = line_info['line_syll']
+					blob = TextBlob(line, pos_tagger=PerceptronTagger())
+
+				poem = "{}\n".format(poem + line)
+
 			return poem
 
 		elif diff_style:
@@ -98,7 +118,6 @@ class Haiku(Twitter_Tools):
 			first2lines = first2linesinfo['line']
 			texter1 = Text_Generator(generate=False,text=first2lines)
 			lines = texter1.make_syll(python=True)
-			# print(lines)
 			firstlinesfinal = str()
 			syll_count = int()
 			for i in xrange(0,len(lines)):
@@ -110,6 +129,15 @@ class Haiku(Twitter_Tools):
 
 			last_line_info = make_simple_line(5)
 			last_line = last_line_info['line']
+			last_blob = TextBlob(last_line, pos_tagger=PerceptronTagger())
+			while last_blob.tags[-1][1] in list_not_allow: #this is the part of speech
+				print(last_blob.tags[-1][1], last_blob.tags[0][1])
+				print("Failed to make good line")
+				last_line_info = make_simple_line(5)
+				last_line = line_info['line']
+				# line_num = line_info['line_syll']
+				last_blob = TextBlob(line, pos_tagger=PerceptronTagger())
+
 			return firstlinesfinal + '\n' + last_line
 	def make_poem_random(self): #self.wordlist should be a list that looks like what make_syll returns
 		"""

@@ -1,10 +1,11 @@
 import sys
-from PyQt4 import QtGui
+from PyQt4 import QtGui, QtCore
 from tools import Text_Generator
 from tools import Twitter_Tools
 from tools import Stress_Poem
 from tools import Haiku
 from tools import InOut
+import threading
 import os
 import time
 import numpy
@@ -69,13 +70,13 @@ class App_Widgets(QtGui.QWidget):
 		grid.addWidget(self.post,3,1)
 		self.post.clicked.connect(self.postit)
 
-		# self.post_continuous = QtGui.QPushButton("Post continously")
-		# grid.addWidget(self.post_continuous,3,2)
-		# self.post_continuous.clicked.connect(self.post_continuous_fn)
-
+		self.post_continuous = QtGui.QPushButton("Post continously")
+		grid.addWidget(self.post_continuous,3,2)
+		self.post_continuous.clicked.connect(self.post_continuous_fn)
 
 		self.setLayout(grid)
 
+		self.threadPool = []
 	
 	def browse(self):
 		filename = QtGui.QFileDialog.getOpenFileName()
@@ -116,20 +117,71 @@ class App_Widgets(QtGui.QWidget):
 		except AttributeError:
 			self.text_box.append("Make a haiku first.\n\n")
 
-	# def post_continuous_fn(self):
+	def post_continuous_fn(self):
 
-	# 	def stop():
-	# 		self.post_continuous.setText("Post continuously")
-	# 		# self.grid.addWidget(self.post_continuous_fn,3,2)
-	# 		return False
+		def stop():
+			self.threadPool[0].stopped = True
+			self.post_continuous.setText("Stop")
+			self.post_continuous.clicked.connect(return_original)
+			QtGui.QApplication.processEvents()
 
-	# 	self.post_continuous.setText("Stop")
-	# 	self.post_continuous.clicked.connect(stop)
-	# 	# self.grid.addWidget(self.post_continuous,3,2)
-	# 	while True:
-	# 		self.make_haiku()
-	# 		time.sleep(2)
+		def post_cont():
+			thread2 = MyThread(function=stop)
+			self.threadPool.append(thread2)
+			thread2.start()
+			print(self.threadPool)
+			# while True:
+			# 	QtGui.QApplication.processEvents()
+			# 	print("Hey")
+			# 	time.sleep(1)
 
+		thread1 = MyThread(function=post_cont)
+		self.threadPool.append(thread1)
+		thread1.start()
+
+		def return_original():
+			self.post_continuous.setText("Post continuously")
+			# self.post_continuous.clicked.connect(self.post_continuous_fn)
+			return False
+
+
+class MyThread(threading.Thread):
+
+	def __init__(self, function, *args, **kwargs):
+		
+		self.function = function
+		self.args = args
+		self.kwargs = kwargs
+		self.stopped = False
+		threading.Thread.__init__(self)
+
+	def run(self):
+
+		if not self.stopped:
+			self.function(*self.args, **self.kwargs)
+
+
+
+
+
+
+			# QtGui.QApplication.processEvents()
+
+# class GenericThread(QtCore.QThread):
+
+# 	def __init__(self, function, *args, **kwargs):
+
+# 		QtCore.QThread.__init__(self)
+# 		self.function = function
+# 		self.args = args
+# 		self.kwargs = kwargs
+
+# 	def __del__(self):
+# 		self.wait()
+
+# 	def run(self):
+# 		self.function(*self.args, **self.kwargs)
+# 		return 
 
 def main():
 

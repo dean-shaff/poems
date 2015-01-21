@@ -25,9 +25,16 @@ def harperleestring():
 	return harperstr
 
 # texter = Text_Generator(text=harperleestring()) #now I can syllabalize this 
-texter = Text_Generator(generate=True,text=None)
+texter = Text_Generator(generate=False,text=None) #text = None means we use articles
 word_list4 = texter.make_syll(python=True)
-# print(Haiku(wordlist=word_list4).make_poem_ordered(diff_style=True))
+# with open("haikus-jterm.txt", 'a') as haikus:
+# 	for i in xrange(100):
+# 		poem = Haiku(wordlist=word_list4).make_poem_ordered(diff_style=True)
+# 		haikus.write(poem)
+# 		haikus.write('\n\n')
+# 		print(poem)
+
+print(Haiku(wordlist=word_list4).make_poem_ordered(diff_style=True))
 def postit():
 	t = 0
 	while t < 15:
