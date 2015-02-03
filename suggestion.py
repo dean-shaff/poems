@@ -13,7 +13,7 @@ list_pos = ["CC", "CD", "DT", "EX", "IN", "JJ", "JJR", "JJS", "MD",
 filename = 'melville.txt'
 t1 = time.time()
 up_to1 = 7
-sentence = sentence_processor(write_to_file=False,sentence="his name is John, but that's not") 
+sentence = sentence_processor(write_to_file=False,sentence="his name is John, but is that") 
 tagged = Sentence_Probability(filename, max_line=10000, write_to_file=False,load_tot_prob=True,load_tagged=True) 
 probs = np.zeros(len(tagged.list_pos))
 for i in xrange(len(tagged.list_pos)):
@@ -29,7 +29,7 @@ sentence_coherent = str()
 for word_pair in sentence[0][0:up_to1-1]:
 	sentence_coherent += word_pair[0] + " "
 
-for i in xrange(100):
+for i in xrange(10):
 	ran_word1 = tagged.random_word(index_max)
 	print(sentence_coherent + ran_word1['word'])
 	raw_input(">> ")

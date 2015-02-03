@@ -109,7 +109,7 @@ class Sentence_Probability(object):
             # import token.var_token
             if kwargs['load_tagged']:
                 self.blob_tagged_by_sentence = token1.var_token
-                self.sen_tag_pword = token1.var_ptoken
+                self.sen_tag_pword = token1.var_ptoken #with the words as well as the pos tags.
                 write_to_file = False  
                 print("Time loading tagged list: {:.2f} seconds".format(time.time()-t1))
                 logging.info("Time loading tagged list: {:.2f} seconds".format(time.time()-t1))             
@@ -233,7 +233,7 @@ class Sentence_Probability(object):
         # print("total prob: {}".format(total_prob))
         # print("cond_prob: {}".format(cond_prob))
         if cond_prob > total_prob:
-            print("Dean, you fucked something up")
+            logging.info("conditional probability was higher than total probability. Something isn't working right.")
         try:
             return float(cond_prob / total_prob)
         except ZeroDivisionError:
