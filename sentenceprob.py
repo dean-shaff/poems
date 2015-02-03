@@ -254,7 +254,7 @@ class Sentence_Probability(object):
             for i in xrange(0, len(list_pos)):
                 # A2 = position[i] #the row
                 for j in xrange(0, len(list_pos)):
-                    prob = self.cond_prob_v2([10, 25], j, i, h+1, h) #probability of j given i. This gives (B,A) indexing instead of the other way around.
+                    prob = self.cond_prob_v2([12, 25], j, i, h+1, h) #probability of j given i. This gives (B,A) indexing instead of the other way around.
                     A["{},{}".format(list_pos[j],list_pos[i])] = prob
                     master[i,j,h] = prob
                     # A2[j] = prob
@@ -347,7 +347,7 @@ class Sentence_Probability(object):
         except AttributeError:
             # this means the cumu_prob variable doesn't exist -- it hasn't been loaded in or the method 
             # above hasn't been called.
-            if len(sentence[0]) != self.up_to_all_probs:
+            if len(sentence[0]) > self.up_to_all_probs:
                 raise ValueError("The sentence doesn't have the right length")
             else:
                 prob = self.calc_cumulative_prob(coord)
