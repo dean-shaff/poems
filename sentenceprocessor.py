@@ -1,3 +1,11 @@
+"""
+The function sentence_processor takes a phrase or text file and does two things:
+1) tokenizes the phrase/text file by sentence.
+2) for each word in the tokenized sentence it also provides the part of speech.
+It returns a list of lists. Each sub list represents a sentence. Each element of the sentence 
+sublist is a tuple containing the word and it's corresponding part of speech. 
+"""
+
 from tools import InOut
 import nltk
 from nltk_contrib.readability.textanalyzer import syllables_en
