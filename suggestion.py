@@ -33,12 +33,13 @@ def word_suggestion(test_sentence, sentence_probability_object, **kwargs):
 		sentence[0][position] = (ran_word['word'],ran_word['pos'])
 		probs[i] = tagged.calc_cumu_prob(sentence)
 
+	# below I build a list the most probable indices, in descending probability
 	probs2 = np.copy(probs)
 	max_indices = []
 	for i in xrange(len(probs)-1):
 		index_max = np.where(probs2 == np.amax(probs2))[0][0]
+		max_indices.append((index_max, probs2[index_max], list_pos[index_max]))
 		probs2[index_max] = 0
-		max_indices.append(index_max)
 
 	first_half = str()
 	second_half = str()
@@ -53,11 +54,12 @@ def word_suggestion(test_sentence, sentence_probability_object, **kwargs):
 		pass
 
 	for i in xrange(10):
-		ran_word1 = tagged.random_word(max_indices[i])
-		print(first_half + ran_word1['word'] + " " + second_half + " " + list_pos[max_indices[i]])
+		ran_word1 = tagged.random_word(max_indices[i][0])
+		print("{} **{}** {} {}".format(first_half,ran_word1['word'],second_half, max_indices[i][2]))
+		# print(first_half + ran_word1['word'] + " " + second_half + " " + max_indices[i][2])
 		raw_input(">> ")
 
-word_suggestion("I was walking down the street last Tuesday", tagged, position=4)
+word_suggestion("I was walking down the street last Tuesday but then this girl saw me and I said hold up", tagged, position=4)
 
 
 

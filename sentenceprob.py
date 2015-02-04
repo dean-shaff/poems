@@ -346,13 +346,15 @@ class Sentence_Probability(object):
 
         except AttributeError:
             # this means the cumu_prob variable doesn't exist -- it hasn't been loaded in or the method 
-            # above hasn't been called.
+            # above hasn't been called. Cumulative probabilty thing is deprecated as of now. 
             if len(sentence[0]) > self.up_to_all_probs:
-                raise ValueError("The sentence doesn't have the right length")
+                # raise ValueError("The sentence doesn't have the right length")
+                coord = coord[0:self.up_to_all_probs]
+                prob = self.calc_cumulative_prob(coord)
+                return prob
             else:
                 prob = self.calc_cumulative_prob(coord)
                 return prob
-
 
 
 # if __name__=="__main__":
