@@ -5,7 +5,6 @@ The function sentence_processor takes a phrase or text file and does two things:
 It returns a list of lists. Each sub list represents a sentence. Each element of the sentence 
 sublist is a tuple containing the word and it's corresponding part of speech. 
 """
-
 from tools import InOut
 import nltk
 from nltk_contrib.readability.textanalyzer import syllables_en

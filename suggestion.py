@@ -1,3 +1,8 @@
+"""
+3/2/2015
+By some grace of Jesus on the cross this actually works. 
+
+"""
 from sentenceprob import Sentence_Probability
 from sentenceprocessor import sentence_processor
 import os 
@@ -10,11 +15,11 @@ list_pos = ["CC", "CD", "DT", "EX", "IN", "JJ", "JJR", "JJS", "MD",
             "NN", "NNP", "NNPS", "NNS", "PDT", "POS", "PRP", "PRP$", "RB", "RBR",
             "RBS", "RP", "VB", "VBD", "VBG", "VBN", "VBP", "VBZ"]
 
-filename = 'melville.txt'
+filenames = ['melville.txt','AustenPride.txt','DickensTaleofTwo.txt']
 t1 = time.time()
 up_to1 = 7
-tagged = Sentence_Probability(filename, max_line=20000, write_to_file=False,load_tagged=True,load_tot_prob=True) 
-# tagged.all_probs(up_to=10, write_to_file=True)
+tagged = Sentence_Probability(filenames, max_line="max", write_to_file=False,load_tagged=True,load_tot_prob=True) 
+# tagged.all_probs(up_to=20, write_to_file=True, magic_range=40)
 
 def word_suggestion(test_sentence, sentence_probability_object, **kwargs):
 
