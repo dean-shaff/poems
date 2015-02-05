@@ -349,10 +349,72 @@ class Sentence_Probability(object):
         else:
             prob = 1
             for i in xrange(length-1):
-                posB = int(coordinates[i])
-                posA = int(coordinates[i+1])
-                prob *= self.total_prob[posB,posA,i]
+                if coordinates[i] == None or coordinates[i+1] == None:
+                    continue
+                else:
+                    posB = int(coordinates[i])
+                    posA = int(coordinates[i+1])
+                    prob *= self.total_prob[posB,posA,i]
             return prob
+
+    def calc_cumu_prob(self,sentence,**kwargs):
+        """
+        This function calculates the cumulative probability of a sentence that you supply it. 
+        The sentence should be a list whose elements are a tuple -- (word, p_o_s)
+        This is the one I want to use outside of the class. The one above is to used in the calc_cumulative_prob method.
+
+        **kwargs:
+            - position: The position in the sentence about which you want it to calculate the probability. 
+            If position is in the middle of the sentence, then it will calculate probability using the 
+            3 previous words (if available) and the 3 after the word (if available). If position is the last word,
+            it will use 3 previous entries to calculate probability. 
+        """
+        first_chunk = 3
+        second_chunk = 3
+        length = len(sentence[0])
+        print(sentence[0])
+        try:
+            position = int(kwargs['position'])
+            coord = [None for i in xrange(length)]
+            coord2 = tuple([list_pos.index(word[1]) for word in sentence[0]])
+            print(coord2)
+            if position > length-1:
+                print("Position argument provided is bigger than length of sentence. Defaulting to last position.")
+                position = len(sentence[0])-1
+            else:
+                pass
+
+            if length <= first_chunk+second_chunk: #sentence isn't long enough for this positional business to matter.
+                coord = coord2
+            elif position < first_chunk:
+                coord[0:position+first_chunk+1] = coord2[0:position+first_chunk+1]
+            elif position > length - second_chunk:
+                coord[position-second_chunk:length] = coord2[position-second_chunk:length]
+            else:
+                coord[position-first_chunk:position+second_chunk+1] = coord2[position-first_chunk:position+second_chunk+1]
+        
+        except KeyError:
+            coord = tuple([list_pos.index(word[1]) for word in sentence[0]])
+
+        try:
+            if len(sentence[0]) != len(self.cumu_prob.shape):
+                raise ValueError("The sentence doesn't have the right length")
+            else:
+                prob = self.cumu_prob[coord]
+                return prob
+
+        except AttributeError:
+            # this means the cumu_prob variable doesn't exist -- it hasn't been loaded in or the method 
+            # above hasn't been called. Cumulative probabilty thing is deprecated as of now. 
+            print(coord)
+            if len(sentence[0]) > self.up_to_all_probs:
+                # raise ValueError("The sentence doesn't have the right length")
+                coord = coord[0:self.up_to_all_probs]
+                prob = self.calc_cumulative_prob(coord)
+                return prob
+            else:
+                prob = self.calc_cumulative_prob(coord)
+                return prob
 
     def total_cumulative_prob(self, up_to_cumu=3, write_to_file=False):
         """
@@ -397,31 +459,7 @@ class Sentence_Probability(object):
                 if word[1] == p_o_s:
                     return {'word': word[0], 'pos': word[1], 'index': list_pos.index(word[1])} 
 
-    def calc_cumu_prob(self,sentence):
-        """
-        This function calculates the cumulative probability of a sentence that you supply it. 
-        The sentence should be a list whose elements are a tuple -- (word, p_o_s)
-        This is the one I want to use outside of the class. The one above is to used in the calc_cumulative_prob method.
-        """
-        coord = tuple([list_pos.index(word[1]) for word in sentence[0]])
-        try:
-            if len(sentence[0]) != len(self.cumu_prob.shape):
-                raise ValueError("The sentence doesn't have the right length")
-            else:
-                prob = self.cumu_prob[coord]
-                return prob
 
-        except AttributeError:
-            # this means the cumu_prob variable doesn't exist -- it hasn't been loaded in or the method 
-            # above hasn't been called. Cumulative probabilty thing is deprecated as of now. 
-            if len(sentence[0]) > self.up_to_all_probs:
-                # raise ValueError("The sentence doesn't have the right length")
-                coord = coord[0:self.up_to_all_probs]
-                prob = self.calc_cumulative_prob(coord)
-                return prob
-            else:
-                prob = self.calc_cumulative_prob(coord)
-                return prob
 
 
 # if __name__=="__main__":

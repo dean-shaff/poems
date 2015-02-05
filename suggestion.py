@@ -20,6 +20,8 @@ t1 = time.time()
 up_to1 = 7
 tagged = Sentence_Probability(filenames, max_line="max", write_to_file=False,load_tagged=True,load_tot_prob=True) 
 # tagged.all_probs(up_to=20, write_to_file=True, magic_range=40)
+# sentence = sentence_processor(write_to_file=False,sentence="My name is Dean and I like eat cheese.")
+# print(tagged.calc_cumu_prob(sentence,position=4))
 
 def word_suggestion(test_sentence, sentence_probability_object, **kwargs):
 
@@ -36,7 +38,7 @@ def word_suggestion(test_sentence, sentence_probability_object, **kwargs):
 	for i in xrange(len(tagged.list_pos)):
 		ran_word = tagged.random_word(i)
 		sentence[0][position] = (ran_word['word'],ran_word['pos'])
-		probs[i] = tagged.calc_cumu_prob(sentence)
+		probs[i] = tagged.calc_cumu_prob(sentence,position=position)
 
 	# below I build a list the most probable indices, in descending probability
 	probs2 = np.copy(probs)
@@ -60,7 +62,7 @@ def word_suggestion(test_sentence, sentence_probability_object, **kwargs):
 
 	for i in xrange(10):
 		ran_word1 = tagged.random_word(max_indices[i][0])
-		print("{} **{}** {} {}".format(first_half,ran_word1['word'],second_half, max_indices[i][2]))
+		print("{}**{}** {} {}".format(first_half,ran_word1['word'],second_half, max_indices[i][2]))
 		# print(first_half + ran_word1['word'] + " " + second_half + " " + max_indices[i][2])
 		raw_input(">> ")
 
