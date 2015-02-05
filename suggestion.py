@@ -4,7 +4,7 @@ By some grace of Jesus on the cross this actually works.
 
 """
 from sentenceprob import Sentence_Probability
-from sentenceprocessor import sentence_processor
+from sentenceprob import sentence_processor
 import os 
 import time 
 import numpy as np
@@ -26,7 +26,7 @@ tagged = Sentence_Probability(filenames, max_line="max", write_to_file=False,loa
 def word_suggestion(test_sentence, sentence_probability_object, **kwargs):
 
 	tagged = sentence_probability_object	
-	sentence = sentence_processor(write_to_file=False,sentence=test_sentence) 
+	sentence = sentence_processor(sentence=test_sentence) 
 	try:	
 		position = int(kwargs['position'])
 		if position > len(sentence[0]) - 1:
@@ -65,7 +65,7 @@ def word_suggestion(test_sentence, sentence_probability_object, **kwargs):
 		print("{}**{}** {} {}".format(first_half,ran_word1['word'],second_half, max_indices[i][2]))
 		# print(first_half + ran_word1['word'] + " " + second_half + " " + max_indices[i][2])
 		raw_input(">> ")
-
+# for i in xrange(0,10,1):
 word_suggestion("I was walking down the street last Tuesday but then this girl saw me and I said hold up", tagged, position=4)
 
 

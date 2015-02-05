@@ -28,7 +28,7 @@ To do:
     - When you're calculating the cumulative probability at a high position (eg 7 or higher) in a provided sentence 
     (using the sentence_processor function) you start to lose accuracy because the probabilty starts to approach zero.
     This makes sense, but it would be cool if I could reindex every so often. If the user says to find the probability
-    at postion 7 or something, I would START from position 6 or 7 in the self.total_prob array. 
+    at postion 7 or something, I would START from position 6 or 7 in the self.total_prob array. CHECK 4/2/2015
 
 solved some unicode encoding errors I think
 """
@@ -148,15 +148,6 @@ class Sentence_Probability(object):
                 print("Time loading tagged list: {:.2f} seconds".format(time.time()-t1))
                 logging.info("Time loading tagged list: {:.2f} seconds".format(time.time()-t1))
             elif not kwargs['load_tagged']:
-                # t2 = time.time()
-                # self.blob_tagged_by_sentence = []
-                # self.sen_tag_pword = []
-                # for sentence in blob.sentences:
-                #     try:
-                #         self.blob_tagged_by_sentence.append([word[1] for word in sentence.tags if word[1] not in list_not_allow])
-                #         self.sen_tag_pword.append([word for word in sentence.tags if word[1] not in list_not_allow])
-                #     except UnicodeDecodeError as err:
-                #         logging.exception(err)
                 self.blob_tagged_by_sentence = [[word[1] for word in sentence.tags if word[1] not in list_not_allow] for sentence in blob.sentences]
                 self.sen_tag_pword = [[word for word in sentence.tags if word[1] not in list_not_allow] for sentence in blob.sentences]
                 print("Time creating tagged list: {:.2f}".format(time.time() - t1))
@@ -165,14 +156,6 @@ class Sentence_Probability(object):
         except (KeyError, ImportError) as err:
             logging.exception(err)
             t2 = time.time()
-            # self.blob_tagged_by_sentence = []
-            # self.sen_tag_pword = []
-            # for sentence in blob.sentences:
-            #     try:
-            #         self.blob_tagged_by_sentence.append([word[1] for word in sentence.tags if word[1] not in list_not_allow])
-            #         self.sen_tag_pword.append([word for word in sentence.tags if word[1] not in list_not_allow])
-            #     except UnicodeDecodeError as err:
-            #         logging.exception(err)
             self.blob_tagged_by_sentence = [[word[1] for word in sentence.tags if word[1] not in list_not_allow] for sentence in blob.sentences]
             self.sen_tag_pword = [[word for word in sentence.tags if word[1] not in list_not_allow] for sentence in blob.sentences]
             print("Time creating tagged list: {:.2f}".format(time.time() - t2))
@@ -372,12 +355,12 @@ class Sentence_Probability(object):
         first_chunk = 3
         second_chunk = 3
         length = len(sentence[0])
-        print(sentence[0])
+        # print(sentence[0])
         try:
             position = int(kwargs['position'])
             coord = [None for i in xrange(length)]
             coord2 = tuple([list_pos.index(word[1]) for word in sentence[0]])
-            print(coord2)
+            # print(coord2)
             if position > length-1:
                 print("Position argument provided is bigger than length of sentence. Defaulting to last position.")
                 position = len(sentence[0])-1
@@ -406,7 +389,7 @@ class Sentence_Probability(object):
         except AttributeError:
             # this means the cumu_prob variable doesn't exist -- it hasn't been loaded in or the method 
             # above hasn't been called. Cumulative probabilty thing is deprecated as of now. 
-            print(coord)
+            # print(coord)
             if len(sentence[0]) > self.up_to_all_probs:
                 # raise ValueError("The sentence doesn't have the right length")
                 coord = coord[0:self.up_to_all_probs]
@@ -459,6 +442,18 @@ class Sentence_Probability(object):
                 if word[1] == p_o_s:
                     return {'word': word[0], 'pos': word[1], 'index': list_pos.index(word[1])} 
 
+def sentence_processor(sentence):
+    """
+    Update 4/2/2015 - Based on the way I've been using this function 
+    (just to read in a sentence and tag it) I see no reason to have all 
+    the other functionality, like reading in files. 
+    """
+    master_str = sentence
+    t1 = time.time()
+    blob = TextBlob(master_str, pos_tagger=PerceptronTagger())
+    tagged_by_sen = [[word for word in sentence.tags if word[1] not in list_not_allow] for sentence in blob.sentences]
+    print("Time loading in sentence {:.2f}".format(time.time() - t1))
+    return tagged_by_sen
 
 
 
