@@ -18,6 +18,12 @@ lib64/
 parts/
 sdist/
 var/
+logs/
+old_stuff/
+tex_stuff/
+.ipynb_checkpoints/
+jtermhaiku.py
+haikus-jterm.py
 *.egg-info/
 .installed.cfg
 *.egg
@@ -51,4 +57,6 @@ coverage.xml
 
 # Sphinx documentation
 docs/_build/
+
+*.ipynb
 
