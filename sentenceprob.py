@@ -29,8 +29,12 @@ To do:
     (using the sentence_processor function) you start to lose accuracy because the probabilty starts to approach zero.
     This makes sense, but it would be cool if I could reindex every so often. If the user says to find the probability
     at postion 7 or something, I would START from position 6 or 7 in the self.total_prob array. CHECK 4/2/2015
-
 solved some unicode encoding errors I think
+
+26/2/2015
+
+I'm trying to construct a sentence model from the inputted text. This means that I go through all the sentences 
+in a book/text and find the "most probable" sentence. 
 """
 
 from tools import InOut
@@ -60,7 +64,7 @@ list_not_allow = ['SYM', 'TO', '$', "\'\'",
 
 list_pos = ["CC", "CD", "DT", "EX", "IN", "JJ", "JJR", "JJS", "MD",
             "NN", "NNP", "NNPS", "NNS", "PDT", "POS", "PRP", "PRP$", "RB", "RBR",
-            "RBS", "RP", "VB", "VBD", "VBG", "VBN", "VBP", "VBZ"]
+            "RBS", "RP", "VB", "VBD", "VBG", "VBN", "VBP", "VBZ","WRB","WDT","WP","WP$"]
 
 log_dir = "{}/logs/{}"
 # class Sentence_Processor(object):
@@ -101,28 +105,28 @@ class Sentence_Probability(object):
 
         self.list_pos = list_pos
         master_str = str()
-        if write_to_file:
-            for filename in self.filenames:
-                with InOut(text_dir):
-                    with open(filename, 'r') as reader:
-                        for index, line in enumerate(reader):
-                            try:
-                                line = line.strip('\n').decode('ascii')
-                                master_str += line
-                                if index == max_line:
-                                    break
-                            except UnicodeDecodeError:
-                                print("unicode encoding error")
-                                continue
+        # if write_to_file:
+        for filename in self.filenames:
+            with InOut(text_dir):
+                with open(filename, 'r') as reader:
+                    for index, line in enumerate(reader):
+                        try:
+                            line = line.strip('\n').decode('ascii')
+                            master_str += line
+                            if index == max_line:
+                                break
+                        except UnicodeDecodeError:
+                            print("unicode encoding error")
+                            continue
 
-            self.master_str = master_str
+        self.master_str = master_str
 
-            t1 = time.time()            
-            blob = TextBlob(self.master_str, pos_tagger=PerceptronTagger())
-            print("Time creating object: {:.2f}".format(time.time() - t1))
-            logging.info("Time creating object: {:.2f}".format(time.time() - t1))
-        else:
-            pass
+        t1 = time.time()            
+        blob = TextBlob(self.master_str, pos_tagger=PerceptronTagger())
+        print("Time creating object: {:.2f}".format(time.time() - t1))
+        logging.info("Time creating object: {:.2f}".format(time.time() - t1))
+        # else:
+        #     pass
         try:
             sys.path.append(os.path.abspath(text_dir))
             import prob
@@ -354,16 +358,24 @@ class Sentence_Probability(object):
         """
         first_chunk = 3
         second_chunk = 3
-        length = len(sentence[0])
+        if len(sentence) == 1 and isinstance(sentence[0],list):
+            sentence = sentence[0]
+        if len(sentence) == 1 and isinstance(sentence[0],tuple):
+            print("One word sentence: Returning 0.0")
+            return 0.0
+        elif len(sentence) != 1: 
+            sentence = sentence 
+        length = len(sentence)
+
         # print(sentence[0])
         try:
             position = int(kwargs['position'])
             coord = [None for i in xrange(length)]
-            coord2 = tuple([list_pos.index(word[1]) for word in sentence[0]])
+            coord2 = tuple([list_pos.index(word[1]) for word in sentence])
             # print(coord2)
             if position > length-1:
                 print("Position argument provided is bigger than length of sentence. Defaulting to last position.")
-                position = len(sentence[0])-1
+                position = len(sentence)-1
             else:
                 pass
 
@@ -376,11 +388,11 @@ class Sentence_Probability(object):
             else:
                 coord[position-first_chunk:position+second_chunk+1] = coord2[position-first_chunk:position+second_chunk+1]
         
-        except KeyError:
-            coord = tuple([list_pos.index(word[1]) for word in sentence[0]])
+        except (KeyError,ValueError):
+            coord = tuple([list_pos.index(word[1]) for word in sentence])
 
         try:
-            if len(sentence[0]) != len(self.cumu_prob.shape):
+            if len(sentence) != len(self.cumu_prob.shape):
                 raise ValueError("The sentence doesn't have the right length")
             else:
                 prob = self.cumu_prob[coord]
@@ -390,7 +402,7 @@ class Sentence_Probability(object):
             # this means the cumu_prob variable doesn't exist -- it hasn't been loaded in or the method 
             # above hasn't been called. Cumulative probabilty thing is deprecated as of now. 
             # print(coord)
-            if len(sentence[0]) > self.up_to_all_probs:
+            if len(sentence) > self.up_to_all_probs:
                 # raise ValueError("The sentence doesn't have the right length")
                 coord = coord[0:self.up_to_all_probs]
                 prob = self.calc_cumulative_prob(coord)

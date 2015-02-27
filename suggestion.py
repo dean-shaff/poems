@@ -1,7 +1,9 @@
 """
 3/2/2015
 By some grace of Jesus on the cross this actually works. 
-
+4/2/2015
+Let's make this work for multiple replacement positions, ie you 
+tell it to replace positions 1-3 and it'll provide the most probable sentence. 
 """
 from sentenceprob import Sentence_Probability
 from sentenceprob import sentence_processor
