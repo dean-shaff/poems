@@ -494,7 +494,7 @@ class Sentence_Probability(object):
         for index in xrange(start_point,len(tot_sen)-1):
             for word in tot_sen[index]:
                 if word[1] == p_o_s:
-                    return {'word': word[0], 'pos': word[1], 'index': list_pos.index(word[1])} 
+                    return {'word': word[0], 'pos': word[1], 'index': list_pos.index(word[1]), 'tupleform':word} 
 
 
     def random_word_no_pos(self):
@@ -507,7 +507,7 @@ class Sentence_Probability(object):
         """
         rando = np.random.random()
         for pos in self.list_pos:
-            if rando <= self.list_pos[pos]:
+            if rando <= self.cumu_pos_freq[pos]:
                 special_pos = pos 
                 break 
         tot_sen = self.sen_tag_pword
@@ -515,7 +515,7 @@ class Sentence_Probability(object):
         for index in xrange(start_point,len(tot_sen)-1):
             for word in tot_sen[index]:
                 if word[1] == special_pos:
-                    return {'word': word[0], 'pos': word[1], 'index': list_pos.index(word[1])} 
+                    return {'word': word[0], 'pos': word[1], 'index': list_pos.index(word[1]),'tupleform':word} 
 
 
 def sentence_processor(sentence):
@@ -533,19 +533,13 @@ def sentence_processor(sentence):
 
 
 
-# if __name__=="__main__":
-#     filename = 'melville.txt'
-#     up_to1 = 7
-#     sentence = sentence_processor(write_to_file=False,sentence="he ate food in the house today.") 
-#     tagged = Sentence_Probability(filename, max_line=10000, write_to_file=False,load_tagged=True,load_tot_prob=False) #note that I don't need to run "all_probs" method because I'm loading in the data. 
-#     prob = tagged.all_probs(up_to=up_to1,write_to_file=True)
-#     #all_probs != to cumu_prob. cumu_prob is incredibly intensive to calculate and really kind of unnecessary right now. 
-#     # cumu_prob = tagged.total_cumulative_prob(up_to=up_to1,write_to_file=True)
-#     print(tagged.calc_cumu_prob(sentence))
 
-    # print(tagged.calc_cumu_prob(sentence))
-    # prob_list = prob['list']
-    # cumu = tagged.total_cumulative_prob(up_to=3)
+
+
+
+
+
+
   
 
 
