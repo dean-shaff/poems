@@ -35,6 +35,13 @@ solved some unicode encoding errors I think
 
 I'm trying to construct a sentence model from the inputted text. This means that I go through all the sentences 
 in a book/text and find the "most probable" sentence. 
+
+4/3/2015
+
+pos, or p.o.s. = part of speech. 
+
+I'm trying to make a random word generator that generates words but weighted by pos frequency in the 
+given text. 
 """
 
 from tools import InOut
@@ -87,11 +94,13 @@ class Sentence_Probability(object):
             load_tagged: if True, will load in the previously tagged list of words from a book.
             load_tot_prob: if True, will load in the total probability array from a tagged book. 
             ***I should make these development kwargs or something...*** 
+            pos_freq: if provided will calculate the frequency of each part of speech
+            in the provided text 
         """
         logging.basicConfig(filename = log_dir.format(base_dir,"log_sentenceprob{}.log".format(time.strftime("%d-%m-%Y"))), level = logging.INFO)
         logging.info('Started: {} {}'.format(time.strftime("%H:%M:%S"), time.strftime("%d/%m/%Y")))
         self.text_dir = text_dir
-
+        """Checking if filenames is a list of strings or just a string"""
         if isinstance(filenames, list):
             self.filenames = list(filenames)
         elif isinstance(filenames, basestring):
@@ -104,8 +113,8 @@ class Sentence_Probability(object):
             self.max_line = max_line
 
         self.list_pos = list_pos
+        """Creating a big string that contains everything from the text files."""        
         master_str = str()
-        # if write_to_file:
         for filename in self.filenames:
             with InOut(text_dir):
                 with open(filename, 'r') as reader:
@@ -127,6 +136,8 @@ class Sentence_Probability(object):
         logging.info("Time creating object: {:.2f}".format(time.time() - t1))
         # else:
         #     pass
+        """total_prob is a big 3-D array containing all the combinations of probabilities of parts of 
+            speech given all other parts of speech, at each position in the sentence."""
         try:
             sys.path.append(os.path.abspath(text_dir))
             import prob
@@ -139,7 +150,8 @@ class Sentence_Probability(object):
                 # self.cumu_prob = imp.load_source('var_cumu', '{}/prob{}.py'.format(text_dir,self.filename.strip('.txt')))
         except (ImportError, KeyError, SyntaxError) as err: #syntaxerror to be removed later...
             logging.exception(err)
-
+        """Below I just load in the pos tagged list from a .py file. This is faster than generating it 
+            every time you call the method. """
         try:
             sys.path.append(os.path.abspath(text_dir))
             t1 = time.time()
@@ -171,6 +183,36 @@ class Sentence_Probability(object):
                     writer.write("var_ptoken = {}".format(str(self.sen_tag_pword)))
         else:
             pass
+
+        """Below I create the pos frequency dictionary"""
+        try:
+            if kwargs['pos_freq']:
+                pos_freq = {}
+                total_words = 0 
+                t3 = time.time()
+                for pos in list_pos:
+                    pos_freq[pos] = 1.0 
+                for sentence in self.blob_tagged_by_sentence:
+                    for pos in sentence:
+                        try:
+                            pos_freq[pos] += 1.0 
+                            total_words += 1.0
+                        except KeyError:
+                            print("There are part of speech tags in self.blob_tagged_by_sentence that shouldn't be there, namely: "+pos)
+                for pos in list_pos:
+                    pos_freq[pos] = float(pos_freq[pos]/total_words)
+                print("Time creating pos frequency dictionary: {:.2f}".format(time.time()-t3))
+                self.total_words = total_words
+                self.pos_freq = pos_freq
+                self.cumu_pos_freq = self.pos_freq
+                for i in xrange(1,len(self.list_pos)):
+                    self.cumu_pos_freq[self.list_pos[i]] += self.cumu_pos_freq[self.list_pos[i-1]]
+            else:
+                pass 
+
+        except KeyError:
+            pass            
+
 
     def graph_prob(self,t_step=None):
         """
@@ -453,6 +495,28 @@ class Sentence_Probability(object):
             for word in tot_sen[index]:
                 if word[1] == p_o_s:
                     return {'word': word[0], 'pos': word[1], 'index': list_pos.index(word[1])} 
+
+
+    def random_word_no_pos(self):
+        """
+        I need this to be part of the class because I need access to the words in the 
+        blob_tagged_by_sentence and sen_tag_pword
+        This method just generates a random word. It does it in a weighted manner, however. 
+        This means that if p.o.s. 1 occurs more frequently in the text than p.o.s. 2 it 
+        will be more likely to choose pos 1. 
+        """
+        rando = np.random.random()
+        for pos in self.list_pos:
+            if rando <= self.list_pos[pos]:
+                special_pos = pos 
+                break 
+        tot_sen = self.sen_tag_pword
+        start_point = random.randint(0,(len(tot_sen)*3)/4)
+        for index in xrange(start_point,len(tot_sen)-1):
+            for word in tot_sen[index]:
+                if word[1] == special_pos:
+                    return {'word': word[0], 'pos': word[1], 'index': list_pos.index(word[1])} 
+
 
 def sentence_processor(sentence):
     """

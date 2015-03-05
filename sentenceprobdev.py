@@ -23,7 +23,7 @@ def main():
             raw_input(">> ")
             plt.clf()
 
-def feb26():
+def feb26march4():
     filename = 'melville.txt'
     tagged = Sentence_Probability(filename, max_line=10000, 
             write_to_file=False, load_tagged=True,load_tot_prob=True)
@@ -34,8 +34,6 @@ def feb26():
             time.sleep(1)
         prob = tagged.calc_cumu_prob(sentence)
         print(prob)
-    #all_probs != to cumu_prob. cumu_prob is incredibly intensive to calculate and really kind of unnecessary right now. 
-    # cumu_prob = tagged.total_cumulative_prob(up_to=up_to1,write_to_file=True)
 
 # Let's do something totally naive. 
 # Let's take the article titles and catalogue the words that are associated
