@@ -36,12 +36,40 @@ def feb26march3():
         prob = tagged.calc_cumu_prob(sentence)
         total_probs[index] = prob 
     #10 most probable sentences
-    print(tagged.blob_tagged_by_sentence[0:10])
+    # print(tagged.blob_tagged_by_sentence[0:10])
     most_prob_sentences = []
-    for i in xrange(10):
+    print("\n\n")
+    for i in xrange(100):
+        max_prob = np.max(total_probs)
         index_max = np.where(total_probs==np.max(total_probs))[0][0]
-        most_prob_sentences.append((tagged.blob_tagged_by_sentence[index_max],index_max))
+        most_prob_sentences.append([tagged.blob_tagged_by_sentence[index_max],max_prob])
         total_probs[index_max] = 0
+        # print(" ".join(word[0] for word in tagged.sen_tag_pword[index_max]))
+        # print("\n\n")
+    for i in xrange(1,len(most_prob_sentences)):
+        most_prob_sentences[i][1] += most_prob_sentences[i-1][1]
+    # print(most_prob_sentences[-1][1])
+    # print(" ".join(str(sentence[1]) for sentence in most_prob_sentences))    
+    def make_sentence():
+        rando = np.random.random()*most_prob_sentences[-1][1] 
+
+        for sentence in most_prob_sentences:
+            if rando < sentence[1]:
+                model = sentence 
+                break 
+            else:
+                pass 
+
+        for i in xrange(10):        
+            created = [tagged.random_word(pos)['word'] for pos in model[0]]
+            print(" ".join(created))
+            print("\n")
+        print("\n\n")
+    for i in xrange(10):
+        make_sentence()
+    # for sentence in most_prob_sentences:
+
+    # print(most_prob_sentences)
 
     def make_lil_sentence():
 
@@ -68,23 +96,23 @@ def feb26march3():
             sentence_str += word[0] + " "
 
         return (sentence, sentence_indices, sentence_str)
-    final_sentence = None
-    for i in xrange(1000):
-        # final_sentence = None
-        test_sentence = make_lil_sentence()
-        print(test_sentence[2])
-        for sentence in most_prob_sentences:
-            print(sentence)
-            print(len(sentence[0][0:len(test_sentence[1])]), len(test_sentence[1]))
-            if sentence[0][0:len(test_sentence[1])] == test_sentence[1]:
-                final_sentence = test_sentence
-                break
-            else:
-                continue
-        if final_sentence != None:
-            break
+    # final_sentence = None
+    # for i in xrange(1000):
+    #     # final_sentence = None
+    #     test_sentence = make_lil_sentence()
+    #     print(test_sentence[2])
+    #     for sentence in most_prob_sentences:
+    #         print(sentence)
+    #         print(len(sentence[0][0:len(test_sentence[1])]), len(test_sentence[1]))
+    #         if sentence[0][0:len(test_sentence[1])] == test_sentence[1]:
+    #             final_sentence = test_sentence
+    #             break
+    #         else:
+    #             continue
+    #     if final_sentence != None:
+    #         break
 
-    print(final_sentence)
+    # print(final_sentence)
 
 def feb4():
     up_to1 = 8
