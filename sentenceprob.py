@@ -60,8 +60,6 @@ import os
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import logging
-# blob = TextBlob("Simple is better than complex.", pos_tagger=PerceptronTagger())
-# blob.tags
 #=====================================================
 base_dir = os.getcwd()
 text_dir = "{}/texts".format(base_dir)
@@ -113,37 +111,29 @@ class Sentence_Probability(object):
             self.max_line = max_line
 
         self.list_pos = list_pos
-        """Creating a big string that contains everything from the text files."""        
-        master_str = str()
-        for filename in self.filenames:
-            with InOut(text_dir):
-                with open(filename, 'r') as reader:
-                    for index, line in enumerate(reader):
-                        try:
-                            line = line.strip('\n').decode('ascii')
-                            master_str += line
-                            if index == max_line:
-                                break
-                        except UnicodeDecodeError:
-                            print("unicode encoding error")
-                            continue
 
-        self.master_str = master_str
-
-        t1 = time.time()            
-        blob = TextBlob(self.master_str, pos_tagger=PerceptronTagger())
-        print("Time creating object: {:.2f}".format(time.time() - t1))
-        logging.info("Time creating object: {:.2f}".format(time.time() - t1))
-        # else:
-        #     pass
+        try:
+            if kwargs['load_tagged']:
+                pass
+            elif not kwargs['load_tagged']:
+                self.master_str, blob = self.build_master_str(self.filenames)
+        except KeyError:
+            self.master_str, blob = self.build_master_str(self.filenames)
+        
         """total_prob is a big 3-D array containing all the combinations of probabilities of parts of 
             speech given all other parts of speech, at each position in the sentence."""
         try:
             sys.path.append(os.path.abspath(text_dir))
-            import prob
+            if len(self.filenames) > 1:
+                exec("import probmulti as prob")
+            elif len(self.filenames) == 1:
+                exec("import prob{} as prob".format(self.filenames[0].strip(".txt")))
+
             if kwargs['load_tot_prob']:
+                t0 = time.time()
                 self.total_prob = np.asarray(prob.var_list,dtype=float)
                 self.up_to_all_probs = self.total_prob.shape[2]
+                print("Time loading total probability array: {:.2f}".format(time.time()-t0))
                 # self.total_prob = imp.load_source('var_list', '{}/prob{}.py'.format(text_dir,self.filename.strip('.txt')))               
             elif kwargs['load_cumu_prob']:
                 self.cumu_prob = prob.var_cumu
@@ -155,7 +145,10 @@ class Sentence_Probability(object):
         try:
             sys.path.append(os.path.abspath(text_dir))
             t1 = time.time()
-            import token1
+            if len(self.filenames) > 1:
+                exec("import token1multi as token1")
+            elif len(self.filenames) == 1:
+                exec("import token1{} as token1".format(self.filenames[0].strip(".txt")))
             # import token.var_token
             if kwargs['load_tagged']:
                 self.blob_tagged_by_sentence = token1.var_token
@@ -178,7 +171,11 @@ class Sentence_Probability(object):
       
         if write_to_file:
             with InOut(text_dir):
-                with open("token1.py", 'w') as writer:
+                if len(self.filenames) > 1:
+                    tokenfile = "token1multi.py"
+                elif len(self.filenames) == 1:
+                    tokenfile = "token1{}.py".format(self.filenames[0].strip(".txt"))
+                with open(tokenfile, 'w') as writer:
                     writer.write("var_token = {}\n".format(str(self.blob_tagged_by_sentence)))
                     writer.write("var_ptoken = {}".format(str(self.sen_tag_pword)))
         else:
@@ -213,6 +210,26 @@ class Sentence_Probability(object):
         except KeyError:
             pass            
 
+    def build_master_str(self,filenames):
+        master_str = str()
+        for filename in self.filenames:
+            with InOut(text_dir):
+                with open(filename, 'r') as reader:
+                    for index, line in enumerate(reader):
+                        try:
+                            line = line.strip('\n').decode('ascii')
+                            master_str += line
+                            if index == max_line:
+                                break
+                        except UnicodeDecodeError:
+                            print("unicode encoding error")
+                            continue
+        t1 = time.time()            
+        blob = TextBlob(master_str, pos_tagger=PerceptronTagger())
+        print("Time creating object: {:.2f}".format(time.time() - t1))
+        logging.info("Time creating object: {:.2f}".format(time.time() - t1))
+
+        return master_str, blob
 
     def graph_prob(self,t_step=None):
         """
@@ -360,8 +377,15 @@ class Sentence_Probability(object):
         self.total_prob = master
         if write_to_file:
             with InOut(self.text_dir):
-                with open("prob.py", 'a') as writer:
-                    writer.write("var_list = {}\n".format(str(list(master))))
+                if len(self.filenames) == 1:
+                    prob_file = "prob{}.py".format(self.filenames[0].strip(".txt"))
+                elif len(self.filenames) > 1:
+                    prob_file = "probmulti.py"
+                with open(prob_file, 'a') as writer:
+                    master_str = str(list(master))
+                    master_str = master_str.replace("array(","")
+                    master_str = master_str.replace(")","")
+                    writer.write("var_list = {}\n".format(master_str))
                     writer.write("var_dic = {}\n".format(str(masterdict)))
             return {'list':master,'dict':masterdict}
         else:
@@ -532,14 +556,5 @@ def sentence_processor(sentence):
     return tagged_by_sen
 
 
-
-
-
-
-
-
-
-
-  
 
 

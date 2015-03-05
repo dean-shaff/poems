@@ -1,3 +1,6 @@
+"""
+My testing ground for the sentence probabilty stuff
+"""
 from sentenceprob import Sentence_Probability
 from sentenceprob import sentence_processor
 import matplotlib.pyplot as plt 
@@ -22,6 +25,17 @@ def main():
             plt.show()
             raw_input(">> ")
             plt.clf()
+
+def genlots():
+    """
+    This just makes a big ole tagged and prob python file for me to load in later.
+    """
+    # filenames = ['melville.txt','AustenPride.txt','DickensTaleofTwo.txt']
+    # tagged = Sentence_Probability(filenames, max_line='max', write_to_file=True,load_tagged=False,load_tot_prob=False,pos_freq=False)
+    # tagged.all_probs(up_to=10,write_to_file=True)
+    #now test to see it all worked. 
+    filenames = ['melville.txt','AustenPride.txt','DickensTaleofTwo.txt']
+    tagged = Sentence_Probability(filenames, max_line='max', write_to_file=False,load_tagged=True,load_tot_prob=True,pos_freq=True)
 
 def feb26march3():
     filename = 'melville.txt'
@@ -132,5 +146,5 @@ def feb4():
 
 
 if __name__ == "__main__":
-    feb26march3()
-
+    # feb26march3()
+    genlots()

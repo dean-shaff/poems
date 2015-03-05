@@ -1,11 +1,10 @@
 import tweepy
 
-U2FsdGVkX1/iTfZww3GUxoGWaBbNd7HkAzGtvmP1OUPG7lq0eJrX36UHkK87csIP
-6dTAqpg71p7smt2ktyS6RsRJosP1LiSXykbMfY765qGXgpMdAQwob17aLzttC6LI
-BDvzkGOZPk1MhGqawWGdaK+K6DZllcaZIA42uS28kxLrRnL+6iXm4Sps1G/NTtxq
-+L1XmEqQjFFTJIbwzWPikitNmJeeouTUuBqjfhayV6ILFLGn/mRU1eK+t2e5Cozc
-QqRdVO/ab7GmY4Tomvj4PLbVn5lxyNYzt8boqL6RHI9TxRSDvOzooej4P3yuCU9t
-3lzwkx/mnKcubXiFpPAzICY2hzaj/TsmSDpCM6P5ItM=
+access_token = "2783510875-rPS7NqlI2ABg1UtIAXj0hJNZpCI6LPY5gJV5ydp"
+access_token_secret = "LgPEBiq2c9zPnqUnbcRbvdd8aNgVaUMGoIDeEaWC7Nopj"
+
+consumer_key = "tqUNigkO4oZQreGiKmE70I2bm"
+consumer_secret = "VIuqCVQ2iNkhrSdexgtBXiPByXUQWeZJ2pwybJJF1sThCCxnS3"
 
 
 #====================================

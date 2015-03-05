@@ -24,6 +24,8 @@ tex_stuff/
 .ipynb_checkpoints/
 jtermhaiku.py
 haikus-jterm.py
+sentenceprobdev.py
+
 *.egg-info/
 .installed.cfg
 *.egg

@@ -23,6 +23,12 @@ Requirements:
 
 Basic Usage (making haiku and posting to twitter):
 	
+	"""
+	***IMPORTANT***
+	Note that this will not work unless you go into tools/twitter_tools.py 
+	and remove the encrpyted text and replace with own auth keys.
+	I'm working on a better means of dealing with this.
+	"""
 	from tools import Article_Stuff
 	from tools import Twitter_Tools
 	from tools import Text_Generator
