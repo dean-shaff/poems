@@ -42,12 +42,21 @@ pos, or p.o.s. = part of speech.
 
 I'm trying to make a random word generator that generates words but weighted by pos frequency in the 
 given text. 
+
+7/3/2015
+
+I want to experiment with pickling the objects to make my life easier -- hopefully this would 
+allow me to forgo the bullshit of writing to files and such. 
+
+I also want to jump balls deep -- starting calculating probabilites like I do by pos but by individual word.
+Lets stop messing around, son. THIS IS TOO SLOW. DUH OF COURSE 
 """
 
 from tools import InOut
 import nltk
 from nltk_contrib.readability.textanalyzer import syllables_en
-from nltk.tokenize.punkt import PunktWordTokenizer, PunktSentenceTokenizer
+from nltk.tokenize.punkt import PunktSentenceTokenizer
+from nltk.tokenize import RegexpTokenizer
 from sentenceprocessor import sentence_processor
 import numpy as np
 import numpy.random as random
@@ -72,11 +81,99 @@ list_pos = ["CC", "CD", "DT", "EX", "IN", "JJ", "JJR", "JJS", "MD",
             "RBS", "RP", "VB", "VBD", "VBG", "VBN", "VBP", "VBZ","WRB","WDT","WP","WP$"]
 
 log_dir = "{}/logs/{}"
-# class Sentence_Processor(object):
-"""
-I want this to be able to take a random sentence and to read in a file up to a certain point.
-Right now there is no need for this to be a class, but I think there might be more methods later. 
-"""
+
+
+# class Prob_Tester(object):
+#     """
+#     eventually the goal is to incorporate this into the class below. 
+#     """
+#     def __init__(self, filenames):
+#         """
+#         This is assuming that you'll use the entire text file.  
+#         """
+#         if isinstance(filenames,list):
+#             self.filenames = filenames
+#         if isinstance(filenames, basestring):
+#             self.filenames = [filenames]
+
+#         self.text_dir = text_dir
+#         self.master_str = self.build_master_str(self.filenames)
+#         senttokenizer = PunktSentenceTokenizer()
+#         wordtokenizer = RegexpTokenizer(r'\w+')
+#         self.master_sen = senttokenizer.tokenize(self.master_str)
+#         self.master_word = [word.lower().strip() for word in wordtokenizer.tokenize(self.master_str)]
+#         self.unique_word = list(set(self.master_word))
+#         self.num_words = len(self.unique_word)
+#         self.tknbywrdsent = [[word.lower().strip() for word in wordtokenizer.tokenize(sent)] for sent in self.master_sen]
+
+#     def calc_prob_single(self, max_length, wordA, wordB, positionA, positionB):
+#         """
+#         calculates probability of word A at position A given that word B is at position B.
+#         """
+#         totalB = 0.0
+#         totalAgivenB = 0.0
+#         # positionBarray = [sentence[positionB] for sentence in self.tknbywrdsent if len(sentence)-1 >= positionA and len(sentence) <= max_length:]
+#         # positionAarray = [sentence[positionB] for sentence in self.tknbywrdsent if len(sentence)-1 >= positionA and len(sentence) <= max_length:]
+#         # if wordB not in positionBarray:
+#         #     return 0.0
+#         # else:
+#         #     totalB = float(positionBarray.count(wordB))
+
+#         for sentence in self.tknbywrdsent:
+#             if len(sentence)-1 >= positionA and len(sentence) <= max_length:
+#                 if sentence[positionB] == wordB:
+#                     totalB += 1.0 
+#                     if sentence[positionA] == wordA:
+#                         totalAgivenB += 1.0
+#         try:
+#             prob = np.float64(totalAgivenB/totalB)
+#         except ZeroDivisionError:
+#             prob = 0.0
+#         return prob
+
+#     def calc_prob_all(self, up_to, **kwargs):
+#         """
+#         carbon copy of the method in Sentence_Probability class.
+#         """
+#         max_length=25
+#         self.up_to_all_probs = up_to
+#         master = np.zeros((self.num_words,self.num_words,self.up_to_all_probs),dtype=float)
+#         for h in xrange(0, up_to):
+#             t1 = time.time()
+#             for i in xrange(0, self.num_words):
+#                 t2 = time.time()
+#                 for j in xrange(0, self.num_words):
+#                     prob = self.calc_prob_single(max_length, self.unique_word[j], self.unique_word[i], h+1, h) #probability of j given i. This gives (B,A) indexing instead of the other way around.
+#                     master[i,j,h] = prob
+#                 print("One row down, so many more to go! took {} seconds".format(time.time()-t2))
+#             print("Position {} to {} took {} seconds!".format(h, h+1, time.time()-t1))
+
+#         self.total_prob = master
+
+#         return master 
+
+#     def build_master_str(self,filenames):
+#             master_str = str()
+#             for filename in self.filenames:
+#                 with InOut(text_dir):
+#                     with open(filename, 'r') as reader:
+#                         for index, line in enumerate(reader):
+#                             try:
+#                                 line = line.strip('\n').decode('ascii')
+#                                 master_str += line
+#                                 # if index == max_line:
+#                                 #     break
+#                             except UnicodeDecodeError:
+#                                 print("unicode encoding error")
+#                                 continue
+#             t1 = time.time()            
+#             # blob = TextBlob(master_str, pos_tagger=PerceptronTagger())
+#             # print("Time creating object: {:.2f}".format(time.time() - t1))
+#             # logging.info("Time creating object: {:.2f}".format(time.time() - t1))
+
+#             return master_str
+
+
 
 class Sentence_Probability(object):
     """
@@ -304,7 +401,7 @@ class Sentence_Probability(object):
         pA > pB, or else this is nonsense. (and method won't work)
         magic_range specifies the maximum length of an allowed sentence. 
         """
-        magic_range = magic_range
+        # magic_range = magic_range
         tokenized_sentence_list = self.blob_tagged_by_sentence
         total_prob = 0
         cond_prob = 0

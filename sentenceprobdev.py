@@ -3,6 +3,7 @@ My testing ground for the sentence probabilty stuff
 """
 from sentenceprob import Sentence_Probability
 from sentenceprob import sentence_processor
+# from sentenceprob import Prob_Tester
 import matplotlib.pyplot as plt 
 import numpy as np 
 import time
@@ -25,6 +26,14 @@ def main():
             plt.show()
             raw_input(">> ")
             plt.clf()
+
+def march7():
+
+    filenames = ['melville.txt','AustenPride.txt','DickensTaleofTwo.txt']
+    tester = Prob_Tester(filenames[0])
+    print(tester.num_words)
+    tester.calc_prob_all(up_to=7)
+
 
 def genlots():
     """
@@ -147,4 +156,5 @@ def feb4():
 
 if __name__ == "__main__":
     # feb26march3()
-    genlots()
+    # genlots()
+    # march7()
