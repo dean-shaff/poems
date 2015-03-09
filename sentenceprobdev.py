@@ -27,13 +27,12 @@ def main():
             raw_input(">> ")
             plt.clf()
 
-def march7():
+def march8():
 
     filenames = ['melville.txt','AustenPride.txt','DickensTaleofTwo.txt']
-    tester = Prob_Tester(filenames[0])
-    print(tester.num_words)
-    tester.calc_prob_all(up_to=7)
-
+    tagged = Sentence_Probability(filenames,max_line='max',write_to_file=True,
+            load_tagged=True,load_tot_prob=True,load_master_string=False,pos_freq=True)
+    # print(tagged.calc_prob_single('love','in')) #this actually works
 
 def genlots():
     """
@@ -75,7 +74,6 @@ def feb26march3():
     # print(" ".join(str(sentence[1]) for sentence in most_prob_sentences))    
     def make_sentence():
         rando = np.random.random()*most_prob_sentences[-1][1] 
-
         for sentence in most_prob_sentences:
             if rando < sentence[1]:
                 model = sentence 
@@ -88,6 +86,7 @@ def feb26march3():
             print(" ".join(created))
             print("\n")
         print("\n\n")
+
     for i in xrange(10):
         make_sentence()
     # for sentence in most_prob_sentences:
@@ -157,4 +156,4 @@ def feb4():
 if __name__ == "__main__":
     # feb26march3()
     # genlots()
-    # march7()
+    march8()

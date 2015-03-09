@@ -50,6 +50,9 @@ allow me to forgo the bullshit of writing to files and such.
 
 I also want to jump balls deep -- starting calculating probabilites like I do by pos but by individual word.
 Lets stop messing around, son. THIS IS TOO SLOW. DUH OF COURSE 
+
+I wonder if I can improve word suggestion for my sentence modeler -- I make it suggest 10 words of the same 
+predicted part of speech, and I decide which of these is the best candidate. 
 """
 
 from tools import InOut
@@ -82,99 +85,6 @@ list_pos = ["CC", "CD", "DT", "EX", "IN", "JJ", "JJR", "JJS", "MD",
 
 log_dir = "{}/logs/{}"
 
-
-# class Prob_Tester(object):
-#     """
-#     eventually the goal is to incorporate this into the class below. 
-#     """
-#     def __init__(self, filenames):
-#         """
-#         This is assuming that you'll use the entire text file.  
-#         """
-#         if isinstance(filenames,list):
-#             self.filenames = filenames
-#         if isinstance(filenames, basestring):
-#             self.filenames = [filenames]
-
-#         self.text_dir = text_dir
-#         self.master_str = self.build_master_str(self.filenames)
-#         senttokenizer = PunktSentenceTokenizer()
-#         wordtokenizer = RegexpTokenizer(r'\w+')
-#         self.master_sen = senttokenizer.tokenize(self.master_str)
-#         self.master_word = [word.lower().strip() for word in wordtokenizer.tokenize(self.master_str)]
-#         self.unique_word = list(set(self.master_word))
-#         self.num_words = len(self.unique_word)
-#         self.tknbywrdsent = [[word.lower().strip() for word in wordtokenizer.tokenize(sent)] for sent in self.master_sen]
-
-#     def calc_prob_single(self, max_length, wordA, wordB, positionA, positionB):
-#         """
-#         calculates probability of word A at position A given that word B is at position B.
-#         """
-#         totalB = 0.0
-#         totalAgivenB = 0.0
-#         # positionBarray = [sentence[positionB] for sentence in self.tknbywrdsent if len(sentence)-1 >= positionA and len(sentence) <= max_length:]
-#         # positionAarray = [sentence[positionB] for sentence in self.tknbywrdsent if len(sentence)-1 >= positionA and len(sentence) <= max_length:]
-#         # if wordB not in positionBarray:
-#         #     return 0.0
-#         # else:
-#         #     totalB = float(positionBarray.count(wordB))
-
-#         for sentence in self.tknbywrdsent:
-#             if len(sentence)-1 >= positionA and len(sentence) <= max_length:
-#                 if sentence[positionB] == wordB:
-#                     totalB += 1.0 
-#                     if sentence[positionA] == wordA:
-#                         totalAgivenB += 1.0
-#         try:
-#             prob = np.float64(totalAgivenB/totalB)
-#         except ZeroDivisionError:
-#             prob = 0.0
-#         return prob
-
-#     def calc_prob_all(self, up_to, **kwargs):
-#         """
-#         carbon copy of the method in Sentence_Probability class.
-#         """
-#         max_length=25
-#         self.up_to_all_probs = up_to
-#         master = np.zeros((self.num_words,self.num_words,self.up_to_all_probs),dtype=float)
-#         for h in xrange(0, up_to):
-#             t1 = time.time()
-#             for i in xrange(0, self.num_words):
-#                 t2 = time.time()
-#                 for j in xrange(0, self.num_words):
-#                     prob = self.calc_prob_single(max_length, self.unique_word[j], self.unique_word[i], h+1, h) #probability of j given i. This gives (B,A) indexing instead of the other way around.
-#                     master[i,j,h] = prob
-#                 print("One row down, so many more to go! took {} seconds".format(time.time()-t2))
-#             print("Position {} to {} took {} seconds!".format(h, h+1, time.time()-t1))
-
-#         self.total_prob = master
-
-#         return master 
-
-#     def build_master_str(self,filenames):
-#             master_str = str()
-#             for filename in self.filenames:
-#                 with InOut(text_dir):
-#                     with open(filename, 'r') as reader:
-#                         for index, line in enumerate(reader):
-#                             try:
-#                                 line = line.strip('\n').decode('ascii')
-#                                 master_str += line
-#                                 # if index == max_line:
-#                                 #     break
-#                             except UnicodeDecodeError:
-#                                 print("unicode encoding error")
-#                                 continue
-#             t1 = time.time()            
-#             # blob = TextBlob(master_str, pos_tagger=PerceptronTagger())
-#             # print("Time creating object: {:.2f}".format(time.time() - t1))
-#             # logging.info("Time creating object: {:.2f}".format(time.time() - t1))
-
-#             return master_str
-
-
-
 class Sentence_Probability(object):
     """
     This class is for creating the 'training' data. If I want to compare another sentence to the probabilities generated by this
@@ -188,6 +98,7 @@ class Sentence_Probability(object):
         kwargs:
             load_tagged: if True, will load in the previously tagged list of words from a book.
             load_tot_prob: if True, will load in the total probability array from a tagged book. 
+            load_master_string: if True, will load in the master string from the Python file.
             ***I should make these development kwargs or something...*** 
             pos_freq: if provided will calculate the frequency of each part of speech
             in the provided text 
@@ -250,7 +161,7 @@ class Sentence_Probability(object):
             if kwargs['load_tagged']:
                 self.blob_tagged_by_sentence = token1.var_token
                 self.sen_tag_pword = token1.var_ptoken #with the words as well as the pos tags.
-                write_to_file = False  
+                # write_to_file = False  
                 print("Time loading tagged list: {:.2f} seconds".format(time.time()-t1))
                 logging.info("Time loading tagged list: {:.2f} seconds".format(time.time()-t1))
             elif not kwargs['load_tagged']:
@@ -266,7 +177,32 @@ class Sentence_Probability(object):
             self.sen_tag_pword = [[word for word in sentence.tags if word[1] not in list_not_allow] for sentence in blob.sentences]
             print("Time creating tagged list: {:.2f}".format(time.time() - t2))
       
+        t4 = time.time()
+        try:
+            sys.path.append(os.path.abspath(text_dir))
+            t1 = time.time()
+            if len(self.filenames) > 1:
+                exec("import token1multi as token1")
+            elif len(self.filenames) == 1:
+                exec("import token1{} as token1".format(self.filenames[0].strip(".txt")))
+            if kwargs['load_master_string']:
+                self.master_str = token1.master_str
+            elif not kwargs['load_master_string']:
+                self.master_str = self.build_master_str(self.filenames,blob_it=False)
+        except KeyError:
+            self.master_str = self.build_master_str(self.filenames,blob_it=False)
+
+        print("Time building master string: {:.2f} seconds ".format(time.time()-t4))
+        senttokenizer = PunktSentenceTokenizer()
+        wordtokenizer = RegexpTokenizer(r'\w+')
+        self.master_sen = senttokenizer.tokenize(self.master_str)
+        self.master_word = [word.lower().strip() for word in wordtokenizer.tokenize(self.master_str)]
+        self.unique_word = list(set(self.master_word))
+        self.num_words = len(self.unique_word)
+        self.tknbywrdsent = [[word.lower().strip() for word in wordtokenizer.tokenize(sent)] for sent in self.master_sen]
+        
         if write_to_file:
+            print("Writing to file...")
             with InOut(text_dir):
                 if len(self.filenames) > 1:
                     tokenfile = "token1multi.py"
@@ -274,7 +210,8 @@ class Sentence_Probability(object):
                     tokenfile = "token1{}.py".format(self.filenames[0].strip(".txt"))
                 with open(tokenfile, 'w') as writer:
                     writer.write("var_token = {}\n".format(str(self.blob_tagged_by_sentence)))
-                    writer.write("var_ptoken = {}".format(str(self.sen_tag_pword)))
+                    writer.write("var_ptoken = {}\n".format(str(self.sen_tag_pword)))
+                    writer.write("master_str = \"{}\"".format(self.master_str))
         else:
             pass
 
@@ -307,7 +244,7 @@ class Sentence_Probability(object):
         except KeyError:
             pass            
 
-    def build_master_str(self,filenames):
+    def build_master_str(self,filenames,blob_it=True):
         master_str = str()
         for filename in self.filenames:
             with InOut(text_dir):
@@ -316,17 +253,43 @@ class Sentence_Probability(object):
                         try:
                             line = line.strip('\n').decode('ascii')
                             master_str += line
-                            if index == max_line:
+                            if index == self.max_line:
                                 break
                         except UnicodeDecodeError:
-                            print("unicode encoding error")
+                            print("unicode encoding error: Dumping line {} in {}".format(index,filename))
                             continue
-        t1 = time.time()            
-        blob = TextBlob(master_str, pos_tagger=PerceptronTagger())
-        print("Time creating object: {:.2f}".format(time.time() - t1))
-        logging.info("Time creating object: {:.2f}".format(time.time() - t1))
+        if blob_it:
+            t1 = time.time()            
+            blob = TextBlob(master_str, pos_tagger=PerceptronTagger())
+            print("Time creating object: {:.2f}".format(time.time() - t1))
+            logging.info("Time creating object: {:.2f}".format(time.time() - t1))
+            return master_str, blob
+        elif not blob_it:
+            return master_str
 
-        return master_str, blob
+    def calc_prob_single(self, wordA, wordB):
+        """
+        calculates probability of word A following word B, given word B in ANY position. 
+        Note also lack of max sentence 
+        """
+        totalB = 0.0
+        totalAgivenB = 0.0
+        for sentence in self.tknbywrdsent:
+            try:
+                index_B = sentence.index(wordB)
+                totalB += 1.0
+                if sentence[index_B+1] == wordA:
+                    totalAgivenB += 1.0
+
+            except (ValueError,IndexError):
+                # this means that word B is not in the sentence. or that index_B was the last word in the sentence.
+                continue
+        try:
+            prob = np.float64(totalAgivenB/totalB)
+        except ZeroDivisionError:
+            prob = 0.0
+        return prob
+
 
     def graph_prob(self,t_step=None):
         """
@@ -407,10 +370,6 @@ class Sentence_Probability(object):
         cond_prob = 0
         for index1, sentence in enumerate(tokenized_sentence_list):
             if len(sentence)-1 >= pA and len(sentence) <= magic_range: # dont worry about pB, as pA is always greater. 
-                # for index_sen, word in enumerate(sentence):
-                # if sentence[pB] == list_pos[indexB] and sentence[pA] == list_pos[indexA]:
-                #     cond_prob += 1.0
-
                 if sentence[pB] == list_pos[indexB]:
                     total_prob += 1.0
                     if sentence[pA] == list_pos[indexA]:
@@ -419,19 +378,9 @@ class Sentence_Probability(object):
                         continue
                 else:
                     continue
-                    # if index_sen == pB and word == list_pos[indexB]:
-                    #     total_prob += 1.0
-                    # else:
-                    #     continue
-
-                    # elif (index_sen == pB and word == list_pos[indexB] and
-                    #         sentence[pA] == list_pos[indexA]): #index_sen + (pA - pB) == pA and 
-                    #     cond_prob += 1.0
 
             else:
                 pass
-        # print("total prob: {}".format(total_prob))
-        # print("cond_prob: {}".format(cond_prob))
         if cond_prob > total_prob:
             logging.info("conditional probability was higher than total probability. Something isn't working right.")
         try:
@@ -458,16 +407,13 @@ class Sentence_Probability(object):
         master = np.zeros((len(list_pos),len(list_pos),self.up_to_all_probs),dtype=float)
         masterdict = []
         for h in xrange(0, up_to):
-            # position = master[:,:,h] #no need to do this like this. Just use master 
             t1 = time.time()
             A = {}
             for i in xrange(0, len(list_pos)):
-                # A2 = position[i] #the row
                 for j in xrange(0, len(list_pos)):
                     prob = self.cond_prob_v2(magic_range, j, i, h+1, h) #probability of j given i. This gives (B,A) indexing instead of the other way around.
                     A["{},{}".format(list_pos[j],list_pos[i])] = prob
                     master[i,j,h] = prob
-                    # A2[j] = prob
             print("Position {} to {} took {:.1f} sec".format(h,h+1,time.time()-t1))
             logging.info("Position {} to {} took {:.1f} sec".format(h,h+1,time.time()-t1))
             masterdict.append(A)
