@@ -30,9 +30,9 @@ def main():
 def march8():
 
     filenames = ['melville.txt','AustenPride.txt','DickensTaleofTwo.txt']
-    tagged = Sentence_Probability(filenames,max_line='max',write_to_file=True,
-            load_tagged=True,load_tot_prob=True,load_master_string=False,pos_freq=True)
-    # print(tagged.calc_prob_single('love','in')) #this actually works
+    tagged = Sentence_Probability(filenames,max_line='max',write_to_file=False,
+            load_tagged=True,load_tot_prob=True,load_master_string=True,pos_freq=True)
+    print(tagged.calc_prob_single('love','in')) #this actually works
 
 def genlots():
     """

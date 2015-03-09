@@ -211,7 +211,7 @@ class Sentence_Probability(object):
                 with open(tokenfile, 'w') as writer:
                     writer.write("var_token = {}\n".format(str(self.blob_tagged_by_sentence)))
                     writer.write("var_ptoken = {}\n".format(str(self.sen_tag_pword)))
-                    writer.write("master_str = \"{}\"".format(self.master_str))
+                    writer.write("master_str = \"\"\"{}\n\"\"\"".format(self.master_str))
         else:
             pass
 
