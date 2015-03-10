@@ -207,13 +207,12 @@ class Sentence_Probability(object):
         self.num_words = len(self.unique_word)
         self.num_words_total = len(self.master_word)
         self.tknbywrdsent = [[word.lower().strip() for word in wordtokenizer.tokenize(sent)] for sent in self.master_sen]
-        self.word_freq = np.zeros(self.num_words)
-        self.word_freq_cumu = np.zeros(self.num_words)
-        for index, word in enumerate(self.unique_word):
-            self.word_freq[index] = float(self.master_word.count(word))/float(self.num_words_total)
-        self.word_freq_cumu[0] = self.word_freq[0]
-        for index in xrange(1,len(self.word_freq)):
-            self.word_freq_cumu[index] = self.word_freq[index] + self.word_freq[index-1]
+        # self.word_freq = np.zeros(self.num_words)
+        # for index, word in enumerate(self.unique_word):
+        #     self.word_freq[index] = float(self.master_word.count(word))/float(self.num_words_total)
+        # self.word_freq_cumu = self.num_words
+        # for index in xrange(1,len(self.word_freq)):
+        #     self.word_freq_cumu[index] += self.word_freq[index-1]
         print("Time creating tokenized lists: {:.2f} seconds".format(time.time()-t4))
         if write_to_file:
             print("Writing to file...")
@@ -567,15 +566,15 @@ class Sentence_Probability(object):
         or the name of the part of speech itself.
         """
         if isinstance(p_o_s, int):
-            p_o_s = list_pos[p_o_s]
+            p_o_s = self.list_pos[p_o_s]
         elif isinstance(p_o_s, basestring):
             p_o_s = str(p_o_s)
-        tot_sen = self.sen_tag_pword
-        start_point = random.randint(0,(len(tot_sen)*3)/4)
-        for index in xrange(start_point,len(tot_sen)-1):
-            for word in tot_sen[index]:
+
+        start_point = random.randint(0,(len(self.sen_tag_pword)*3)/4)
+        for index in xrange(start_point,len(self.sen_tag_pword)-1):
+            for word in self.sen_tag_pword[index]:
                 if word[1] == p_o_s:
-                    return {'word': word[0], 'pos': word[1], 'index': list_pos.index(word[1]), 'tupleform':word} 
+                    return {'word': word[0], 'pos': word[1], 'index': self.list_pos.index(word[1]), 'tupleform':word} 
 
 
     def random_word_no_pos(self):
@@ -591,7 +590,7 @@ class Sentence_Probability(object):
             if rando <= self.cumu_pos_freq[pos]:
                 special_pos = pos 
                 break 
-        tot_sen = self.sen_tag_pword
+        self.sen_tag_pword = self.sen_tag_pword
         start_point = random.randint(0,(len(tot_sen)*3)/4)
         for index in xrange(start_point,len(tot_sen)-1):
             for word in tot_sen[index]:
