@@ -53,6 +53,11 @@ Lets stop messing around, son. THIS IS TOO SLOW. DUH OF COURSE
 
 I wonder if I can improve word suggestion for my sentence modeler -- I make it suggest 10 words of the same 
 predicted part of speech, and I decide which of these is the best candidate. 
+
+9/3/2015
+
+I want to change the function that selects words to select words based on observed frequency in the text. 
+
 """
 
 from tools import InOut
@@ -193,14 +198,23 @@ class Sentence_Probability(object):
             self.master_str = self.build_master_str(self.filenames,blob_it=False)
 
         print("Time building master string: {:.2f} seconds ".format(time.time()-t4))
+        t4 = time.time()
         senttokenizer = PunktSentenceTokenizer()
         wordtokenizer = RegexpTokenizer(r'\w+')
         self.master_sen = senttokenizer.tokenize(self.master_str)
         self.master_word = [word.lower().strip() for word in wordtokenizer.tokenize(self.master_str)]
         self.unique_word = list(set(self.master_word))
         self.num_words = len(self.unique_word)
+        self.num_words_total = len(self.master_word)
         self.tknbywrdsent = [[word.lower().strip() for word in wordtokenizer.tokenize(sent)] for sent in self.master_sen]
-        
+        self.word_freq = np.zeros(self.num_words)
+        self.word_freq_cumu = np.zeros(self.num_words)
+        for index, word in enumerate(self.unique_word):
+            self.word_freq[index] = float(self.master_word.count(word))/float(self.num_words_total)
+        self.word_freq_cumu[0] = self.word_freq[0]
+        for index in xrange(1,len(self.word_freq)):
+            self.word_freq_cumu[index] = self.word_freq[index] + self.word_freq[index-1]
+        print("Time creating tokenized lists: {:.2f} seconds".format(time.time()-t4))
         if write_to_file:
             print("Writing to file...")
             with InOut(text_dir):

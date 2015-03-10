@@ -45,10 +45,17 @@ def genlots():
     filenames = ['melville.txt','AustenPride.txt','DickensTaleofTwo.txt']
     tagged = Sentence_Probability(filenames, max_line='max', write_to_file=False,load_tagged=True,load_tot_prob=True,pos_freq=True)
 
+# class Sentence_Maker(object):
+
+#     def __init__(self,filenames,option_dic):
+
+#         self.tagged = Sentence_Probability
+
+
 def feb26march3():
-    filename = 'melville.txt'
-    tagged = Sentence_Probability(filename, max_line=10000, 
-            write_to_file=False, load_tagged=True,load_tot_prob=True,pos_freq=True)
+    filenames = ['melville.txt','AustenPride.txt','DickensTaleofTwo.txt']
+    tagged = Sentence_Probability(filenames, max_line='max', write_to_file=False,
+            load_tagged=True,load_master_string=True,load_tot_prob=True,pos_freq=True)
     # prob = tagged.all_probs(up_to = 7, write_to_file=True)
     total_probs = np.zeros(len(tagged.sen_tag_pword))
     for index, sentence in enumerate(tagged.sen_tag_pword):
@@ -60,35 +67,47 @@ def feb26march3():
     #10 most probable sentences
     # print(tagged.blob_tagged_by_sentence[0:10])
     most_prob_sentences = []
-    print("\n\n")
+    # print("\n\n")
     for i in xrange(100):
         max_prob = np.max(total_probs)
         index_max = np.where(total_probs==np.max(total_probs))[0][0]
         most_prob_sentences.append([tagged.blob_tagged_by_sentence[index_max],max_prob])
         total_probs[index_max] = 0
-        # print(" ".join(word[0] for word in tagged.sen_tag_pword[index_max]))
-        # print("\n\n")
     for i in xrange(1,len(most_prob_sentences)):
         most_prob_sentences[i][1] += most_prob_sentences[i-1][1]
     # print(most_prob_sentences[-1][1])
     # print(" ".join(str(sentence[1]) for sentence in most_prob_sentences))    
-    def make_sentence():
-        rando = np.random.random()*most_prob_sentences[-1][1] 
-        for sentence in most_prob_sentences:
-            if rando < sentence[1]:
-                model = sentence 
-                break 
-            else:
-                pass 
+    def make_sentence(num_tries,model=None):
+        if model == None:
+            rando = np.random.random()*most_prob_sentences[-1][1]
+            for sentence in most_prob_sentences:
+                if rando < sentence[1]:
+                    model = sentence 
+                    break 
+        else:
+            pass
+        wordm1 = tagged.random_word(model[0][0])['word'] #just the word
+        new_sentence = [wordm1]
+        for pos_index in xrange(1,len(model[0])):
+            prob_pos = np.zeros(num_tries)
+            rando_list = []
+            for i in xrange(num_tries):
+                rando_word = tagged.random_word(model[0][pos_index])['word']
+                prob_pos[i] = tagged.calc_prob_single(rando_word.lower().strip(),wordm1) # A then B
+                rando_list.append(rando_word)
+            # if np.allclose(prob_pos,np.zeros(num_tries)):
+            #     print("A zero prob situation!")
+            #     make_sentence(num_tries,model=None) 
 
-        for i in xrange(10):        
-            created = [tagged.random_word(pos)['word'] for pos in model[0]]
-            print(" ".join(created))
-            print("\n")
-        print("\n\n")
+            wordm1 = rando_list[np.where(prob_pos==np.max(prob_pos))[0][0]]
+            new_sentence.append(wordm1)
 
-    for i in xrange(10):
-        make_sentence()
+        return (new_sentence, " ".join(new_sentence))
+    # with open("sentences_for_krishan.txt",'w') as lilbitch:
+    for i in xrange(100):
+        sen = make_sentence(10)[1]
+        print(sen)
+        # lilbitch.write(sen+'\n')
     # for sentence in most_prob_sentences:
 
     # print(most_prob_sentences)
@@ -154,6 +173,6 @@ def feb4():
 
 
 if __name__ == "__main__":
-    # feb26march3()
+    feb26march3()
     # genlots()
-    march8()
+    # march8()
