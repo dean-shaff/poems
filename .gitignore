@@ -25,6 +25,9 @@ tex_stuff/
 jtermhaiku.py
 haikus-jterm.py
 sentenceprobdev.py
+sentenceprobnotes.py
+*.txt
+
 
 *.egg-info/
 .installed.cfg
@@ -59,7 +62,7 @@ coverage.xml
 
 # Sphinx documentation
 docs/_build/
-
+sentenceprobnotes.py
 *.txt
 *.ipynb
 

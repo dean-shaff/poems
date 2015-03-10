@@ -1,64 +1,4 @@
 # -*- coding: ascii -*-
-"""
-4/12/2014
-
-To do: I'm tired of waiting around to generate the tagged list. I need to make the Sentence_Probability
-methods support loading in the tagged list from a separate Python file. 
-
-I need to clean up the confusing mess that is the "up_to" variable name. I make a property of 
-the class, but its not the same as the one that I use in the calc_cumulative_prob method... 
-
-7/12/2014
-
-The fact that I have two methods that calculate the same thing (the cumulative probability) is ridiculous.
-I need to make this work differently. There is no need to calculate the total cumulative probability array right now,
-because I have no plans to be updating probabilities until I can figure out how to update probabilities. 
-
-3/2/2015
-
-Added some logging support. I think that this is critical to having some idea what the hell I'm doing in the future.
-
-Made a fundamental change in the cond_prob_v2 method that makes it so it actually works. I can suggest words now (insane).
-
-To do:
-    - consolidate the mess that is the __init__ method of Sentence_Probability. I need to think of
-    a good way of actually being able to load in something, or to calculate a new...
-    - make it so I can load in a shit ton of texts and tag them and calculate probabilities.
-     This would ultimately increase accuracy. CHECK - 3/2/2015
-    - When you're calculating the cumulative probability at a high position (eg 7 or higher) in a provided sentence 
-    (using the sentence_processor function) you start to lose accuracy because the probabilty starts to approach zero.
-    This makes sense, but it would be cool if I could reindex every so often. If the user says to find the probability
-    at postion 7 or something, I would START from position 6 or 7 in the self.total_prob array. CHECK 4/2/2015
-solved some unicode encoding errors I think
-
-26/2/2015
-
-I'm trying to construct a sentence model from the inputted text. This means that I go through all the sentences 
-in a book/text and find the "most probable" sentence. 
-
-4/3/2015
-
-pos, or p.o.s. = part of speech. 
-
-I'm trying to make a random word generator that generates words but weighted by pos frequency in the 
-given text. 
-
-7/3/2015
-
-I want to experiment with pickling the objects to make my life easier -- hopefully this would 
-allow me to forgo the bullshit of writing to files and such. 
-
-I also want to jump balls deep -- starting calculating probabilites like I do by pos but by individual word.
-Lets stop messing around, son. THIS IS TOO SLOW. DUH OF COURSE 
-
-I wonder if I can improve word suggestion for my sentence modeler -- I make it suggest 10 words of the same 
-predicted part of speech, and I decide which of these is the best candidate. 
-
-9/3/2015
-
-I want to change the function that selects words to select words based on observed frequency in the text. 
-
-"""
 
 from tools import InOut
 import nltk
@@ -134,50 +74,6 @@ class Sentence_Probability(object):
             if len(self.filenames) == 1:
                 self.savefile = self.filenames[0].strip(".txt")
 
-        # try:
-        #     if kwargs['load_tagged']:
-        #         pass
-        #     elif not kwargs['load_tagged']:
-        #         self.master_str, blob = self.build_master_str(self.filenames)
-        # except KeyError:
-        #     self.master_str, blob = self.build_master_str(self.filenames)
-        
-        # """total_prob is a big 3-D array containing all the combinations of probabilities of parts of 
-        #     speech given all other parts of speech, at each position in the sentence."""
-
-        # t4 = time.time()
-        # try:
-        #     sys.path.append(os.path.abspath(text_dir))
-        #     t1 = time.time()
-        #     if len(self.filenames) > 1:
-        #         exec("import token1multi as token1")
-        #     elif len(self.filenames) == 1:
-        #         exec("import token1{} as token1".format(self.filenames[0].strip(".txt")))
-        #     if kwargs['load_master_string']:
-        #         self.master_str = token1.master_str
-        #     elif not kwargs['load_master_string']:
-        #         self.master_str = self.build_master_str(self.filenames,blob_it=False)
-        # except KeyError:
-        #     self.master_str = self.build_master_str(self.filenames,blob_it=False)
-
-        # print("Time building master string: {:.2f} seconds ".format(time.time()-t4))
-        # t4 = time.time()
-        # senttokenizer = PunktSentenceTokenizer()
-        # wordtokenizer = RegexpTokenizer(r'\w+')
-        # self.master_sen = senttokenizer.tokenize(self.master_str)
-        # self.master_word = [word.lower().strip() for word in wordtokenizer.tokenize(self.master_str)]
-        # self.unique_word = list(set(self.master_word))
-        # self.num_words = len(self.unique_word)
-        # self.num_words_total = len(self.master_word)
-        # self.tknbywrdsent = [[word.lower().strip() for word in wordtokenizer.tokenize(sent)] for sent in self.master_sen]
-        # self.word_freq = np.zeros(self.num_words)
-        # for index, word in enumerate(self.unique_word):
-        #     self.word_freq[index] = float(self.master_word.count(word))/float(self.num_words_total)
-        # self.word_freq_cumu = self.num_words
-        # for index in xrange(1,len(self.word_freq)):
-        #     self.word_freq_cumu[index] += self.word_freq[index-1]
-        # print("Time creating tokenized lists: {:.2f} seconds".format(time.time()-t4))
-
         load_tot_prob = kwargs.get('load_tot_prob')
         t1 = time.time()
         if load_tot_prob == True:
@@ -235,67 +131,7 @@ class Sentence_Probability(object):
         """total_prob is a big 3-D array containing all the combinations of probabilities of parts of 
             speech given all other parts of speech, at each position in the sentence."""
 
-        # t4 = time.time()
-        # try:
-        #     sys.path.append(os.path.abspath(text_dir))
-        #     t1 = time.time()
-        #     if len(self.filenames) > 1:
-        #         exec("import token1multi as token1")
-        #     elif len(self.filenames) == 1:
-        #         exec("import token1{} as token1".format(self.filenames[0].strip(".txt")))
-        #     if kwargs['load_master_string']:
-        #         self.master_str = token1.master_str
-        #     elif not kwargs['load_master_string']:
-        #         self.master_str = self.build_master_str(self.filenames,blob_it=False)
-        # except KeyError:
-        #     self.master_str = self.build_master_str(self.filenames,blob_it=False)
 
-        # try:
-        #     sys.path.append(os.path.abspath(text_dir))
-        #     if len(self.filenames) > 1:
-        #         exec("import probmulti as prob")
-        #     elif len(self.filenames) == 1:
-        #         exec("import prob{} as prob".format(self.filenames[0].strip(".txt")))
-
-        #     if kwargs['load_tot_prob']:
-        #         t0 = time.time()
-        #         self.total_prob = np.asarray(prob.var_list,dtype=float)
-        #         self.up_to_all_probs = self.total_prob.shape[2]
-        #         print("Time loading total probability array: {:.2f}".format(time.time()-t0))
-        #         # self.total_prob = imp.load_source('var_list', '{}/prob{}.py'.format(text_dir,self.filename.strip('.txt')))               
-        #     elif kwargs['load_cumu_prob']:
-        #         self.cumu_prob = prob.var_cumu
-        #         # self.cumu_prob = imp.load_source('var_cumu', '{}/prob{}.py'.format(text_dir,self.filename.strip('.txt')))
-        # except (ImportError, KeyError, SyntaxError) as err: #syntaxerror to be removed later...
-        #     logging.exception(err)
-
-        # try:
-        #     sys.path.append(os.path.abspath(text_dir))
-        #     t1 = time.time()
-        #     if len(self.filenames) > 1:
-        #         exec("import token1multi as token1")
-        #     elif len(self.filenames) == 1:
-        #         exec("import token1{} as token1".format(self.filenames[0].strip(".txt")))
-        #     # import token.var_token
-        #     if kwargs['load_tagged']:
-        #         self.blob_tagged_by_sentence = token1.var_token
-        #         self.sen_tag_pword = token1.var_ptoken #with the words as well as the pos tags.
-        #         # write_to_file = False  
-        #         print("Time loading tagged list: {:.2f} seconds".format(time.time()-t1))
-        #         logging.info("Time loading tagged list: {:.2f} seconds".format(time.time()-t1))
-        #     elif not kwargs['load_tagged']:
-        #         self.blob_tagged_by_sentence = [[word[1] for word in sentence.tags if word[1] not in list_not_allow] for sentence in blob.sentences]
-        #         self.sen_tag_pword = [[word for word in sentence.tags if word[1] not in list_not_allow] for sentence in blob.sentences]
-        #         print("Time creating tagged list: {:.2f}".format(time.time() - t1))
-        #         logging.info("Time creating tagged list: {:.2f}".format(time.time() - t1))
-        
-        # except (KeyError, ImportError) as err:
-        #     logging.exception(err)
-        #     t2 = time.time()
-        #     self.blob_tagged_by_sentence = [[word[1] for word in sentence.tags if word[1] not in list_not_allow] for sentence in blob.sentences]
-        #     self.sen_tag_pword = [[word for word in sentence.tags if word[1] not in list_not_allow] for sentence in blob.sentences]
-        #     print("Time creating tagged list: {:.2f}".format(time.time() - t2))
-      
         """Below I create the pos frequency dictionary"""
         pos_freq_kwarg = kwargs.get('pos_freq')
 
