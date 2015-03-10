@@ -3,10 +3,14 @@ My testing ground for the sentence probabilty stuff
 """
 from sentenceprob import Sentence_Probability
 from sentenceprob import sentence_processor
-# from sentenceprob import Prob_Tester
 import matplotlib.pyplot as plt 
 import numpy as np 
 import time
+
+try:
+    import cPickle as pickle 
+except ImportError:
+    import pickle
 
 def main():
     filename = 'melville.txt'
@@ -171,8 +175,30 @@ def feb4():
     print(len(imp_sen))
     print(imp_sen[10])
 
+def testpicklesentenceprob():
+    filenames = ['melville.txt']#,'AustenPride.txt','DickensTaleofTwo.txt']
+    tagged = Sentence_Probability(filenames, max_line='max', write_to_file=False,load_tagged=True,load_tot_prob=True, pos_freq=True)
+    # prob = tagged.all_probs(up_to=7, write_to_file=True)
+
+def pickleexample():
+
+    foo = np.arange(1,1000,1.0)
+    foo = "My name is dean shaff. chefqfre q"
+    filename = 'tester.dat'
+    filedump = open(filename,'w')    
+    pickle.dump(foo, filedump)
+    filedump.close()
+    filedump = open(filename,'r')
+    foo2 = pickle.load(filedump)
+    filedump.close()
+    print(foo2)
+    # print(np.allclose(foo, foo2))
+    print(foo is foo2)
+
 
 if __name__ == "__main__":
-    feb26march3()
+    # feb26march3()
     # genlots()
     # march8()
+    testpicklesentenceprob()
+    # pickleexample()

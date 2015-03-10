@@ -6,6 +6,118 @@ at the bottom of the working file.
 WONT WORK!!!
 """
 
+    def calc_cumulative_prob(self,coordinates):
+        """
+        coordinates are the coordinates of the parts of speech in the list_pos list.
+        I don't want to crowd this function up with a bunch of stuff - it has to run quick!
+        """
+        length = len(coordinates)
+        if length > self.total_prob.shape[2]:
+            print("You need to make sure that the number of coordinates is equal to or less than the depth of non cumulative array")
+        else:
+            prob = 1
+            for i in xrange(length-1):
+                if coordinates[i] == None or coordinates[i+1] == None:
+                    continue
+                else:
+                    posB = int(coordinates[i])
+                    posA = int(coordinates[i+1])
+                    prob *= self.total_prob[posB,posA,i]
+            return prob
+
+    def calc_cumu_prob(self,sentence,**kwargs):
+        """
+        This function calculates the cumulative probability of a sentence that you supply it. 
+        The sentence should be a list whose elements are a tuple -- (word, p_o_s)
+        This is the one I want to use outside of the class. The one above is to used in the calc_cumulative_prob method.
+
+        **kwargs:
+            - position: The position in the sentence about which you want it to calculate the probability. 
+            If position is in the middle of the sentence, then it will calculate probability using the 
+            3 previous words (if available) and the 3 after the word (if available). If position is the last word,
+            it will use 3 previous entries to calculate probability. 
+        """
+        first_chunk = 3
+        second_chunk = 3
+        if len(sentence) == 1 and isinstance(sentence[0],list):
+            sentence = sentence[0]
+        if len(sentence) == 1 and isinstance(sentence[0],tuple):
+            print("One word sentence: Returning 0.0")
+            return 0.0
+        elif len(sentence) != 1: 
+            sentence = sentence 
+        length = len(sentence)
+
+        # print(sentence[0])
+        try:
+            position = int(kwargs['position'])
+            coord = [None for i in xrange(length)]
+            coord2 = tuple([list_pos.index(word[1]) for word in sentence])
+            # print(coord2)
+            if position > length-1:
+                print("Position argument provided is bigger than length of sentence. Defaulting to last position.")
+                position = len(sentence)-1
+            else:
+                pass
+
+            if length <= first_chunk+second_chunk: #sentence isn't long enough for this positional business to matter.
+                coord = coord2
+            elif position < first_chunk:
+                coord[0:position+first_chunk+1] = coord2[0:position+first_chunk+1]
+            elif position > length - second_chunk:
+                coord[position-second_chunk:length] = coord2[position-second_chunk:length]
+            else:
+                coord[position-first_chunk:position+second_chunk+1] = coord2[position-first_chunk:position+second_chunk+1]
+        
+        except (KeyError,ValueError):
+            coord = tuple([list_pos.index(word[1]) for word in sentence])
+
+        try:
+            if len(sentence) != len(self.cumu_prob.shape):
+                raise ValueError("The sentence doesn't have the right length")
+            else:
+                prob = self.cumu_prob[coord]
+                return prob
+
+        except AttributeError:
+            # this means the cumu_prob variable doesn't exist -- it hasn't been loaded in or the method 
+            # above hasn't been called. Cumulative probabilty thing is deprecated as of now. 
+            # print(coord)
+            if len(sentence) > self.up_to_all_probs:
+                # raise ValueError("The sentence doesn't have the right length")
+                coord = coord[0:self.up_to_all_probs]
+                prob = self.calc_cumulative_prob(coord)
+                return prob
+            else:
+                prob = self.calc_cumulative_prob(coord)
+                return prob
+
+    def total_cumulative_prob(self, up_to_cumu=3, write_to_file=False):
+        """
+        assumes the all_probs method has already been called. (fix)
+        max_val = initial up_to
+        """
+        up_to_cumu = int(up_to_cumu)
+        dimension = [len(list_pos) for i in xrange(up_to_cumu)]
+        master = np.zeros(len(list_pos)**up_to_cumu,dtype=float)
+        coord = [0 for i in xrange(up_to_cumu)]
+        for j in xrange(0,len(list_pos)**up_to_cumu):
+            if j % 50000 == 0:
+                print("Only {} iterations to go!".format(len(list_pos)**up_to_cumu - j))
+            val = j 
+            for power in range(up_to_cumu)[::-1]:
+                coord[power] = val/(len(list_pos)**power)
+                val = val%(len(list_pos)**power)
+            master[j] = self.calc_cumulative_prob(coord[::-1])
+        self.cumu_prob = master.reshape(dimension)
+        if write_to_file:
+            with InOut(self.text_dir):
+                with open("prob{}.py".format(self.filename.strip('.txt')), 'a') as writer:
+                    writer.write("var_cumu = {}\n".format(str(master.reshape(dimension))))
+
+            return self.cumu_prob
+        else:
+            return self.cumu_prob
 
 def cond_prob(tagged_text, magic_range, index1, index2, p1, p2):
     """
